@@ -5,8 +5,9 @@ const withNextIntl = createNextIntlPlugin('./i18n.ts');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  output: 'export', // Enable static export for GitHub Pages
   images: {
-    unoptimized: false,
+    unoptimized: true, // Required for static export
     remotePatterns: [],
   },
   // Suppress hydration warnings for framer-motion
@@ -18,6 +19,8 @@ const nextConfig = {
   webpack: (config, { isServer }) => {
     return config;
   },
+  // Disable trailing slash for GitHub Pages compatibility
+  trailingSlash: false,
 };
 
 export default withNextIntl(nextConfig);
