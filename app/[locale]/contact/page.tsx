@@ -2,11 +2,12 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { MapPin, Phone, Mail, Send, MessageSquare, Users } from "lucide-react";
+import { MapPin, Phone, Mail, Send, MessageSquare, Users, Facebook, Linkedin, Github, Globe } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 
 export default function ContactPage() {
   const t = useTranslations("contact");
+  const tExecutiveBoard = useTranslations("executiveBoard");
   const locale = useLocale();
 
   const [formData, setFormData] = useState({
@@ -30,30 +31,41 @@ export default function ContactPage() {
     });
   };
 
+  const socialLinks = [
+    { icon: Facebook, href: "#", label: tExecutiveBoard("socialMedia.facebook"), color: "hover:text-blue-600" },
+    { icon: Linkedin, href: "#", label: tExecutiveBoard("socialMedia.linkedin"), color: "hover:text-blue-700" },
+    { icon: Github, href: "#", label: tExecutiveBoard("socialMedia.github"), color: "hover:text-gray-800" },
+    { icon: Globe, href: "#", label: tExecutiveBoard("socialMedia.portfolio"), color: "hover:text-primary-600" },
+  ];
+
   const contactInfo = [
     {
       icon: MapPin,
       title: t("address"),
       content: t("addressValue"),
       color: "from-blue-500 to-blue-600",
+      showSocial: false,
     },
     {
       icon: Users,
-      title: t("executiveDirector"),
+      title: t("executiveDirectorLabel"),
       content: t("executiveDirectorName"),
       color: "from-indigo-500 to-indigo-600",
+      showSocial: true,
     },
     {
       icon: Phone,
       title: t("phone"),
       content: t("phoneValue"),
       color: "from-green-500 to-green-600",
+      showSocial: false,
     },
     {
       icon: Mail,
       title: t("email"),
       content: t("emailValue"),
       color: "from-purple-500 to-purple-600",
+      showSocial: false,
     },
   ];
 
@@ -93,7 +105,26 @@ export default function ContactPage() {
                   <info.icon className="h-7 w-7 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{info.title}</h3>
-                <p className="text-gray-600 leading-relaxed whitespace-pre-line">{info.content}</p>
+                <p className="text-gray-600 leading-relaxed whitespace-pre-line mb-3">{info.content}</p>
+                {info.showSocial && (
+                  <div className="flex justify-center space-x-3 pt-3 border-t border-gray-200">
+                    {socialLinks.map((social, idx) => {
+                      const Icon = social.icon;
+                      return (
+                        <a
+                          key={idx}
+                          href={social.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`text-gray-400 transition-colors ${social.color}`}
+                          aria-label={social.label}
+                        >
+                          <Icon className="h-5 w-5" />
+                        </a>
+                      );
+                    })}
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>

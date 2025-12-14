@@ -317,7 +317,14 @@
     "phoneValue": "+880 XXX-XXXXXXX",
     "emailValue": "info@lisufoundation.org",
     "executiveDirector": "Executive Director",
-    "executiveDirectorName": "Md. Shahnewaz Zaman (Shanto)"
+    "executiveDirectorName": "Md. Shahnewaz Zaman (Shanto)",
+    "executiveDirectorLabel": "Executive Director:",
+    "socialMedia": {
+      "facebook": "Facebook",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "portfolio": "Portfolio"
+    }
   },
   "donate": {
     "title": "Support Our Cause",

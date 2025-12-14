@@ -317,7 +317,14 @@
     "phoneValue": "+880 XXX-XXXXXXX",
     "emailValue": "info@lisufoundation.org",
     "executiveDirector": "নির্বাহী পরিচালক",
-    "executiveDirectorName": "মোঃ শাহনেওয়াজ জামান (শান্ত)"
+    "executiveDirectorName": "মোঃ শাহনেওয়াজ জামান (শান্ত)",
+    "executiveDirectorLabel": "নির্বাহী পরিচালক:",
+    "socialMedia": {
+      "facebook": "ফেসবুক",
+      "linkedin": "লিঙ্কডইন",
+      "github": "গিটহাব",
+      "portfolio": "পোর্টফোলিও"
+    }
   },
   "donate": {
     "title": "আমাদের লক্ষ্যকে সমর্থন করুন",

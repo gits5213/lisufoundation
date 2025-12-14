@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Users, User, Award, Calendar, Gavel } from "lucide-react";
+import { Users, User, Award, Calendar, Gavel, Facebook, Linkedin, Github, Globe } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 
@@ -24,33 +24,40 @@ export default function ExecutiveBoardPage() {
 
   // Committee members - updated with actual data
   const committeeMembers = [
-    { name: t("toBeAnnounced"), position: committeeStructure[0]?.position || "" },
-    { name: t("executiveDirector"), position: committeeStructure[1]?.position || "" },
-    { name: t("toBeAnnounced"), position: committeeStructure[2]?.position || "" },
-    { name: t("toBeAnnounced"), position: committeeStructure[3]?.position || "" },
-    { name: t("toBeAnnounced"), position: committeeStructure[4]?.position || "" },
-    { name: t("toBeAnnounced"), position: committeeStructure[5]?.position || "" },
-    { name: t("toBeAnnounced"), position: committeeStructure[6]?.position || "" },
+    { name: t("toBeAnnounced"), position: committeeStructure[0]?.position || "", isExecutiveDirector: false },
+    { name: t("executiveDirectorName"), position: committeeStructure[1]?.position || "", isExecutiveDirector: true },
+    { name: t("toBeAnnounced"), position: committeeStructure[2]?.position || "", isExecutiveDirector: false },
+    { name: t("toBeAnnounced"), position: committeeStructure[3]?.position || "", isExecutiveDirector: false },
+    { name: t("toBeAnnounced"), position: committeeStructure[4]?.position || "", isExecutiveDirector: false },
+    { name: t("toBeAnnounced"), position: committeeStructure[5]?.position || "", isExecutiveDirector: false },
+    { name: t("toBeAnnounced"), position: committeeStructure[6]?.position || "", isExecutiveDirector: false },
+  ];
+
+  const socialLinks = [
+    { icon: Facebook, label: t("socialMedia.facebook"), href: "#", color: "hover:text-blue-600" },
+    { icon: Linkedin, label: t("socialMedia.linkedin"), href: "#", color: "hover:text-blue-700" },
+    { icon: Github, label: t("socialMedia.github"), href: "#", color: "hover:text-gray-800" },
+    { icon: Globe, label: t("socialMedia.portfolio"), href: "#", color: "hover:text-primary-600" },
   ];
 
   // Placeholder members for different types - to be updated with real data
   const lifetimeMembers = [
-    { name: t("toBeAnnounced"), position: "Lifetime Member" },
-    { name: t("toBeAnnounced"), position: "Lifetime Member" },
-    { name: t("toBeAnnounced"), position: "Lifetime Member" },
+    { name: t("toBeAnnounced"), position: "Lifetime Member", isExecutiveDirector: false },
+    { name: t("toBeAnnounced"), position: "Lifetime Member", isExecutiveDirector: false },
+    { name: t("toBeAnnounced"), position: "Lifetime Member", isExecutiveDirector: false },
   ];
 
   const generalMembers = [
-    { name: t("toBeAnnounced"), position: "General Member" },
-    { name: t("toBeAnnounced"), position: "General Member" },
-    { name: t("toBeAnnounced"), position: "General Member" },
-    { name: t("toBeAnnounced"), position: "General Member" },
-    { name: t("toBeAnnounced"), position: "General Member" },
+    { name: t("toBeAnnounced"), position: "General Member", isExecutiveDirector: false },
+    { name: t("toBeAnnounced"), position: "General Member", isExecutiveDirector: false },
+    { name: t("toBeAnnounced"), position: "General Member", isExecutiveDirector: false },
+    { name: t("toBeAnnounced"), position: "General Member", isExecutiveDirector: false },
+    { name: t("toBeAnnounced"), position: "General Member", isExecutiveDirector: false },
   ];
 
   const honoraryMembers = [
-    { name: t("toBeAnnounced"), position: "Honorary Member" },
-    { name: t("toBeAnnounced"), position: "Honorary Member" },
+    { name: t("toBeAnnounced"), position: "Honorary Member", isExecutiveDirector: false },
+    { name: t("toBeAnnounced"), position: "Honorary Member", isExecutiveDirector: false },
   ];
 
   // Determine which members to display based on query parameter
@@ -171,7 +178,26 @@ export default function ExecutiveBoardPage() {
                   <User className="h-12 w-12 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
-                <p className="text-primary-600 font-medium">{member.position}</p>
+                <p className="text-primary-600 font-medium mb-4">{member.position}</p>
+                {member.isExecutiveDirector && (
+                  <div className="flex justify-center space-x-3 pt-4 border-t border-gray-200">
+                    {socialLinks.map((social, idx) => {
+                      const Icon = social.icon;
+                      return (
+                        <a
+                          key={idx}
+                          href={social.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`text-gray-400 transition-colors ${social.color}`}
+                          aria-label={social.label}
+                        >
+                          <Icon className="h-5 w-5" />
+                        </a>
+                      );
+                    })}
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
