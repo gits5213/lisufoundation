@@ -1,0 +1,130 @@
+{
+  "common": {
+    "organizationName": "LiSu Foundation",
+    "tagline": "Humanitarian Development",
+    "home": "Home",
+    "about": "About",
+    "programs": "Programs",
+    "membership": "Membership",
+    "executiveBoard": "Executive Board",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "donate": "Donate",
+    "learnMore": "Learn More",
+    "donateNow": "Donate Now",
+    "viewAll": "View All Programs",
+    "getDetails": "Get Details",
+    "sendMessage": "Send Message",
+    "submit": "Submit",
+    "required": "Required",
+    "loading": "Loading...",
+    "error": "Something went wrong!",
+    "tryAgain": "Try again"
+  },
+  "home": {
+    "heroTitle": "Serving Humanity with",
+    "heroSubtitle": "Compassion & Care",
+    "heroDescription": "LiSu Foundation is a non-political, non-profit, humanitarian development organization dedicated to improving the lives of the poor, orphans, widows, and disaster-affected people.",
+    "stats": {
+      "familiesHelped": "Families Helped",
+      "studentsSupported": "Students Supported",
+      "tubeWellsInstalled": "Tube Wells Installed",
+      "housesBuilt": "Houses Built"
+    },
+    "programsTitle": "Our Programs & Services",
+    "programsDescription": "We provide comprehensive support to improve lives and build stronger communities",
+    "missionTitle": "Our Mission",
+    "missionDescription": "To provide comprehensive support to the poor and underprivileged, ensuring access to education, healthcare, safe water, shelter, and humanitarian aid while building cooperation and compassion between communities.",
+    "ctaTitle": "Join Us in Making a Difference",
+    "ctaDescription": "Become a member or support our cause through donations. Together, we can create lasting change in the lives of those in need.",
+    "becomeMember": "Become a Member",
+    "makeDonation": "Make a Donation"
+  },
+  "about": {
+    "title": "About LiSu Foundation",
+    "subtitle": "A voluntary, non-political, non-profit, humanitarian development organization dedicated to improving lives and serving humanity.",
+    "natureTitle": "Nature & Character",
+    "natureDescription": "LiSu Foundation is a non-political, non-profit, humanitarian, and social welfare organization. We are dedicated to improving the lives of the poor, orphans, widows, disaster-affected people, and other underprivileged populations.",
+    "addressTitle": "Office Address",
+    "headOffice": "Head Office:",
+    "address": "Village: KAYA KORI, KANDAPARA (Baligange Bazar), NAKLA, SHERPUR, MYMENSINGH, BANGLADESH",
+    "branches": "Branches may be established anywhere in Bangladesh or abroad as necessary.",
+    "objectivesTitle": "Our Objectives",
+    "objectivesSubtitle": "Our mission is guided by clear objectives to serve humanity effectively",
+    "primaryObjectives": "Primary Objectives",
+    "additionalObjectives": "Additional Objectives",
+    "valuesTitle": "Islamic Ethical Principles",
+    "valuesSubtitle": "LiSu Foundation operates based on core Islamic values and ethical principles"
+  },
+  "programs": {
+    "title": "Our Programs & Services",
+    "subtitle": "Comprehensive humanitarian programs designed to improve lives and build stronger communities",
+    "supportTitle": "Support Our Programs",
+    "supportDescription": "Your contribution helps us continue these vital programs and reach more people in need"
+  },
+  "membership": {
+    "title": "Become a Member",
+    "subtitle": "Join LiSu Foundation and be part of a community dedicated to serving humanity",
+    "categoriesTitle": "Membership Categories",
+    "categoriesSubtitle": "Choose the membership type that best fits your commitment level",
+    "qualificationsTitle": "Qualifications for Membership",
+    "formTitle": "Membership Application Form",
+    "fullName": "Full Name",
+    "age": "Age",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "address": "Address",
+    "membershipType": "Membership Type",
+    "occupation": "Occupation",
+    "reason": "Why do you want to join LiSu Foundation?",
+    "reasonPlaceholder": "Please share your motivation for joining our organization...",
+    "reviewNote": "Your application will be reviewed by the Executive Committee."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with us. We'd love to hear from you and answer any questions you may have.",
+    "formTitle": "Send Us a Message",
+    "formSubtitle": "Fill out the form below and we'll get back to you as soon as possible",
+    "name": "Your Name",
+    "subject": "Subject",
+    "message": "Message",
+    "messagePlaceholder": "Please share your message or inquiry..."
+  },
+  "donate": {
+    "title": "Support Our Cause",
+    "subtitle": "Your donation helps us continue our humanitarian work and reach more people in need. Every contribution makes a difference.",
+    "methodsTitle": "Ways to Donate",
+    "methodsSubtitle": "Choose the donation method that's most convenient for you",
+    "areasTitle": "Where Your Donation Goes",
+    "areasSubtitle": "Your donations support various humanitarian programs and services:",
+    "transparencyTitle": "Financial Transparency",
+    "transparencySubtitle": "We are committed to transparency and accountability in all financial matters:",
+    "ctaTitle": "Ready to Make a Difference?",
+    "ctaSubtitle": "Contact us today to learn more about donation options or visit our office"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "Explore our activities and see the impact we're making in communities",
+    "shareTitle": "Share Your Photos",
+    "shareDescription": "If you have photos from our activities that you'd like to share, please contact us. We'd love to add them to our gallery!",
+    "noItems": "No items found in this category."
+  },
+  "executiveBoard": {
+    "title": "Executive Committee",
+    "subtitle": "Dedicated leaders committed to serving humanity and advancing our mission",
+    "structureTitle": "Committee Structure",
+    "structureSubtitle": "Our Executive Committee consists of dedicated individuals working together for a common cause",
+    "membersTitle": "Current Committee Members",
+    "membersSubtitle": "Meet the dedicated individuals leading LiSu Foundation",
+    "governanceTitle": "Governance & Meetings"
+  },
+  "footer": {
+    "description": "A non-political, non-profit, humanitarian development organization dedicated to improving lives and serving humanity.",
+    "organization": "Organization",
+    "support": "Support",
+    "contact": "Contact",
+    "rights": "All rights reserved.",
+    "madeWith": "Made with",
+    "forHumanity": "for humanity"
+  }
+}
