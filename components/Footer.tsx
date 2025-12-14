@@ -101,9 +101,9 @@ export default function Footer() {
               <li className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-primary-400 mt-0.5 flex-shrink-0" />
                 <span>
-                  KAYA KORI, KANDAPARA (Baligange Bazar),<br />
-                  NAKLA, SHERPUR, MYMENSINGH,<br />
-                  BANGLADESH
+                  Kaya Kori, Kandapara (Baligange Bazar),<br />
+                  Nakla, Sherpur, Mymensingh,<br />
+                  Bangladesh
                 </span>
               </li>
               <li className="flex items-start space-x-3">
