@@ -315,7 +315,9 @@
     "address": "ঠিকানা",
     "addressValue": "কায়া কোরি, কান্দাপাড়া (বালিগঞ্জ বাজার)\nনাকলা, শেরপুর, ময়মনসিংহ\nবাংলাদেশ",
     "phoneValue": "+880 XXX-XXXXXXX",
-    "emailValue": "info@lisufoundation.org"
+    "emailValue": "info@lisufoundation.org",
+    "executiveDirector": "নির্বাহী পরিচালক",
+    "executiveDirectorName": "এমডি শাহনেওয়াজ জামান (শান্ত)"
   },
   "donate": {
     "title": "আমাদের লক্ষ্যকে সমর্থন করুন",
@@ -420,6 +422,7 @@
     "membersSubtitle": "লিসু ফাউন্ডেশনকে নেতৃত্ব দেওয়া নিবেদিত ব্যক্তিদের সাথে পরিচিত হন",
     "governanceTitle": "শাসন ও সভা",
     "toBeAnnounced": "ঘোষণা করা হবে",
+    "executiveDirector": "এমডি শাহনেওয়াজ জামান (শান্ত)",
     "lifetimeMembersTitle": "আজীবন সদস্য",
     "lifetimeMembersSubtitle": "দীর্ঘমেয়াদী সমর্থনে প্রতিশ্রুতিবদ্ধ নিবেদিত সদস্য",
     "generalMembersTitle": "সাধারণ সদস্য",
@@ -608,6 +611,8 @@
     "contact": "যোগাযোগ",
     "rights": "সব অধিকার সংরক্ষিত।",
     "madeWith": "দিয়ে তৈরি",
-    "forHumanity": "মানবতার জন্য"
+    "forHumanity": "মানবতার জন্য",
+    "executiveDirector": "নির্বাহী পরিচালক",
+    "executiveDirectorName": "এমডি শাহনেওয়াজ জামান (শান্ত)"
   }
 }

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { MapPin, Phone, Mail, Send, MessageSquare } from "lucide-react";
+import { MapPin, Phone, Mail, Send, MessageSquare, Users } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 
 export default function ContactPage() {
@@ -36,6 +36,12 @@ export default function ContactPage() {
       title: t("address"),
       content: t("addressValue"),
       color: "from-blue-500 to-blue-600",
+    },
+    {
+      icon: Users,
+      title: t("executiveDirector"),
+      content: t("executiveDirectorName"),
+      color: "from-indigo-500 to-indigo-600",
     },
     {
       icon: Phone,
@@ -73,7 +79,7 @@ export default function ContactPage() {
       {/* Contact Information */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mb-16">
             {contactInfo.map((info, index) => (
               <motion.div
                 key={index}

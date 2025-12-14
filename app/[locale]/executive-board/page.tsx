@@ -22,10 +22,10 @@ export default function ExecutiveBoardPage() {
 
   const iconMap = [Calendar, Gavel, Award];
 
-  // Placeholder for actual committee members - to be updated with real data
+  // Committee members - updated with actual data
   const committeeMembers = [
     { name: t("toBeAnnounced"), position: committeeStructure[0]?.position || "" },
-    { name: t("toBeAnnounced"), position: committeeStructure[1]?.position || "" },
+    { name: t("executiveDirector"), position: committeeStructure[1]?.position || "" },
     { name: t("toBeAnnounced"), position: committeeStructure[2]?.position || "" },
     { name: t("toBeAnnounced"), position: committeeStructure[3]?.position || "" },
     { name: t("toBeAnnounced"), position: committeeStructure[4]?.position || "" },

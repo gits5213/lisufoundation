@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Heart, Mail, Phone, MapPin, Facebook, Twitter, Instagram } from "lucide-react";
+import { Heart, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Users } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 
 export default function Footer() {
@@ -104,6 +104,13 @@ export default function Footer() {
                   KAYA KORI, KANDAPARA (Baligange Bazar),<br />
                   NAKLA, SHERPUR, MYMENSINGH,<br />
                   BANGLADESH
+                </span>
+              </li>
+              <li className="flex items-start space-x-3">
+                <Users className="h-5 w-5 text-primary-400 mt-0.5 flex-shrink-0" />
+                <span>
+                  <span className="font-medium">{t("executiveDirector")}:</span><br />
+                  {t("executiveDirectorName")}
                 </span>
               </li>
               <li className="flex items-center space-x-3">
