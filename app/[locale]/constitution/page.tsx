@@ -1,11 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileText, MapPin, Users, Target, Award, Gavel, Calendar, DollarSign, AlertTriangle, Edit, XCircle, Heart, Image } from "lucide-react";
+import { FileText, MapPin, Users, Target, Award, Gavel, Calendar, DollarSign, AlertTriangle, Edit, XCircle, Heart, Image, UserCheck } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 export default function ConstitutionPage() {
   const t = useTranslations("constitution");
+  const tContact = useTranslations("contact");
 
   return (
     <div className="min-h-screen bg-white">
@@ -66,7 +67,7 @@ export default function ConstitutionPage() {
                   <p className="text-gray-700 leading-relaxed mb-2">
                     <strong>{t("section2.headOffice")}</strong>
                   </p>
-                  <p className="text-gray-700 leading-relaxed mb-2">{t("section2.address")}</p>
+                  <p className="text-gray-700 leading-relaxed mb-2">Village: {tContact("addressValue")}</p>
                   <p className="text-gray-700 leading-relaxed">{t("section2.branches")}</p>
                 </div>
               </div>
@@ -399,6 +400,230 @@ export default function ConstitutionPage() {
                   <div className="mt-8 pt-6 border-t border-gray-200">
                     <h3 className="text-xl font-semibold text-primary-700 mb-3">{t("section13.overallMeaning.title")}</h3>
                     <p className="text-gray-700 leading-relaxed text-lg">{t("section13.overallMeaning.description")}</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Section 14 - Membership Workflow & Contribution Policy */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-xl p-8 shadow-lg"
+            >
+              <div className="flex items-start mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary-600 to-primary-700 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <UserCheck className="h-6 w-6 text-white" />
+                </div>
+                <div className="flex-grow">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">{t("section14.title")}</h2>
+                  
+                  {/* General Membership Principles */}
+                  <div className="mb-6">
+                    <h3 className="text-xl font-semibold text-primary-700 mb-4">{t("section14.generalPrinciples.title")}</h3>
+                    <p className="text-gray-700 leading-relaxed mb-3">{t("section14.generalPrinciples.description")}</p>
+                    <ul className="space-y-2">
+                      {(t.raw("section14.generalPrinciples.principles") as string[]).map((principle, index) => (
+                        <li key={index} className="flex items-start">
+                          <div className="flex-shrink-0 w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center mt-1 mr-3">
+                            <div className="w-2 h-2 bg-white rounded-full"></div>
+                          </div>
+                          <span className="text-gray-700 leading-relaxed">{principle}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Membership Categories */}
+                  <div className="mb-6">
+                    <h3 className="text-xl font-semibold text-primary-700 mb-4">{t("section14.categories.title")}</h3>
+                    <ul className="space-y-2">
+                      {(t.raw("section14.categories.list") as string[]).map((category, index) => (
+                        <li key={index} className="flex items-start">
+                          <div className="flex-shrink-0 w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center mt-1 mr-3">
+                            <span className="text-white text-sm font-semibold">{index + 1}</span>
+                          </div>
+                          <span className="text-gray-700 leading-relaxed font-medium">{category}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Membership Qualification & Workflow */}
+                  <div className="mb-6">
+                    <h3 className="text-xl font-semibold text-primary-700 mb-4">{t("section14.workflow.title")}</h3>
+                    
+                    {/* Step 1: Volunteer */}
+                    <div className="mb-6 pl-4 border-l-4 border-primary-600">
+                      <h4 className="text-lg font-semibold text-gray-900 mb-3">{t("section14.workflow.step1.title")}</h4>
+                      <p className="text-gray-700 leading-relaxed mb-3">{t("section14.workflow.step1.description")}</p>
+                      <p className="text-gray-700 font-semibold mb-2">{t("section14.workflow.step1.eligibilityTitle")}</p>
+                      <ul className="space-y-2 mb-4">
+                        {(t.raw("section14.workflow.step1.eligibility") as string[]).map((item, index) => (
+                          <li key={index} className="flex items-start">
+                            <div className="flex-shrink-0 w-5 h-5 bg-primary-100 rounded-full flex items-center justify-center mt-0.5 mr-3">
+                              <div className="w-1.5 h-1.5 bg-primary-600 rounded-full"></div>
+                            </div>
+                            <span className="text-gray-700 leading-relaxed text-sm">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <p className="text-gray-700 font-semibold mb-2">{t("section14.workflow.step1.periodTitle")}</p>
+                      <ul className="space-y-2">
+                        {(t.raw("section14.workflow.step1.period") as string[]).map((item, index) => (
+                          <li key={index} className="flex items-start">
+                            <div className="flex-shrink-0 w-5 h-5 bg-primary-100 rounded-full flex items-center justify-center mt-0.5 mr-3">
+                              <div className="w-1.5 h-1.5 bg-primary-600 rounded-full"></div>
+                            </div>
+                            <span className="text-gray-700 leading-relaxed text-sm">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Step 2: General Member */}
+                    <div className="mb-6 pl-4 border-l-4 border-primary-500">
+                      <h4 className="text-lg font-semibold text-gray-900 mb-3">{t("section14.workflow.step2.title")}</h4>
+                      <p className="text-gray-700 leading-relaxed mb-3">{t("section14.workflow.step2.description")}</p>
+                      <p className="text-gray-700 font-semibold mb-2">{t("section14.workflow.step2.eligibilityTitle")}</p>
+                      <ul className="space-y-2 mb-4">
+                        {(t.raw("section14.workflow.step2.eligibility") as string[]).map((item, index) => (
+                          <li key={index} className="flex items-start">
+                            <div className="flex-shrink-0 w-5 h-5 bg-primary-100 rounded-full flex items-center justify-center mt-0.5 mr-3">
+                              <div className="w-1.5 h-1.5 bg-primary-600 rounded-full"></div>
+                            </div>
+                            <span className="text-gray-700 leading-relaxed text-sm">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <p className="text-gray-700 font-semibold mb-2">{t("section14.workflow.step2.contributionTitle")}</p>
+                      <ul className="space-y-2">
+                        {(t.raw("section14.workflow.step2.contribution") as string[]).map((item, index) => (
+                          <li key={index} className="flex items-start">
+                            <div className="flex-shrink-0 w-5 h-5 bg-primary-100 rounded-full flex items-center justify-center mt-0.5 mr-3">
+                              <div className="w-1.5 h-1.5 bg-primary-600 rounded-full"></div>
+                            </div>
+                            <span className="text-gray-700 leading-relaxed text-sm">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Step 3: Honorary Member */}
+                    <div className="mb-6 pl-4 border-l-4 border-primary-400">
+                      <h4 className="text-lg font-semibold text-gray-900 mb-3">{t("section14.workflow.step3.title")}</h4>
+                      <p className="text-gray-700 font-semibold mb-2">{t("section14.workflow.step3.eligibilityTitle")}</p>
+                      <ul className="space-y-2 mb-4">
+                        {(t.raw("section14.workflow.step3.eligibility") as string[]).map((item, index) => (
+                          <li key={index} className="flex items-start">
+                            <div className="flex-shrink-0 w-5 h-5 bg-primary-100 rounded-full flex items-center justify-center mt-0.5 mr-3">
+                              <div className="w-1.5 h-1.5 bg-primary-600 rounded-full"></div>
+                            </div>
+                            <span className="text-gray-700 leading-relaxed text-sm">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <p className="text-gray-700 font-semibold mb-2">{t("section14.workflow.step3.contributionTitle")}</p>
+                      <ul className="space-y-2 mb-4">
+                        {(t.raw("section14.workflow.step3.contribution") as string[]).map((item, index) => (
+                          <li key={index} className="flex items-start">
+                            <div className="flex-shrink-0 w-5 h-5 bg-primary-100 rounded-full flex items-center justify-center mt-0.5 mr-3">
+                              <div className="w-1.5 h-1.5 bg-primary-600 rounded-full"></div>
+                            </div>
+                            <span className="text-gray-700 leading-relaxed text-sm">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <p className="text-gray-700 font-semibold mb-2">{t("section14.workflow.step3.statusTitle")}</p>
+                      <ul className="space-y-2">
+                        {(t.raw("section14.workflow.step3.status") as string[]).map((item, index) => (
+                          <li key={index} className="flex items-start">
+                            <div className="flex-shrink-0 w-5 h-5 bg-primary-100 rounded-full flex items-center justify-center mt-0.5 mr-3">
+                              <div className="w-1.5 h-1.5 bg-primary-600 rounded-full"></div>
+                            </div>
+                            <span className="text-gray-700 leading-relaxed text-sm">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Step 4: Lifetime Member */}
+                    <div className="mb-6 pl-4 border-l-4 border-primary-300">
+                      <h4 className="text-lg font-semibold text-gray-900 mb-3">{t("section14.workflow.step4.title")}</h4>
+                      <p className="text-gray-700 font-semibold mb-2">{t("section14.workflow.step4.eligibilityTitle")}</p>
+                      <ul className="space-y-2 mb-4">
+                        {(t.raw("section14.workflow.step4.eligibility") as string[]).map((item, index) => (
+                          <li key={index} className="flex items-start">
+                            <div className="flex-shrink-0 w-5 h-5 bg-primary-100 rounded-full flex items-center justify-center mt-0.5 mr-3">
+                              <div className="w-1.5 h-1.5 bg-primary-600 rounded-full"></div>
+                            </div>
+                            <span className="text-gray-700 leading-relaxed text-sm">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <p className="text-gray-700 font-semibold mb-2">{t("section14.workflow.step4.contributionTitle")}</p>
+                      <ul className="space-y-2 mb-4">
+                        {(t.raw("section14.workflow.step4.contribution") as string[]).map((item, index) => (
+                          <li key={index} className="flex items-start">
+                            <div className="flex-shrink-0 w-5 h-5 bg-primary-100 rounded-full flex items-center justify-center mt-0.5 mr-3">
+                              <div className="w-1.5 h-1.5 bg-primary-600 rounded-full"></div>
+                            </div>
+                            <span className="text-gray-700 leading-relaxed text-sm">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <p className="text-gray-700 font-semibold mb-2">{t("section14.workflow.step4.statusTitle")}</p>
+                      <ul className="space-y-2">
+                        {(t.raw("section14.workflow.step4.status") as string[]).map((item, index) => (
+                          <li key={index} className="flex items-start">
+                            <div className="flex-shrink-0 w-5 h-5 bg-primary-100 rounded-full flex items-center justify-center mt-0.5 mr-3">
+                              <div className="w-1.5 h-1.5 bg-primary-600 rounded-full"></div>
+                            </div>
+                            <span className="text-gray-700 leading-relaxed text-sm">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Membership Termination */}
+                  <div className="mb-6">
+                    <h3 className="text-xl font-semibold text-primary-700 mb-4">{t("section14.termination.title")}</h3>
+                    <p className="text-gray-700 leading-relaxed mb-3">{t("section14.termination.description")}</p>
+                    <ul className="space-y-2">
+                      {(t.raw("section14.termination.reasons") as string[]).map((reason, index) => (
+                        <li key={index} className="flex items-start">
+                          <div className="flex-shrink-0 w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mt-1 mr-3">
+                            <AlertTriangle className="h-3 w-3 text-red-600" />
+                          </div>
+                          <span className="text-gray-700 leading-relaxed">{reason}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Approval Authority */}
+                  <div className="mb-6">
+                    <h3 className="text-xl font-semibold text-primary-700 mb-4">{t("section14.approval.title")}</h3>
+                    <ul className="space-y-2">
+                      {(t.raw("section14.approval.points") as string[]).map((point, index) => (
+                        <li key={index} className="flex items-start">
+                          <div className="flex-shrink-0 w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center mt-1 mr-3">
+                            <div className="w-2 h-2 bg-white rounded-full"></div>
+                          </div>
+                          <span className="text-gray-700 leading-relaxed">{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Declaration Clause */}
+                  <div className="mt-8 pt-6 border-t-2 border-primary-200 bg-primary-50 rounded-lg p-6">
+                    <h3 className="text-xl font-semibold text-primary-700 mb-4">{t("section14.declaration.title")}</h3>
+                    <blockquote className="text-gray-700 leading-relaxed italic border-l-4 border-primary-600 pl-4">
+                      {t("section14.declaration.text")}
+                    </blockquote>
                   </div>
                 </div>
               </div>

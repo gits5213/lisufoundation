@@ -91,7 +91,7 @@
     "natureDescription": "LiSu Foundation is a non-political, non-profit, humanitarian, and social welfare organization. We are dedicated to improving the lives of the poor, orphans, widows, disaster-affected people, and other underprivileged populations.",
     "addressTitle": "Office Address",
     "headOffice": "Head Office:",
-    "address": "Village: KAYA KORI, KANDAPARA (Baligange Bazar), NAKLA, SHERPUR, MYMENSINGH, BANGLADESH",
+    "address": "Village: Kaya Kori, Kandapara (Baligange Bazar), Nakla, Sherpur, Mymensingh, Bangladesh",
     "branches": "Branches may be established anywhere in Bangladesh or abroad as necessary.",
     "objectivesTitle": "Our Objectives",
     "objectivesSubtitle": "Our mission is guided by clear objectives to serve humanity effectively",
@@ -643,6 +643,126 @@
       "overallMeaning": {
         "title": "Overall Meaning",
         "description": "The LiSu Foundation logo reflects a community united in faith and compassion, working together for human welfare under the light of Islamic values — symbolizing growth, service, and unity in humanity."
+      }
+    },
+    "section14": {
+      "title": "14. Membership Workflow & Contribution Policy",
+      "generalPrinciples": {
+        "title": "1. General Membership Principles",
+        "description": "All members of LiSu Foundation must uphold:",
+        "principles": [
+          "Islamic values and Shariah principles",
+          "Honesty, integrity, and good moral character",
+          "No involvement in illegal, unethical, or haram activities",
+          "Regular observance of five daily prayers (Salah)",
+          "Commitment to the humanitarian objectives of the Foundation"
+        ]
+      },
+      "categories": {
+        "title": "2. Membership Categories",
+        "description": "LiSu Foundation recognizes the following membership types:",
+        "list": [
+          "Volunteer (Mandatory Entry Level)",
+          "General Member",
+          "Honorary Member",
+          "Lifetime Member"
+        ]
+      },
+      "workflow": {
+        "title": "3. Membership Qualification & Workflow",
+        "step1": {
+          "title": "Step 1: Volunteer (Mandatory Requirement)",
+          "description": "To qualify for any membership, an individual must first serve as a Volunteer.",
+          "eligibilityTitle": "Eligibility for Volunteer:",
+          "eligibility": [
+            "Must be 18 years or older",
+            "Must possess good moral character",
+            "Must not be involved in any illegal or haram activities",
+            "Must regularly perform five daily prayers",
+            "Must follow Islamic Shariah",
+            "Must actively participate in LiSu Foundation's Primary Objectives"
+          ],
+          "periodTitle": "Volunteer Period Requirement:",
+          "period": [
+            "Minimum 2 (two) years of continuous service",
+            "Must maintain good standing and discipline",
+            "Must actively contribute to humanitarian activities"
+          ]
+        },
+        "step2": {
+          "title": "Step 2: General Member",
+          "description": "After successfully completing 2 years as a Volunteer, an individual may apply to become a General Member.",
+          "eligibilityTitle": "Eligibility:",
+          "eligibility": [
+            "Completion of 2 years volunteer service with good standing",
+            "Approval by the Executive Committee",
+            "Continued adherence to Islamic ethics and organizational rules"
+          ],
+          "contributionTitle": "Contribution Requirement:",
+          "contribution": [
+            "Monthly donation: 200 BDT",
+            "Duration: Up to 2 years",
+            "Purpose: To fulfill the Primary Objectives of LiSu Foundation"
+          ]
+        },
+        "step3": {
+          "title": "Step 3: Honorary Member",
+          "eligibilityTitle": "Eligibility:",
+          "eligibility": [
+            "Must meet all moral, Islamic, and ethical requirements",
+            "May or may not be a General Member",
+            "Must be approved by the Executive Committee"
+          ],
+          "contributionTitle": "Contribution Requirement:",
+          "contribution": [
+            "Every month donation: 2,000 BDT",
+            "Donation must be used exclusively for primary humanitarian purposes"
+          ],
+          "statusTitle": "Status:",
+          "status": [
+            "Recognized as Honorary Member",
+            "Receives official acknowledgment from LiSu Foundation"
+          ]
+        },
+        "step4": {
+          "title": "Step 4: Lifetime Member",
+          "eligibilityTitle": "Eligibility:",
+          "eligibility": [
+            "Must meet all moral, Islamic, and ethical requirements",
+            "Must demonstrate long-term commitment to humanitarian values",
+            "Must be approved by the Executive Committee"
+          ],
+          "contributionTitle": "Contribution Requirement:",
+          "contribution": [
+            "One-time donation: 500,000 BDT",
+            "Donation must be used exclusively for primary humanitarian purposes"
+          ],
+          "statusTitle": "Status:",
+          "status": [
+            "Permanent Lifetime Membership",
+            "Highest level of recognition within LiSu Foundation"
+          ]
+        }
+      },
+      "termination": {
+        "title": "5. Membership Termination",
+        "description": "Any member may be suspended or removed if found to be:",
+        "reasons": [
+          "Violating Islamic principles",
+          "Involved in illegal or unethical activities",
+          "Acting against the objectives or reputation of LiSu Foundation"
+        ]
+      },
+      "approval": {
+        "title": "6. Approval Authority",
+        "points": [
+          "All memberships must be approved by the Executive Committee",
+          "The Committee reserves the right to accept, reject, suspend, or revoke membership"
+        ]
+      },
+      "declaration": {
+        "title": "7. Declaration Clause (For Forms & Constitution)",
+        "text": "All members of LiSu Foundation commit to upholding Islamic values, humanitarian principles, and the objectives of the organization. Membership is a responsibility, not a privilege, and must be maintained with sincerity, discipline, and accountability before Allah."
       }
     }
   },

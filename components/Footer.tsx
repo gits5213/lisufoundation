@@ -9,6 +9,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   const t = useTranslations("footer");
   const tCommon = useTranslations("common");
+  const tContact = useTranslations("contact");
   const locale = useLocale();
 
   const getLocalizedHref = (href: string) => `/${locale}${href}`;
@@ -100,10 +101,8 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-primary-400 mt-0.5 flex-shrink-0" />
-                <span>
-                  Kaya Kori, Kandapara (Baligange Bazar),<br />
-                  Nakla, Sherpur, Mymensingh,<br />
-                  Bangladesh
+                <span className="whitespace-pre-line">
+                  {tContact("addressValue")}
                 </span>
               </li>
               <li className="flex items-start space-x-3">
@@ -132,7 +131,7 @@ export default function Footer() {
               <li className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-primary-400 flex-shrink-0" />
                 <a href="tel:+8801728014014" className="hover:text-primary-400 transition-colors">
-                  +880 17 2801 4014 | +1(917)561-6554
+                  {tContact("phoneValue")}
                 </a>
               </li>
               <li className="flex items-center space-x-3">

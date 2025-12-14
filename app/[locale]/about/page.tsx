@@ -6,6 +6,7 @@ import { useTranslations, useLocale } from "next-intl";
 
 export default function AboutPage() {
   const t = useTranslations("about");
+  const tContact = useTranslations("contact");
   const locale = useLocale();
 
   const primaryObjectives = t.raw("primaryObjectivesList") as string[];
@@ -82,7 +83,7 @@ export default function AboutPage() {
               <p className="text-lg text-gray-700 leading-relaxed">
                 <strong>{t("headOffice")}</strong>
                 <br />
-                {t("address")}
+                Village: {tContact("addressValue")}
                 <br />
                 <br />
                 {t("branches")}
