@@ -290,17 +290,17 @@
       {
         "id": "general",
         "name": "General Member",
-        "description": "Must pay every month minimum 200 tak to above"
+        "description": "Must pay every month minimum 200 BDT to above"
       },
       {
         "id": "honorary",
         "name": "Honorary Member",
-        "description": "Must pay every month minimum 2000 tak to above"
+        "description": "Must pay every month minimum 2000 BDT to above"
       },
       {
         "id": "lifetime",
         "name": "Lifetime Member",
-        "description": "Must pay every year minimum 500000 tak to above"
+        "description": "Must pay every year minimum 500000 BDT to above"
       }
     ],
     "qualifications": [
