@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileText, MapPin, Users, Target, Award, Gavel, Calendar, DollarSign, AlertTriangle, Edit, XCircle, Heart, Image, UserCheck, Info } from "lucide-react";
+import { FileText, MapPin, Users, Target, Award, Gavel, Calendar, DollarSign, AlertTriangle, Edit, XCircle, Heart, Image, UserCheck, Info, Scale } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 export default function ConstitutionPage() {
@@ -649,6 +649,86 @@ export default function ConstitutionPage() {
                     <blockquote className="text-gray-700 leading-relaxed italic border-l-4 border-primary-600 pl-4">
                       {t("section14.declaration.text")}
                     </blockquote>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Section 15 - Legal Compliance & Registration */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-xl p-8 shadow-lg"
+            >
+              <div className="flex items-start mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary-600 to-primary-700 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <Scale className="h-6 w-6 text-white" />
+                </div>
+                <div className="flex-grow">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">{t("section15.title")}</h2>
+                  
+                  {/* Registration */}
+                  <div className="mb-6">
+                    <h3 className="text-xl font-semibold text-primary-700 mb-4">{t("section15.registration.title")}</h3>
+                    <p className="text-gray-700 leading-relaxed mb-4">{t("section15.registration.content")}</p>
+                    <ul className="space-y-3">
+                      {(t.raw("section15.registration.items") as string[]).map((item, index) => (
+                        <li key={index} className="flex items-start">
+                          <div className="flex-shrink-0 w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center mt-1 mr-3">
+                            <div className="w-2 h-2 bg-white rounded-full"></div>
+                          </div>
+                          <span className="text-gray-700 leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Financial Transparency */}
+                  <div className="mb-6">
+                    <h3 className="text-xl font-semibold text-primary-700 mb-4">{t("section15.financialTransparency.title")}</h3>
+                    <p className="text-gray-700 leading-relaxed mb-4">{t("section15.financialTransparency.content")}</p>
+                    <ul className="space-y-3">
+                      {(t.raw("section15.financialTransparency.items") as string[]).map((item, index) => (
+                        <li key={index} className="flex items-start">
+                          <div className="flex-shrink-0 w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center mt-1 mr-3">
+                            <div className="w-2 h-2 bg-white rounded-full"></div>
+                          </div>
+                          <span className="text-gray-700 leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Governance */}
+                  <div className="mb-6">
+                    <h3 className="text-xl font-semibold text-primary-700 mb-4">{t("section15.governance.title")}</h3>
+                    <ul className="space-y-3">
+                      {(t.raw("section15.governance.items") as string[]).map((item, index) => (
+                        <li key={index} className="flex items-start">
+                          <div className="flex-shrink-0 w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center mt-1 mr-3">
+                            <div className="w-2 h-2 bg-white rounded-full"></div>
+                          </div>
+                          <span className="text-gray-700 leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Amendments */}
+                  <div className="mt-8 pt-6 border-t border-gray-200">
+                    <h3 className="text-xl font-semibold text-primary-700 mb-4">{t("section15.amendments.title")}</h3>
+                    <p className="text-gray-700 leading-relaxed mb-4">{t("section15.amendments.content")}</p>
+                    <ul className="space-y-3">
+                      {(t.raw("section15.amendments.items") as string[]).map((item, index) => (
+                        <li key={index} className="flex items-start">
+                          <div className="flex-shrink-0 w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center mt-1 mr-3">
+                            <div className="w-2 h-2 bg-white rounded-full"></div>
+                          </div>
+                          <span className="text-gray-700 leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>

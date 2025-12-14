@@ -24,7 +24,14 @@
     "required": "Required",
     "loading": "Loading...",
     "error": "Something went wrong!",
-    "tryAgain": "Try again"
+    "tryAgain": "Try again",
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "accessibility": "Accessibility",
+      "disclaimer": "Disclaimer",
+      "refund": "Refund Policy"
+    }
   },
   "home": {
     "heroTitle": "Serving Humanity with",
@@ -787,6 +794,51 @@
         "title": "7. Declaration Clause (For Forms & Constitution)",
         "text": "All members of LiSu Foundation commit to upholding Islamic values, humanitarian principles, and the objectives of the organization. Membership is a responsibility, not a privilege, and must be maintained with sincerity, discipline, and accountability before Allah."
       }
+    },
+    "section15": {
+      "title": "15. Legal Compliance & Registration",
+      "registration": {
+        "title": "15.1 Registration",
+        "content": "LiSu Foundation shall be registered under the appropriate legal framework in Bangladesh, including but not limited to:",
+        "items": [
+          "NGOAB (NGO Affairs Bureau) registration for foreign funding (if applicable)",
+          "RJSC (Registrar of Joint Stock Companies) registration as a non-profit company",
+          "Trust registration under the Trust Act, 1882 (if applicable)",
+          "Compliance with all applicable laws and regulations of Bangladesh"
+        ]
+      },
+      "financialTransparency": {
+        "title": "15.2 Financial Transparency & Accountability",
+        "content": "In accordance with Bangladesh NGO laws and regulations:",
+        "items": [
+          "Maintain proper books of accounts and financial records",
+          "Prepare annual financial statements audited by certified auditors",
+          "Submit annual reports to NGOAB and relevant authorities as required",
+          "Ensure all donations and funds are used exclusively for stated humanitarian objectives",
+          "Maintain transparency in financial transactions and reporting",
+          "Comply with tax regulations and obtain tax exemption status where applicable"
+        ]
+      },
+      "governance": {
+        "title": "15.3 Governance & Compliance",
+        "items": [
+          "Operate in accordance with the Constitution and all applicable laws",
+          "Maintain proper records of all meetings, decisions, and activities",
+          "Ensure compliance with NGOAB guidelines and reporting requirements",
+          "Cooperate with regulatory authorities during inspections and audits",
+          "Maintain ethical standards and avoid any activities prohibited by law"
+        ]
+      },
+      "amendments": {
+        "title": "15.4 Amendments to Constitution",
+        "content": "Any amendments to this Constitution must be:",
+        "items": [
+          "Approved by a two-thirds majority of the Executive Committee",
+          "Compliant with Bangladesh NGO laws and regulations",
+          "Submitted to NGOAB and relevant authorities for approval (if required)",
+          "Recorded in the organization's official records"
+        ]
+      }
     }
   },
   "footer": {
@@ -794,10 +846,228 @@
     "organization": "Organization",
     "support": "Support",
     "contact": "Contact",
+    "legal": "Legal",
     "rights": "All rights reserved.",
     "madeWith": "Made with",
     "forHumanity": "for humanity",
     "executiveDirector": "Executive Director",
     "executiveDirectorName": "Md. Shahnewaz Zaman (Shanto)"
+  },
+  "legal": {
+    "privacy": {
+      "title": "Privacy Policy",
+      "subtitle": "Your privacy is important to us. This policy explains how we collect, use, and protect your information.",
+      "lastUpdated": "Last Updated: December 2024",
+      "introduction": {
+        "title": "Introduction",
+        "content": "LiSu Foundation ('we', 'our', or 'us') is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services, in accordance with the laws of Bangladesh."
+      },
+      "informationCollection": {
+        "title": "Information We Collect",
+        "description": "We may collect the following types of information:",
+        "items": [
+          "Personal information (name, email, phone number, address) when you fill out forms or contact us",
+          "Membership application information including personal details and reasons for joining",
+          "Donation information including payment details (processed securely through third-party payment processors)",
+          "Website usage data including IP address, browser type, and pages visited",
+          "Communication records when you contact us via email or contact forms"
+        ]
+      },
+      "informationUse": {
+        "title": "How We Use Your Information",
+        "description": "We use collected information for the following purposes:",
+        "items": [
+          "To process membership applications and manage member records",
+          "To process donations and provide donation receipts",
+          "To communicate with you about our programs, events, and activities",
+          "To improve our website and services",
+          "To comply with legal obligations under Bangladesh NGO laws and regulations",
+          "To maintain organizational records as required by NGOAB (NGO Affairs Bureau)"
+        ]
+      },
+      "dataProtection": {
+        "title": "Data Protection",
+        "description": "We implement appropriate security measures to protect your personal information:",
+        "measures": [
+          "Secure data storage and transmission",
+          "Limited access to personal information to authorized personnel only",
+          "Regular security assessments and updates",
+          "Compliance with Bangladesh data protection guidelines",
+          "Secure handling of financial information through certified payment processors"
+        ]
+      },
+      "yourRights": {
+        "title": "Your Rights",
+        "description": "Under Bangladesh law, you have the right to:",
+        "items": [
+          "Access your personal information held by us",
+          "Request correction of inaccurate or incomplete information",
+          "Request deletion of your personal information (subject to legal retention requirements)",
+          "Object to processing of your personal information",
+          "File a complaint with relevant authorities if you believe your rights have been violated"
+        ]
+      },
+      "contact": {
+        "title": "Contact Us",
+        "description": "If you have questions about this Privacy Policy or wish to exercise your rights, please contact us:",
+        "email": "Email"
+      }
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "subtitle": "Please read these terms carefully before using our website and services.",
+      "lastUpdated": "Last Updated: December 2024",
+      "introduction": {
+        "title": "Introduction",
+        "content": "These Terms of Service ('Terms') govern your access to and use of LiSu Foundation's website and services. By accessing or using our website, you agree to be bound by these Terms and comply with all applicable laws and regulations of Bangladesh."
+      },
+      "acceptance": {
+        "title": "Acceptance of Terms",
+        "content": "By accessing this website, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree with any part of these Terms, you must not use our website or services."
+      },
+      "useOfWebsite": {
+        "title": "Use of Website",
+        "description": "You agree to use our website only for lawful purposes and in accordance with these Terms:",
+        "rules": [
+          "You will not use the website in any way that violates Bangladesh laws or regulations",
+          "You will not attempt to gain unauthorized access to any part of the website",
+          "You will not transmit any harmful code, viruses, or malicious software",
+          "You will not use the website to harass, abuse, or harm others",
+          "You will provide accurate and truthful information when submitting forms or applications",
+          "You will respect intellectual property rights and not reproduce content without permission"
+        ]
+      },
+      "donations": {
+        "title": "Donations",
+        "description": "When making donations through our website:",
+        "terms": [
+          "All donations are final and non-refundable unless there is a technical error or duplicate transaction",
+          "Donations are used exclusively for humanitarian purposes as stated in our objectives",
+          "We maintain transparency and accountability as required by NGOAB regulations",
+          "Donation receipts will be provided for tax purposes as per Bangladesh tax laws",
+          "All financial transactions are processed securely through certified payment gateways"
+        ]
+      },
+      "limitation": {
+        "title": "Limitation of Liability",
+        "content": "LiSu Foundation shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the website, to the maximum extent permitted by Bangladesh law."
+      },
+      "governingLaw": {
+        "title": "Governing Law",
+        "content": "These Terms shall be governed by and construed in accordance with the laws of Bangladesh. Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the courts of Bangladesh."
+      },
+      "contact": {
+        "title": "Contact Information",
+        "content": "For questions about these Terms, please contact us at info@lisufoundation.org."
+      }
+    },
+    "accessibility": {
+      "title": "Accessibility Statement",
+      "subtitle": "We are committed to ensuring our website is accessible to all users.",
+      "commitment": {
+        "title": "Our Commitment",
+        "content": "LiSu Foundation is committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone and applying relevant accessibility standards."
+      },
+      "standards": {
+        "title": "Accessibility Standards",
+        "description": "We aim to conform to WCAG 2.1 Level AA standards and comply with accessibility guidelines:",
+        "items": [
+          "Providing alternative text for images",
+          "Ensuring proper heading structure and navigation",
+          "Maintaining sufficient color contrast",
+          "Making forms accessible with proper labels",
+          "Ensuring keyboard navigation is possible",
+          "Providing text alternatives for non-text content"
+        ]
+      },
+      "features": {
+        "title": "Accessibility Features",
+        "items": [
+          "Keyboard navigation support throughout the website",
+          "Screen reader compatibility",
+          "Adjustable text size through browser settings",
+          "Clear and consistent navigation structure",
+          "Descriptive link text",
+          "Form labels and error messages"
+        ]
+      },
+      "keyboardNavigation": {
+        "title": "Keyboard Navigation",
+        "description": "You can navigate our website using keyboard shortcuts:",
+        "shortcuts": [
+          "Tab: Move forward through interactive elements",
+          "Shift + Tab: Move backward through interactive elements",
+          "Enter/Space: Activate buttons and links",
+          "Arrow keys: Navigate through menus and dropdowns",
+          "Escape: Close modals and dropdowns"
+        ]
+      },
+      "feedback": {
+        "title": "Feedback",
+        "content": "If you encounter any accessibility barriers on our website, please contact us at info@lisufoundation.org. We welcome your feedback and will work to address accessibility issues promptly."
+      }
+    },
+    "disclaimer": {
+      "title": "Disclaimer",
+      "subtitle": "Important information about the use of our website and services.",
+      "general": {
+        "title": "General Disclaimer",
+        "content": "The information on this website is provided on an 'as is' basis. While we strive to keep the information up to date and correct, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability of the website or the information contained on it."
+      },
+      "accuracy": {
+        "title": "Information Accuracy",
+        "content": "We endeavor to ensure that all information on our website is accurate and current. However, we do not guarantee the accuracy, completeness, or timeliness of any information. Information may be updated or changed without notice."
+      },
+      "externalLinks": {
+        "title": "External Links",
+        "content": "Our website may contain links to external websites. We do not endorse or assume responsibility for the content, privacy policies, or practices of any third-party websites. Users access external links at their own risk."
+      },
+      "limitation": {
+        "title": "Limitation of Liability",
+        "content": "To the fullest extent permitted by Bangladesh law, LiSu Foundation shall not be liable for any loss or damage, including without limitation, indirect or consequential loss or damage, arising from the use of this website."
+      },
+      "changes": {
+        "title": "Changes to Website",
+        "content": "We reserve the right to modify, suspend, or discontinue any aspect of the website at any time without prior notice. We are not liable to you or any third party for any modification, suspension, or discontinuation."
+      }
+    },
+    "refund": {
+      "title": "Refund & Donation Policy",
+      "subtitle": "Policy regarding refunds and donations made to LiSu Foundation.",
+      "policy": {
+        "title": "Donation Policy",
+        "content": "LiSu Foundation is a registered non-profit organization operating under the laws and regulations of Bangladesh. All donations received are used exclusively for humanitarian purposes as outlined in our constitution and objectives.",
+        "note": "Important: Donations are generally non-refundable. Refunds may be considered only in exceptional circumstances as outlined below."
+      },
+      "conditions": {
+        "title": "Refund Conditions",
+        "description": "Refunds may be considered in the following circumstances:",
+        "items": [
+          "Technical error resulting in duplicate transactions",
+          "Unauthorized transaction made without the donor's consent",
+          "Processing error where the donation amount was incorrectly charged",
+          "Donation made by mistake (must be reported within 7 days of transaction)"
+        ]
+      },
+      "process": {
+        "title": "Refund Process",
+        "description": "To request a refund, please follow these steps:",
+        "steps": [
+          "Contact us at info@lisufoundation.org within 7 days of the transaction",
+          "Provide transaction details including date, amount, and transaction ID",
+          "Explain the reason for the refund request",
+          "Our team will review your request within 14 business days",
+          "If approved, refunds will be processed to the original payment method within 7-14 business days"
+        ]
+      },
+      "processingTime": {
+        "title": "Processing Time",
+        "content": "Refund requests are reviewed within 14 business days. Approved refunds are processed within 7-14 business days to the original payment method. Processing times may vary depending on the payment gateway and banking procedures."
+      },
+      "contact": {
+        "title": "Contact Us",
+        "content": "For refund inquiries or to request a refund, please contact us at info@lisufoundation.org with your transaction details."
+      }
+    }
   }
 }

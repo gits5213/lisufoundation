@@ -26,12 +26,19 @@ export default function Footer() {
       { href: "/contact", label: tCommon("contact") },
       { href: "/gallery", label: tCommon("gallery") },
     ],
+    legal: [
+      { href: "/legal/privacy", label: tCommon("legal.privacy") },
+      { href: "/legal/terms", label: tCommon("legal.terms") },
+      { href: "/legal/accessibility", label: tCommon("legal.accessibility") },
+      { href: "/legal/disclaimer", label: tCommon("legal.disclaimer") },
+      { href: "/legal/refund", label: tCommon("legal.refund") },
+    ],
   };
 
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-300">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Organization Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
@@ -83,6 +90,23 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">{t("support")}</h3>
             <ul className="space-y-2">
               {footerLinks.support.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={getLocalizedHref(link.href)}
+                    className="hover:text-primary-400 transition-colors text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Legal Links */}
+          <div>
+            <h3 className="text-white font-semibold mb-4">{t("legal")}</h3>
+            <ul className="space-y-2">
+              {footerLinks.legal.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={getLocalizedHref(link.href)}
