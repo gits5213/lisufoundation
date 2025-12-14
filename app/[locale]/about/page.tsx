@@ -42,6 +42,7 @@ export default function AboutPage() {
             className="max-w-3xl mx-auto text-center"
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-6">{t("title")}</h1>
+            <p className="text-lg text-primary-200 mb-4">{t("founded")}</p>
             <p className="text-xl text-primary-100 leading-relaxed">
               {t("subtitle")}
             </p>
