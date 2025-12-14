@@ -609,6 +609,41 @@
         "Serving humanity for the sake of Allah",
         "Avoiding any activity contrary to Islamic values"
       ]
+    },
+    "section13": {
+      "title": "13. Logo Details",
+      "subtitle": "Logo Meaning and Symbolism",
+      "threeHumanFigures": {
+        "title": "1. Three Human Figures (White Silhouettes)",
+        "description1": "Represents unity, community, and collective effort — three individuals standing together, symbolizing people joining hands for a greater cause.",
+        "description2": "The upward-reaching shapes also symbolize hope, growth, and upliftment, showing LiSu Foundation's mission to empower others through compassion and service."
+      },
+      "centralFigure": {
+        "title": "2. Central Figure (Middle One Raised Higher)",
+        "description1": "The middle figure rising upward reflects leadership and guidance, showing how the Foundation leads with moral and humanitarian values.",
+        "description2": "It can also signify knowledge and spiritual enlightenment, guiding others toward goodness."
+      },
+      "curvedBase": {
+        "title": "3. Curved Base (Arms or Roots Shape)",
+        "description1": "Represents support and nurturing — just as roots nourish a tree, LiSu Foundation provides strength and care to the community.",
+        "description2": "The open, welcoming curve symbolizes mercy (রহমত) and service (সেবা) in an Islamic sense — embracing people with kindness."
+      },
+      "circularBorder": {
+        "title": "4. Circular Border",
+        "description1": "Symbol of completeness and continuity, expressing that humanity, compassion, and faith are interconnected and everlasting.",
+        "description2": "The circle also implies equality — no beginning or end — where every person has equal value in the eyes of Allah."
+      },
+      "colors": {
+        "title": "5. Green and Gold Colors",
+        "green": "Green:",
+        "greenDescription": "Peace, harmony, Islam, and growth — a sacred color in Islamic tradition representing life and paradise.",
+        "gold": "Gold:",
+        "goldDescription": "Honor, sincerity, and divine light — showing the purity and nobility of serving others."
+      },
+      "overallMeaning": {
+        "title": "Overall Meaning",
+        "description": "The LiSu Foundation logo reflects a community united in faith and compassion, working together for human welfare under the light of Islamic values — symbolizing growth, service, and unity in humanity."
+      }
     }
   },
   "footer": {

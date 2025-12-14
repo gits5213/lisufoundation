@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileText, MapPin, Users, Target, Award, Gavel, Calendar, DollarSign, AlertTriangle, Edit, XCircle, Heart } from "lucide-react";
+import { FileText, MapPin, Users, Target, Award, Gavel, Calendar, DollarSign, AlertTriangle, Edit, XCircle, Heart, Image } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 export default function ConstitutionPage() {
@@ -342,6 +342,64 @@ export default function ConstitutionPage() {
                       </li>
                     ))}
                   </ul>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Section 13 - Logo Details */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-xl p-8 shadow-lg"
+            >
+              <div className="flex items-start mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary-600 to-primary-700 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <Image className="h-6 w-6 text-white" />
+                </div>
+                <div className="flex-grow">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">{t("section13.title")}</h2>
+                  
+                  {/* Three Human Figures */}
+                  <div className="mb-6">
+                    <h3 className="text-xl font-semibold text-primary-700 mb-3">{t("section13.threeHumanFigures.title")}</h3>
+                    <p className="text-gray-700 leading-relaxed mb-2">{t("section13.threeHumanFigures.description1")}</p>
+                    <p className="text-gray-700 leading-relaxed">{t("section13.threeHumanFigures.description2")}</p>
+                  </div>
+
+                  {/* Central Figure */}
+                  <div className="mb-6">
+                    <h3 className="text-xl font-semibold text-primary-700 mb-3">{t("section13.centralFigure.title")}</h3>
+                    <p className="text-gray-700 leading-relaxed mb-2">{t("section13.centralFigure.description1")}</p>
+                    <p className="text-gray-700 leading-relaxed">{t("section13.centralFigure.description2")}</p>
+                  </div>
+
+                  {/* Curved Base */}
+                  <div className="mb-6">
+                    <h3 className="text-xl font-semibold text-primary-700 mb-3">{t("section13.curvedBase.title")}</h3>
+                    <p className="text-gray-700 leading-relaxed mb-2">{t("section13.curvedBase.description1")}</p>
+                    <p className="text-gray-700 leading-relaxed">{t("section13.curvedBase.description2")}</p>
+                  </div>
+
+                  {/* Circular Border */}
+                  <div className="mb-6">
+                    <h3 className="text-xl font-semibold text-primary-700 mb-3">{t("section13.circularBorder.title")}</h3>
+                    <p className="text-gray-700 leading-relaxed mb-2">{t("section13.circularBorder.description1")}</p>
+                    <p className="text-gray-700 leading-relaxed">{t("section13.circularBorder.description2")}</p>
+                  </div>
+
+                  {/* Green and Gold Colors */}
+                  <div className="mb-6">
+                    <h3 className="text-xl font-semibold text-primary-700 mb-3">{t("section13.colors.title")}</h3>
+                    <p className="text-gray-700 leading-relaxed mb-2"><span className="font-semibold text-green-600">{t("section13.colors.green")}</span> {t("section13.colors.greenDescription")}</p>
+                    <p className="text-gray-700 leading-relaxed"><span className="font-semibold text-yellow-600">{t("section13.colors.gold")}</span> {t("section13.colors.goldDescription")}</p>
+                  </div>
+
+                  {/* Overall Meaning */}
+                  <div className="mt-8 pt-6 border-t border-gray-200">
+                    <h3 className="text-xl font-semibold text-primary-700 mb-3">{t("section13.overallMeaning.title")}</h3>
+                    <p className="text-gray-700 leading-relaxed text-lg">{t("section13.overallMeaning.description")}</p>
+                  </div>
                 </div>
               </div>
             </motion.div>
