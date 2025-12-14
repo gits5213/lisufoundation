@@ -97,7 +97,119 @@
     "title": "Our Programs & Services",
     "subtitle": "Comprehensive humanitarian programs designed to improve lives and build stronger communities",
     "supportTitle": "Support Our Programs",
-    "supportDescription": "Your contribution helps us continue these vital programs and reach more people in need"
+    "supportDescription": "Your contribution helps us continue these vital programs and reach more people in need",
+    "keyFeatures": "Key Features:",
+    "donateNow": "Donate Now",
+    "programsList": [
+      {
+        "key": "education",
+        "title": "Education Support",
+        "description": "Providing educational scholarships and financial assistance to poor and meritorious students in schools, madrasas, and orphanages. We believe education is the key to breaking the cycle of poverty.",
+        "features": [
+          "Scholarships for underprivileged students",
+          "Financial assistance for school fees",
+          "Educational materials and supplies",
+          "Support for madrasa students",
+          "Special programs for orphans"
+        ]
+      },
+      {
+        "key": "orphan",
+        "title": "Orphan & Children Support",
+        "description": "Comprehensive welfare programs focusing on education, moral development, and overall well-being of orphans and children in remote areas.",
+        "features": [
+          "Educational support and mentorship",
+          "Moral and character development",
+          "Healthcare and nutrition programs",
+          "Recreational activities",
+          "Long-term care and support"
+        ]
+      },
+      {
+        "key": "water",
+        "title": "Safe Water Access",
+        "description": "Installing tube wells and deep tube wells to ensure access to safe drinking water for communities in need.",
+        "features": [
+          "Tube well installation",
+          "Deep tube well projects",
+          "Water quality testing",
+          "Community water management",
+          "Maintenance and support"
+        ]
+      },
+      {
+        "key": "housing",
+        "title": "Housing & Shelter",
+        "description": "Constructing houses and providing shelter for homeless and disadvantaged individuals, ensuring safe and dignified living conditions.",
+        "features": [
+          "House construction projects",
+          "Shelter for homeless families",
+          "Home repairs and renovations",
+          "Emergency housing assistance",
+          "Community housing initiatives"
+        ]
+      },
+      {
+        "key": "healthcare",
+        "title": "Healthcare Services",
+        "description": "Providing medical assistance, healthcare services, and health awareness programs to improve the well-being of underprivileged communities.",
+        "features": [
+          "Medical camps and check-ups",
+          "Medication assistance",
+          "Health awareness programs",
+          "Emergency medical support",
+          "Maternal and child healthcare"
+        ]
+      },
+      {
+        "key": "humanitarian",
+        "title": "Humanitarian Aid Programs",
+        "description": "Comprehensive humanitarian programs including Ramadan food distribution, Qurbani, winter clothing, Iftar, and Sadaqah projects.",
+        "features": [
+          "Ramadan food distribution",
+          "Qurbani (Eid al-Adha) programs",
+          "Winter clothing distribution",
+          "Iftar programs during Ramadan",
+          "Sadaqah and charity projects"
+        ]
+      },
+      {
+        "key": "disaster",
+        "title": "Disaster Relief",
+        "description": "Providing immediate relief and support during floods, storms, cyclones, and other emergency situations.",
+        "features": [
+          "Emergency food distribution",
+          "Temporary shelter provision",
+          "Medical aid during disasters",
+          "Reconstruction support",
+          "Long-term recovery assistance"
+        ]
+      },
+      {
+        "key": "employment",
+        "title": "Employment Opportunities",
+        "description": "Creating employment opportunities for the unemployed through skill development and job placement programs.",
+        "features": [
+          "Skill development training",
+          "Job placement assistance",
+          "Micro-enterprise support",
+          "Vocational training programs",
+          "Entrepreneurship guidance"
+        ]
+      },
+      {
+        "key": "funeral",
+        "title": "Funeral & Burial Support",
+        "description": "Assisting in funeral arrangements, burial, and graveyard-related support for deceased underprivileged Muslims.",
+        "features": [
+          "Funeral arrangements",
+          "Burial assistance",
+          "Graveyard support",
+          "Financial assistance for funeral costs",
+          "Community support during bereavement"
+        ]
+      }
+    ]
   },
   "membership": {
     "title": "Become a Member",
