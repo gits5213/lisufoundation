@@ -2,11 +2,12 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Users, CheckCircle, UserCheck, Award, FileText } from "lucide-react";
+import { Users, CheckCircle, UserCheck, Award, FileText, Heart } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 
 export default function MembershipPage() {
   const t = useTranslations("membership");
+  const tConstitution = useTranslations("constitution");
   const locale = useLocale();
 
   const [formData, setFormData] = useState({
@@ -15,7 +16,7 @@ export default function MembershipPage() {
     email: "",
     phone: "",
     address: "",
-    membershipType: "general",
+    membershipType: "volunteer",
     occupation: "",
     reason: "",
   });
@@ -41,6 +42,7 @@ export default function MembershipPage() {
   };
 
   const iconMap: Record<string, typeof Award> = {
+    volunteer: Heart,
     lifetime: Award,
     general: Users,
     honorary: UserCheck,

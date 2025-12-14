@@ -275,11 +275,17 @@
     "submitApplication": "Submit Application",
     "requiredFields": "Required fields. Your application will be reviewed by the Executive Committee.",
     "thankYouMessage": "Thank you for your interest! Your application will be reviewed by the Executive Committee.",
+    "volunteer": {
+      "title": "Volunteer (Mandatory Requirement)",
+      "description": "To qualify for any membership, an individual must first serve as a Volunteer.",
+      "eligibilityTitle": "Eligibility for Volunteer:",
+      "periodTitle": "Volunteer Period Requirement:"
+    },
     "membershipTypes": [
       {
-        "id": "lifetime",
-        "name": "Lifetime Member",
-        "description": "Dedicated members committed to long-term support"
+        "id": "volunteer",
+        "name": "Volunteer",
+        "description": "Mandatory entry level - must serve minimum 2 years"
       },
       {
         "id": "general",
@@ -290,6 +296,11 @@
         "id": "honorary",
         "name": "Honorary Member",
         "description": "Donors or individuals with special contributions"
+      },
+      {
+        "id": "lifetime",
+        "name": "Lifetime Member",
+        "description": "Dedicated members committed to long-term support"
       }
     ],
     "qualifications": [
