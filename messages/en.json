@@ -42,7 +42,45 @@
     "ctaTitle": "Join Us in Making a Difference",
     "ctaDescription": "Become a member or support our cause through donations. Together, we can create lasting change in the lives of those in need.",
     "becomeMember": "Become a Member",
-    "makeDonation": "Make a Donation"
+    "makeDonation": "Make a Donation",
+    "programsList": [
+      {
+        "key": "education",
+        "title": "Education Support",
+        "description": "Scholarships and financial assistance for poor and meritorious students"
+      },
+      {
+        "key": "housing",
+        "title": "Housing & Shelter",
+        "description": "Constructing houses and providing shelter for homeless individuals"
+      },
+      {
+        "key": "water",
+        "title": "Safe Water",
+        "description": "Installing tube wells and deep tube wells for safe drinking water"
+      },
+      {
+        "key": "healthcare",
+        "title": "Healthcare Services",
+        "description": "Medical assistance and healthcare programs for underprivileged communities"
+      },
+      {
+        "key": "humanitarian",
+        "title": "Humanitarian Aid",
+        "description": "Ramadan food distribution, Qurbani, winter clothing, and Iftar programs"
+      },
+      {
+        "key": "orphan",
+        "title": "Orphan Support",
+        "description": "Welfare, education, and moral development of orphans and children"
+      }
+    ],
+    "missionBadges": {
+      "nonPolitical": "Non-Political",
+      "nonProfit": "Non-Profit",
+      "humanitarian": "Humanitarian",
+      "islamicValues": "Islamic Values"
+    }
   },
   "about": {
     "title": "About LiSu Foundation",

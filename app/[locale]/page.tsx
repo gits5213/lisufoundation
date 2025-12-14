@@ -12,44 +12,29 @@ export default function Home() {
 
   const getLocalizedHref = (href: string) => `/${locale}${href}`;
 
-  const programs = [
-    {
-      icon: GraduationCap,
-      title: "Education Support",
-      description: "Scholarships and financial assistance for poor and meritorious students",
-      color: "from-blue-500 to-blue-600",
-    },
-    {
-      icon: HomeIcon,
-      title: "Housing & Shelter",
-      description: "Constructing houses and providing shelter for homeless individuals",
-      color: "from-green-500 to-green-600",
-    },
-    {
-      icon: Droplet,
-      title: "Safe Water",
-      description: "Installing tube wells and deep tube wells for safe drinking water",
-      color: "from-cyan-500 to-cyan-600",
-    },
-    {
-      icon: Stethoscope,
-      title: "Healthcare Services",
-      description: "Medical assistance and healthcare programs for underprivileged communities",
-      color: "from-red-500 to-red-600",
-    },
-    {
-      icon: HandHeart,
-      title: "Humanitarian Aid",
-      description: "Ramadan food distribution, Qurbani, winter clothing, and Iftar programs",
-      color: "from-purple-500 to-purple-600",
-    },
-    {
-      icon: Users,
-      title: "Orphan Support",
-      description: "Welfare, education, and moral development of orphans and children",
-      color: "from-orange-500 to-orange-600",
-    },
-  ];
+  const iconMap: Record<string, typeof GraduationCap> = {
+    education: GraduationCap,
+    housing: HomeIcon,
+    water: Droplet,
+    healthcare: Stethoscope,
+    humanitarian: HandHeart,
+    orphan: Users,
+  };
+
+  const colorMap: Record<string, string> = {
+    education: "from-blue-500 to-blue-600",
+    housing: "from-green-500 to-green-600",
+    water: "from-cyan-500 to-cyan-600",
+    healthcare: "from-red-500 to-red-600",
+    humanitarian: "from-purple-500 to-purple-600",
+    orphan: "from-orange-500 to-orange-600",
+  };
+
+  const programs = t.raw("programsList") as Array<{
+    key: string;
+    title: string;
+    description: string;
+  }>;
 
   const stats = [
     { number: "500+", label: t("stats.familiesHelped") },
@@ -148,22 +133,27 @@ export default function Home() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {programs.map((program, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
-              >
-                <div className={`w-14 h-14 bg-gradient-to-br ${program.color} rounded-lg flex items-center justify-center mb-4`}>
-                  <program.icon className="h-7 w-7 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{program.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{program.description}</p>
-              </motion.div>
-            ))}
+            {programs.map((program, index) => {
+              const Icon = iconMap[program.key] || GraduationCap;
+              const color = colorMap[program.key] || "from-blue-500 to-blue-600";
+              
+              return (
+                <motion.div
+                  key={program.key}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+                >
+                  <div className={`w-14 h-14 bg-gradient-to-br ${color} rounded-lg flex items-center justify-center mb-4`}>
+                    <Icon className="h-7 w-7 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{program.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{program.description}</p>
+                </motion.div>
+              );
+            })}
           </div>
 
           <motion.div
@@ -198,16 +188,16 @@ export default function Home() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-lg">
-                  <div className="font-semibold">Non-Political</div>
+                  <div className="font-semibold">{t("missionBadges.nonPolitical")}</div>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-lg">
-                  <div className="font-semibold">Non-Profit</div>
+                  <div className="font-semibold">{t("missionBadges.nonProfit")}</div>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-lg">
-                  <div className="font-semibold">Humanitarian</div>
+                  <div className="font-semibold">{t("missionBadges.humanitarian")}</div>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-lg">
-                  <div className="font-semibold">Islamic Values</div>
+                  <div className="font-semibold">{t("missionBadges.islamicValues")}</div>
                 </div>
               </div>
             </motion.div>
