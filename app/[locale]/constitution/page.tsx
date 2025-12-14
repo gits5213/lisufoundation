@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileText, MapPin, Users, Target, Award, Gavel, Calendar, DollarSign, AlertTriangle, Edit, XCircle, Heart, Image, UserCheck } from "lucide-react";
+import { FileText, MapPin, Users, Target, Award, Gavel, Calendar, DollarSign, AlertTriangle, Edit, XCircle, Heart, Image, UserCheck, Info } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 export default function ConstitutionPage() {
@@ -24,6 +24,31 @@ export default function ConstitutionPage() {
               {t("subtitle")}
             </p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* LiSu Meaning - Preface */}
+      <section className="py-16 bg-gradient-to-br from-primary-50 to-primary-100">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-xl p-8 shadow-lg border-l-4 border-primary-600"
+            >
+              <div className="flex items-start mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary-600 to-primary-700 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <Info className="h-6 w-6 text-white" />
+                </div>
+                <div className="flex-grow">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">{t("preface.title")}</h2>
+                  <p className="text-gray-700 leading-relaxed mb-4">{t("preface.description")}</p>
+                  <p className="text-gray-600 text-sm italic leading-relaxed">{t("preface.note")}</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 

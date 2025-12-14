@@ -499,6 +499,11 @@
   "constitution": {
     "title": "LiSu Foundation – Constitution",
     "subtitle": "For Registration in RJSC / NGOAB / Trust / Non-Profit Company",
+    "preface": {
+      "title": "About the Name 'LiSu Foundation'",
+      "description": "The name 'LiSu Foundation' is derived from the initials of two meaningful names — Li (Liakat) and Su (Suria). The name symbolizes unity, family values, and a commitment to humanitarian service.",
+      "note": "This explanation is for informational purposes only and does not affect the legal structure or governance of the organization."
+    },
     "section1": {
       "title": "1. Name of the Organization",
       "name": "LiSu Foundation",
