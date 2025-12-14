@@ -285,22 +285,22 @@
       {
         "id": "volunteer",
         "name": "Volunteer",
-        "description": "Mandatory entry level - must serve minimum 2 years"
+        "description": "Without pay, must serve minimum 2 years"
       },
       {
         "id": "general",
         "name": "General Member",
-        "description": "Active members participating in regular activities"
+        "description": "Must pay every month minimum 200 tak to above"
       },
       {
         "id": "honorary",
         "name": "Honorary Member",
-        "description": "Donors or individuals with special contributions"
+        "description": "Must pay every month minimum 2000 tak to above"
       },
       {
         "id": "lifetime",
         "name": "Lifetime Member",
-        "description": "Dedicated members committed to long-term support"
+        "description": "Must pay every year minimum 500000 tak to above"
       }
     ],
     "qualifications": [
