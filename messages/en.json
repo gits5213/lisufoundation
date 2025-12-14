@@ -494,7 +494,14 @@
         "title": "Term Duration",
         "description": "The Executive Committee serves a 2-year term and may be reformed or renewed as necessary."
       }
-    ]
+    ],
+    "executiveDirectorName": "Md. Shahnewaz Zaman (Shanto)",
+    "socialMedia": {
+      "facebook": "Facebook",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "portfolio": "Portfolio"
+    }
   },
   "constitution": {
     "title": "LiSu Foundation – Constitution",
