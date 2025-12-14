@@ -11,6 +11,7 @@
     "lifetimeMembers": "Lifetime Members",
     "generalMembers": "General Members",
     "honoraryMembers": "Honorary Members",
+    "constitution": "Constitution",
     "gallery": "Gallery",
     "contact": "Contact",
     "donate": "Donate",
@@ -472,6 +473,132 @@
         "description": "The Executive Committee serves a 2-year term and may be reformed or renewed as necessary."
       }
     ]
+  },
+  "constitution": {
+    "title": "LiSu Foundation – Constitution",
+    "subtitle": "For Registration in RJSC / NGOAB / Trust / Non-Profit Company",
+    "section1": {
+      "title": "1. Name of the Organization",
+      "name": "LiSu Foundation",
+      "description": "It is a voluntary, non-political, non-profit, humanitarian development organization."
+    },
+    "section2": {
+      "title": "2. Office Address",
+      "headOffice": "The Head Office of the organization shall be located at:",
+      "address": "Village: KAYA KORI, KANDAPARA (Baligange Bazar), NAKLA, SHERPUR, MYMENSINGH, BANGLADESH.",
+      "branches": "Branches may be established anywhere in Bangladesh or abroad as necessary."
+    },
+    "section3": {
+      "title": "3. Nature & Character of the Organization",
+      "description1": "LiSu Foundation is a non-political, non-profit, humanitarian, and social welfare organization.",
+      "description2": "The organization is dedicated to improving the lives of the poor, orphans, widows, disaster-affected people, and other underprivileged populations."
+    },
+    "section4": {
+      "title": "4. Objectives",
+      "primaryTitle": "4.1 Primary Objectives",
+      "primaryObjectives": [
+        "To provide comprehensive support to the poor and underprivileged",
+        "To support the welfare, education, and moral development of orphans and children in remote areas",
+        "To ensure access to safe drinking water by installing tube wells and deep tube wells",
+        "To construct houses and provide shelter for homeless and disadvantaged individuals",
+        "To implement humanitarian programs including Ramadan food distribution, Qurbani, winter clothing, Iftar, and Sadaqah projects",
+        "To conduct healthcare services, medical assistance, and other humanitarian welfare programs",
+        "To build cooperation, compassion, and a humanitarian bridge between wealthy and underprivileged communities",
+        "To carry out charity, Sadaqah, and welfare activities in accordance with Islamic values and principles",
+        "To provide educational scholarships and financial assistance to poor and meritorious students (schools, madrasas, and orphans)",
+        "To assist in funeral arrangements, burial, and graveyard-related support for deceased underprivileged Muslims"
+      ],
+      "additionalTitle": "4.2 Additional Objectives",
+      "additionalObjectives": [
+        "To provide disaster relief during floods, storms, cyclones, or emergencies",
+        "To create employment opportunities for the unemployed",
+        "To collaborate with donors for special humanitarian projects",
+        "To enhance community awareness and human development",
+        "To engage Bangladeshi expatriates in social welfare activities"
+      ]
+    },
+    "section5": {
+      "title": "5. Membership",
+      "categoriesTitle": "5.1 Categories of Members",
+      "categories": [
+        "Lifetime Members",
+        "General Members",
+        "Honorary Members (donors or individuals with special contribution)"
+      ],
+      "qualificationsTitle": "5.2 Qualifications for Membership",
+      "qualifications": [
+        "Must be 18 years or older",
+        "Must possess good moral character",
+        "Must accept and uphold the objectives of the organization",
+        "Must submit the membership form and be approved by the Executive Committee"
+      ]
+    },
+    "section6": {
+      "title": "6. Executive Committee",
+      "structureTitle": "6.1 Structure of the Executive Committee",
+      "structure": [
+        "President",
+        "Executive Director",
+        "Vice President",
+        "General Secretary",
+        "Joint Secretary",
+        "Treasurer",
+        "Office Secretary",
+        "Members (5–10 persons)"
+      ],
+      "termTitle": "6.2 Term of the Committee",
+      "term": "The term of the Executive Committee shall be 5 years, and may be reformed or renewed as necessary."
+    },
+    "section7": {
+      "title": "7. Meetings",
+      "meetings": [
+        "The Executive Committee shall meet once every 3 months",
+        "Emergency meetings may be called when necessary",
+        "Decisions shall be made by majority vote",
+        "In the absence of the President, the Executive Director shall preside"
+      ]
+    },
+    "section8": {
+      "title": "8. Financial Management",
+      "points": [
+        "The organization is strictly non-profit; no member shall receive financial gain",
+        "Funds may be collected through donations, zakat, sadaqah, charity, and local or international support",
+        "All financial transactions must be handled through the organization's bank account",
+        "Annual financial statements must be audited",
+        "All funds must be used exclusively for humanitarian and welfare activities"
+      ]
+    },
+    "section9": {
+      "title": "9. Violation of Rules",
+      "description": "Any member violating the constitution, organizational ethics, or Islamic principles may face:",
+      "violations": [
+        "Written warning",
+        "Temporary suspension",
+        "Permanent removal from membership"
+      ]
+    },
+    "section10": {
+      "title": "10. Amendment of the Constitution",
+      "description": "This constitution may be amended by a two-thirds majority vote of the general meeting."
+    },
+    "section11": {
+      "title": "11. Dissolution of the Organization",
+      "description": "In case of dissolution:",
+      "points": [
+        "All assets shall be used for humanitarian purposes",
+        "No member may claim personal benefit"
+      ]
+    },
+    "section12": {
+      "title": "12. Islamic Ethical Principles",
+      "description": "LiSu Foundation shall operate based on:",
+      "principles": [
+        "Truthfulness and integrity",
+        "Charity, compassion, and justice",
+        "Serving humanity for the sake of Allah",
+        "Avoiding any activity contrary to Islamic values"
+      ]
+    }
   },
   "footer": {
     "description": "A non-political, non-profit, humanitarian development organization dedicated to improving lives and serving humanity.",

@@ -40,6 +40,7 @@ export default function Header() {
     { href: "/executive-board?type=lifetime", label: t("lifetimeMembers") },
     { href: "/executive-board?type=general", label: t("generalMembers") },
     { href: "/executive-board?type=honorary", label: t("honoraryMembers") },
+    { href: "/constitution", label: t("constitution") },
   ];
 
   const navLinks = [
@@ -94,7 +95,7 @@ export default function Header() {
               <button
                 onClick={() => setIsOrgChartOpen(!isOrgChartOpen)}
                 className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 flex items-center space-x-1 ${
-                  pathname.includes("/executive-board")
+                  pathname.includes("/executive-board") || pathname.includes("/constitution")
                     ? "text-primary-600 bg-primary-50"
                     : "text-gray-700 hover:text-primary-600 hover:bg-primary-50"
                 }`}
@@ -159,7 +160,7 @@ export default function Header() {
                 <button
                   onClick={() => setIsMobileOrgChartOpen(!isMobileOrgChartOpen)}
                   className={`w-full px-4 py-3 rounded-lg font-medium transition-all flex items-center justify-between ${
-                    pathname.includes("/executive-board")
+                    pathname.includes("/executive-board") || pathname.includes("/constitution")
                       ? "text-primary-600 bg-primary-50"
                       : "text-gray-700 hover:bg-primary-50 hover:text-primary-600"
                   }`}
