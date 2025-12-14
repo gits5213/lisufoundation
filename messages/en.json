@@ -227,7 +227,33 @@
     "occupation": "Occupation",
     "reason": "Why do you want to join LiSu Foundation?",
     "reasonPlaceholder": "Please share your motivation for joining our organization...",
-    "reviewNote": "Your application will be reviewed by the Executive Committee."
+    "reviewNote": "Your application will be reviewed by the Executive Committee.",
+    "submitApplication": "Submit Application",
+    "requiredFields": "Required fields. Your application will be reviewed by the Executive Committee.",
+    "thankYouMessage": "Thank you for your interest! Your application will be reviewed by the Executive Committee.",
+    "membershipTypes": [
+      {
+        "id": "lifetime",
+        "name": "Lifetime Member",
+        "description": "Dedicated members committed to long-term support"
+      },
+      {
+        "id": "general",
+        "name": "General Member",
+        "description": "Active members participating in regular activities"
+      },
+      {
+        "id": "honorary",
+        "name": "Honorary Member",
+        "description": "Donors or individuals with special contributions"
+      }
+    ],
+    "qualifications": [
+      "Must be 18 years or older",
+      "Must possess good moral character",
+      "Must accept and uphold the objectives of the organization",
+      "Must submit the membership form and be approved by the Executive Committee"
+    ]
   },
   "contact": {
     "title": "Contact Us",
@@ -235,9 +261,17 @@
     "formTitle": "Send Us a Message",
     "formSubtitle": "Fill out the form below and we'll get back to you as soon as possible",
     "name": "Your Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
     "subject": "Subject",
     "message": "Message",
-    "messagePlaceholder": "Please share your message or inquiry..."
+    "messagePlaceholder": "Please share your message or inquiry...",
+    "sendMessage": "Send Message",
+    "thankYouMessage": "Thank you for your message! We will get back to you soon.",
+    "address": "Address",
+    "addressValue": "KAYA KORI, KANDAPARA (Baligange Bazar)\nNAKLA, SHERPUR, MYMENSINGH\nBANGLADESH",
+    "phoneValue": "+880 XXX-XXXXXXX",
+    "emailValue": "info@lisufoundation.org"
   },
   "donate": {
     "title": "Support Our Cause",
@@ -256,7 +290,82 @@
     "subtitle": "Explore our activities and see the impact we're making in communities",
     "shareTitle": "Share Your Photos",
     "shareDescription": "If you have photos from our activities that you'd like to share, please contact us. We'd love to add them to our gallery!",
-    "noItems": "No items found in this category."
+    "noItems": "No items found in this category.",
+    "contactUs": "Contact Us",
+    "categories": [
+      { "id": "all", "name": "All Activities" },
+      { "id": "education", "name": "Education" },
+      { "id": "healthcare", "name": "Healthcare" },
+      { "id": "humanitarian", "name": "Humanitarian Aid" },
+      { "id": "water", "name": "Water Projects" },
+      { "id": "housing", "name": "Housing" },
+      { "id": "disaster", "name": "Disaster Relief" }
+    ],
+    "items": [
+      {
+        "id": 1,
+        "category": "education",
+        "title": "Scholarship Distribution",
+        "date": "2024",
+        "location": "Sherpur, Mymensingh"
+      },
+      {
+        "id": 2,
+        "category": "humanitarian",
+        "title": "Ramadan Food Distribution",
+        "date": "2024",
+        "location": "Nakla, Sherpur"
+      },
+      {
+        "id": 3,
+        "category": "water",
+        "title": "Tube Well Installation",
+        "date": "2024",
+        "location": "Kandapara"
+      },
+      {
+        "id": 4,
+        "category": "healthcare",
+        "title": "Medical Camp",
+        "date": "2024",
+        "location": "Baligange Bazar"
+      },
+      {
+        "id": 5,
+        "category": "housing",
+        "title": "House Construction",
+        "date": "2024",
+        "location": "Sherpur"
+      },
+      {
+        "id": 6,
+        "category": "humanitarian",
+        "title": "Winter Clothing Distribution",
+        "date": "2024",
+        "location": "Mymensingh"
+      },
+      {
+        "id": 7,
+        "category": "education",
+        "title": "Orphan Support Program",
+        "date": "2024",
+        "location": "Nakla"
+      },
+      {
+        "id": 8,
+        "category": "disaster",
+        "title": "Flood Relief Distribution",
+        "date": "2024",
+        "location": "Sherpur"
+      },
+      {
+        "id": 9,
+        "category": "humanitarian",
+        "title": "Qurbani Program",
+        "date": "2024",
+        "location": "Kandapara"
+      }
+    ]
   },
   "executiveBoard": {
     "title": "Executive Committee",
@@ -265,7 +374,56 @@
     "structureSubtitle": "Our Executive Committee consists of dedicated individuals working together for a common cause",
     "membersTitle": "Current Committee Members",
     "membersSubtitle": "Meet the dedicated individuals leading LiSu Foundation",
-    "governanceTitle": "Governance & Meetings"
+    "governanceTitle": "Governance & Meetings",
+    "toBeAnnounced": "To be announced",
+    "committeeStructure": [
+      {
+        "position": "President",
+        "description": "Leads the organization and presides over meetings"
+      },
+      {
+        "position": "Executive Director",
+        "description": "Oversees day-to-day operations and presides in President's absence"
+      },
+      {
+        "position": "Vice President",
+        "description": "Supports the President and assumes duties when needed"
+      },
+      {
+        "position": "General Secretary",
+        "description": "Manages organizational records and communications"
+      },
+      {
+        "position": "Joint Secretary",
+        "description": "Assists the General Secretary in administrative duties"
+      },
+      {
+        "position": "Treasurer",
+        "description": "Manages financial affairs and maintains accounts"
+      },
+      {
+        "position": "Office Secretary",
+        "description": "Handles office administration and documentation"
+      },
+      {
+        "position": "Members (5-10 persons)",
+        "description": "Active committee members contributing to decision-making"
+      }
+    ],
+    "meetingInfo": [
+      {
+        "title": "Regular Meetings",
+        "description": "The Executive Committee meets once every 3 months to discuss organizational matters and make decisions."
+      },
+      {
+        "title": "Decision Making",
+        "description": "All decisions are made by majority vote, ensuring democratic governance and collective wisdom."
+      },
+      {
+        "title": "Term Duration",
+        "description": "The Executive Committee serves a 2-year term and may be reformed or renewed as necessary."
+      }
+    ]
   },
   "footer": {
     "description": "A non-political, non-profit, humanitarian development organization dedicated to improving lives and serving humanity.",

@@ -3,86 +3,28 @@
 import { motion } from "framer-motion";
 import { Image as ImageIcon, Calendar, MapPin } from "lucide-react";
 import { useState } from "react";
+import { useTranslations, useLocale } from "next-intl";
+import Link from "next/link";
 
 export default function GalleryPage() {
+  const t = useTranslations("gallery");
+  const locale = useLocale();
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  const categories = [
-    { id: "all", name: "All Activities" },
-    { id: "education", name: "Education" },
-    { id: "healthcare", name: "Healthcare" },
-    { id: "humanitarian", name: "Humanitarian Aid" },
-    { id: "water", name: "Water Projects" },
-    { id: "housing", name: "Housing" },
-    { id: "disaster", name: "Disaster Relief" },
-  ];
+  const getLocalizedHref = (href: string) => `/${locale}${href}`;
 
-  // Placeholder gallery items - replace with actual images
-  const galleryItems = [
-    {
-      id: 1,
-      category: "education",
-      title: "Scholarship Distribution",
-      date: "2024",
-      location: "Sherpur, Mymensingh",
-    },
-    {
-      id: 2,
-      category: "humanitarian",
-      title: "Ramadan Food Distribution",
-      date: "2024",
-      location: "Nakla, Sherpur",
-    },
-    {
-      id: 3,
-      category: "water",
-      title: "Tube Well Installation",
-      date: "2024",
-      location: "Kandapara",
-    },
-    {
-      id: 4,
-      category: "healthcare",
-      title: "Medical Camp",
-      date: "2024",
-      location: "Baligange Bazar",
-    },
-    {
-      id: 5,
-      category: "housing",
-      title: "House Construction",
-      date: "2024",
-      location: "Sherpur",
-    },
-    {
-      id: 6,
-      category: "humanitarian",
-      title: "Winter Clothing Distribution",
-      date: "2024",
-      location: "Mymensingh",
-    },
-    {
-      id: 7,
-      category: "education",
-      title: "Orphan Support Program",
-      date: "2024",
-      location: "Nakla",
-    },
-    {
-      id: 8,
-      category: "disaster",
-      title: "Flood Relief Distribution",
-      date: "2024",
-      location: "Sherpur",
-    },
-    {
-      id: 9,
-      category: "humanitarian",
-      title: "Qurbani Program",
-      date: "2024",
-      location: "Kandapara",
-    },
-  ];
+  const categories = t.raw("categories") as Array<{
+    id: string;
+    name: string;
+  }>;
+
+  const galleryItems = t.raw("items") as Array<{
+    id: number;
+    category: string;
+    title: string;
+    date: string;
+    location: string;
+  }>;
 
   const filteredItems =
     selectedCategory === "all"
@@ -100,9 +42,9 @@ export default function GalleryPage() {
             transition={{ duration: 0.6 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Gallery</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t("title")}</h1>
             <p className="text-xl text-primary-100 leading-relaxed">
-              Explore our activities and see the impact we&apos;re making in communities
+              {t("subtitle")}
             </p>
           </motion.div>
         </div>
@@ -166,7 +108,7 @@ export default function GalleryPage() {
           ) : (
             <div className="text-center py-16">
               <ImageIcon className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-600 text-lg">No items found in this category.</p>
+              <p className="text-gray-600 text-lg">{t("noItems")}</p>
             </div>
           )}
         </div>
@@ -182,18 +124,17 @@ export default function GalleryPage() {
             className="max-w-3xl mx-auto text-center bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl p-12"
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Share Your Photos
+              {t("shareTitle")}
             </h2>
             <p className="text-lg text-gray-700 mb-6">
-              If you have photos from our activities that you&apos;d like to share, please contact us.
-              We&apos;d love to add them to our gallery!
+              {t("shareDescription")}
             </p>
-            <a
-              href="/contact"
+            <Link
+              href={getLocalizedHref("/contact")}
               className="inline-flex items-center px-8 py-4 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-all duration-200 shadow-lg hover:shadow-xl"
             >
-              Contact Us
-            </a>
+              {t("contactUs")}
+            </Link>
           </motion.div>
         </div>
       </section>

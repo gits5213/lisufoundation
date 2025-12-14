@@ -2,46 +2,32 @@
 
 import { motion } from "framer-motion";
 import { Users, User, Award, Calendar, Gavel } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function ExecutiveBoardPage() {
-  const committeeStructure = [
-    { position: "President", description: "Leads the organization and presides over meetings" },
-    { position: "Executive Director", description: "Oversees day-to-day operations and presides in President's absence" },
-    { position: "Vice President", description: "Supports the President and assumes duties when needed" },
-    { position: "General Secretary", description: "Manages organizational records and communications" },
-    { position: "Joint Secretary", description: "Assists the General Secretary in administrative duties" },
-    { position: "Treasurer", description: "Manages financial affairs and maintains accounts" },
-    { position: "Office Secretary", description: "Handles office administration and documentation" },
-    { position: "Members (5-10 persons)", description: "Active committee members contributing to decision-making" },
-  ];
+  const t = useTranslations("executiveBoard");
 
-  const meetingInfo = [
-    {
-      icon: Calendar,
-      title: "Regular Meetings",
-      description: "The Executive Committee meets once every 3 months to discuss organizational matters and make decisions.",
-    },
-    {
-      icon: Gavel,
-      title: "Decision Making",
-      description: "All decisions are made by majority vote, ensuring democratic governance and collective wisdom.",
-    },
-    {
-      icon: Award,
-      title: "Term Duration",
-      description: "The Executive Committee serves a 2-year term and may be reformed or renewed as necessary.",
-    },
-  ];
+  const committeeStructure = t.raw("committeeStructure") as Array<{
+    position: string;
+    description: string;
+  }>;
+
+  const meetingInfo = t.raw("meetingInfo") as Array<{
+    title: string;
+    description: string;
+  }>;
+
+  const iconMap = [Calendar, Gavel, Award];
 
   // Placeholder for actual committee members - to be updated with real data
   const committeeMembers = [
-    { name: "To be announced", position: "President" },
-    { name: "To be announced", position: "Executive Director" },
-    { name: "To be announced", position: "Vice President" },
-    { name: "To be announced", position: "General Secretary" },
-    { name: "To be announced", position: "Joint Secretary" },
-    { name: "To be announced", position: "Treasurer" },
-    { name: "To be announced", position: "Office Secretary" },
+    { name: t("toBeAnnounced"), position: committeeStructure[0]?.position || "" },
+    { name: t("toBeAnnounced"), position: committeeStructure[1]?.position || "" },
+    { name: t("toBeAnnounced"), position: committeeStructure[2]?.position || "" },
+    { name: t("toBeAnnounced"), position: committeeStructure[3]?.position || "" },
+    { name: t("toBeAnnounced"), position: committeeStructure[4]?.position || "" },
+    { name: t("toBeAnnounced"), position: committeeStructure[5]?.position || "" },
+    { name: t("toBeAnnounced"), position: committeeStructure[6]?.position || "" },
   ];
 
   return (
@@ -55,9 +41,9 @@ export default function ExecutiveBoardPage() {
             transition={{ duration: 0.6 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Executive Committee</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t("title")}</h1>
             <p className="text-xl text-primary-100 leading-relaxed">
-              Dedicated leaders committed to serving humanity and advancing our mission
+              {t("subtitle")}
             </p>
           </motion.div>
         </div>
@@ -74,10 +60,10 @@ export default function ExecutiveBoardPage() {
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 flex items-center justify-center">
               <Users className="h-8 w-8 text-primary-600 mr-3" />
-              Committee Structure
+              {t("structureTitle")}
             </h2>
             <p className="text-lg text-gray-600">
-              Our Executive Committee consists of dedicated individuals working together for a common cause
+              {t("structureSubtitle")}
             </p>
           </motion.div>
 
@@ -112,10 +98,10 @@ export default function ExecutiveBoardPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Current Committee Members
+              {t("membersTitle")}
             </h2>
             <p className="text-lg text-gray-600">
-              Meet the dedicated individuals leading LiSu Foundation
+              {t("membersSubtitle")}
             </p>
           </motion.div>
 
@@ -150,27 +136,30 @@ export default function ExecutiveBoardPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Governance & Meetings
+              {t("governanceTitle")}
             </h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {meetingInfo.map((info, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-xl p-6 shadow-lg"
-              >
-                <div className="w-12 h-12 bg-gradient-to-br from-primary-600 to-primary-700 rounded-lg flex items-center justify-center mb-4">
-                  <info.icon className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{info.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{info.description}</p>
-              </motion.div>
-            ))}
+            {meetingInfo.map((info, index) => {
+              const Icon = iconMap[index] || Calendar;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white rounded-xl p-6 shadow-lg"
+                >
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary-600 to-primary-700 rounded-lg flex items-center justify-center mb-4">
+                    <Icon className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{info.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{info.description}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>

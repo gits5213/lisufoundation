@@ -3,8 +3,12 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { MapPin, Phone, Mail, Send, MessageSquare } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
 
 export default function ContactPage() {
+  const t = useTranslations("contact");
+  const locale = useLocale();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,8 +19,7 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    alert("Thank you for your message! We will get back to you soon.");
+    alert(t("thankYouMessage"));
     setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
   };
 
@@ -30,28 +33,20 @@ export default function ContactPage() {
   const contactInfo = [
     {
       icon: MapPin,
-      title: "Address",
-      content: (
-        <>
-          KAYA KORI, KANDAPARA (Baligange Bazar)
-          <br />
-          NAKLA, SHERPUR, MYMENSINGH
-          <br />
-          BANGLADESH
-        </>
-      ),
+      title: t("address"),
+      content: t("addressValue"),
       color: "from-blue-500 to-blue-600",
     },
     {
       icon: Phone,
-      title: "Phone",
-      content: "+880 XXX-XXXXXXX",
+      title: t("phone"),
+      content: t("phoneValue"),
       color: "from-green-500 to-green-600",
     },
     {
       icon: Mail,
-      title: "Email",
-      content: "info@lisufoundation.org",
+      title: t("email"),
+      content: t("emailValue"),
       color: "from-purple-500 to-purple-600",
     },
   ];
@@ -67,9 +62,9 @@ export default function ContactPage() {
             transition={{ duration: 0.6 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t("title")}</h1>
             <p className="text-xl text-primary-100 leading-relaxed">
-              Get in touch with us. We&apos;d love to hear from you and answer any questions you may have.
+              {t("subtitle")}
             </p>
           </motion.div>
         </div>
@@ -92,7 +87,7 @@ export default function ContactPage() {
                   <info.icon className="h-7 w-7 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{info.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{info.content}</p>
+                <p className="text-gray-600 leading-relaxed whitespace-pre-line">{info.content}</p>
               </motion.div>
             ))}
           </div>
@@ -111,10 +106,10 @@ export default function ContactPage() {
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-4 flex items-center justify-center">
                 <MessageSquare className="h-8 w-8 text-primary-600 mr-3" />
-                Send Us a Message
+                {t("formTitle")}
               </h2>
               <p className="text-gray-600">
-                Fill out the form below and we&apos;ll get back to you as soon as possible
+                {t("formSubtitle")}
               </p>
             </div>
 
@@ -122,7 +117,7 @@ export default function ContactPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    Your Name *
+                    {t("name")} *
                   </label>
                   <input
                     type="text"
@@ -137,7 +132,7 @@ export default function ContactPage() {
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email Address *
+                    {t("email")} *
                   </label>
                   <input
                     type="email"
@@ -154,7 +149,7 @@ export default function ContactPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                    Phone Number
+                    {t("phone")}
                   </label>
                   <input
                     type="tel"
@@ -168,7 +163,7 @@ export default function ContactPage() {
 
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                    Subject *
+                    {t("subject")} *
                   </label>
                   <input
                     type="text"
@@ -184,7 +179,7 @@ export default function ContactPage() {
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Message *
+                  {t("message")} *
                 </label>
                 <textarea
                   id="message"
@@ -194,7 +189,7 @@ export default function ContactPage() {
                   value={formData.message}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent"
-                  placeholder="Please share your message or inquiry..."
+                  placeholder={t("messagePlaceholder")}
                 />
               </div>
 
@@ -204,7 +199,7 @@ export default function ContactPage() {
                   className="w-full bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold py-4 rounded-lg hover:from-primary-700 hover:to-primary-800 transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
                 >
                   <Send className="h-5 w-5 mr-2" />
-                  Send Message
+                  {t("sendMessage")}
                 </button>
               </div>
             </form>

@@ -19,7 +19,7 @@ export const config = {
     /*
      * Match all request paths except for the ones starting with:
      * - api (API routes)
-     * - _next (all Next.js internal routes including static, image, webpack, etc.)
+     * - _next (all Next.js internal routes including static, image, webpack, fallback, etc.)
      * - favicon.ico (favicon file)
      * - .well-known (well-known files)
      * - files with extensions (e.g. .png, .jpg, etc.)
