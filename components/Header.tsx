@@ -48,8 +48,6 @@ export default function Header() {
     { href: "/about", label: t("about") },
     { href: "/programs", label: t("programs") },
     { href: "/membership", label: t("membership") },
-    { href: "/gallery", label: t("gallery") },
-    { href: "/contact", label: t("contact") },
     { href: "/donate", label: t("donate"), highlight: true },
   ];
 
