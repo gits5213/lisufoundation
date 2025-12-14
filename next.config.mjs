@@ -6,6 +6,11 @@ const withNextIntl = createNextIntlPlugin('./i18n.ts');
 const nextConfig = {
   reactStrictMode: true,
   output: 'export', // Enable static export for GitHub Pages
+  // Set basePath based on CUSTOM_DOMAIN environment variable
+  // If CUSTOM_DOMAIN is true, use root path (for custom domain)
+  // Otherwise, use repository name as base path
+  basePath: process.env.CUSTOM_DOMAIN === 'true' ? '' : '/lisufoundation',
+  assetPrefix: process.env.CUSTOM_DOMAIN === 'true' ? '' : '/lisufoundation',
   images: {
     unoptimized: true, // Required for static export
     remotePatterns: [],

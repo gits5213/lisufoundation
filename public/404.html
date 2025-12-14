@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting to LiSu Foundation...</title>
+  <script>
+    // Get the current path
+    const path = window.location.pathname;
+    const basePath = window.location.pathname.split('/')[1] === 'lisufoundation' ? '/lisufoundation' : '';
+    
+    // Check if path starts with /en or /bn
+    if (path.startsWith('/en') || path.startsWith('/bn')) {
+      // Already has locale, just reload
+      window.location.reload();
+    } else if (path === '/' || path === '/index.html') {
+      // Redirect root to /en
+      window.location.replace(basePath + '/en');
+    } else {
+      // Redirect to /en (default locale) with the current path
+      const newPath = basePath + '/en' + (path === '/' ? '' : path);
+      window.location.replace(newPath);
+    }
+  </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=/en">
+  </noscript>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
