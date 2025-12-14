@@ -73,3 +73,28 @@ You can also trigger deployment manually:
 - Clear browser cache
 - Check GitHub Actions workflow completed successfully
 - Verify the `out` directory is being generated correctly
+
+### 404 Errors After Deployment
+
+**If using Custom Domain (CUSTOM_DOMAIN=true):**
+1. Ensure `CNAME` file exists in repository root with your domain
+2. Verify GitHub Pages Settings → Custom domain is set correctly
+3. Check DNS configuration points to GitHub Pages
+4. Access site via your custom domain (not github.io subdomain)
+
+**If NOT using Custom Domain:**
+1. Set `CUSTOM_DOMAIN` variable to `false` or remove it
+2. Access site at: `https://gits5213.github.io/lisufoundation/en`
+3. All routes must include `/lisufoundation` prefix
+
+### Images Not Showing
+
+**For Custom Domain:**
+- Images should work automatically with basePath=''
+- Verify images are in `public/` directory
+- Check browser console for 404 errors on image paths
+
+**For GitHub Pages Subdomain:**
+- Ensure CUSTOM_DOMAIN is set to `false`
+- Images will be served from `/lisufoundation/logo.png` etc.
+- Check that basePath is set to `/lisufoundation` in build output
