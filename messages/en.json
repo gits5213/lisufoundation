@@ -53,8 +53,45 @@
     "objectivesSubtitle": "Our mission is guided by clear objectives to serve humanity effectively",
     "primaryObjectives": "Primary Objectives",
     "additionalObjectives": "Additional Objectives",
+    "primaryObjectivesList": [
+      "Provide comprehensive support to the poor and underprivileged",
+      "Support welfare, education, and moral development of orphans and children in remote areas",
+      "Ensure access to safe drinking water by installing tube wells and deep tube wells",
+      "Construct houses and provide shelter for homeless and disadvantaged individuals",
+      "Implement humanitarian programs including Ramadan food distribution, Qurbani, winter clothing, Iftar, and Sadaqah projects",
+      "Conduct healthcare services, medical assistance, and other humanitarian welfare programs",
+      "Build cooperation, compassion, and a humanitarian bridge between wealthy and underprivileged communities",
+      "Carry out charity, Sadaqah, and welfare activities in accordance with Islamic values and principles",
+      "Provide educational scholarships and financial assistance to poor and meritorious students",
+      "Assist in funeral arrangements, burial, and graveyard-related support for deceased underprivileged Muslims"
+    ],
+    "additionalObjectivesList": [
+      "Provide disaster relief during floods, storms, cyclones, or emergencies",
+      "Create employment opportunities for the unemployed",
+      "Collaborate with donors for special humanitarian projects",
+      "Enhance community awareness and human development",
+      "Engage Bangladeshi expatriates in social welfare activities"
+    ],
     "valuesTitle": "Islamic Ethical Principles",
-    "valuesSubtitle": "LiSu Foundation operates based on core Islamic values and ethical principles"
+    "valuesSubtitle": "LiSu Foundation operates based on core Islamic values and ethical principles",
+    "values": {
+      "truthfulness": {
+        "title": "Truthfulness & Integrity",
+        "description": "Operating with honesty and transparency in all our activities"
+      },
+      "charity": {
+        "title": "Charity & Compassion",
+        "description": "Serving humanity with empathy and care for those in need"
+      },
+      "justice": {
+        "title": "Justice",
+        "description": "Ensuring fair and equitable distribution of resources and support"
+      },
+      "islamic": {
+        "title": "Islamic Values",
+        "description": "Following Islamic principles in all our humanitarian work"
+      }
+    }
   },
   "programs": {
     "title": "Our Programs & Services",
