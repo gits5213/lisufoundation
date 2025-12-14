@@ -175,9 +175,18 @@ export default function Footer() {
               © {currentYear} {tCommon("organizationName")}. {t("rights")}
             </p>
             <p className="text-sm flex items-center space-x-1">
-              <span>{t("madeWith")}</span>
-              <Heart className="h-4 w-4 text-primary-400" fill="currentColor" />
-              <span>{t("forHumanity")}</span>
+              {locale === 'bn' ? (
+                <>
+                  <span>{t("madeWith")}</span>
+                  <Heart className="h-4 w-4 text-primary-400" fill="currentColor" />
+                </>
+              ) : (
+                <>
+                  <span>{t("madeWith")}</span>
+                  <Heart className="h-4 w-4 text-primary-400" fill="currentColor" />
+                  <span>{t("forHumanity")}</span>
+                </>
+              )}
             </p>
           </div>
         </div>
