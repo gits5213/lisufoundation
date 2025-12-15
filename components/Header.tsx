@@ -11,13 +11,14 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isOrgChartOpen, setIsOrgChartOpen] = useState(false);
   const [isMobileOrgChartOpen, setIsMobileOrgChartOpen] = useState(false);
-  const [basePath, setBasePath] = useState('');
+  // Initialize with default basePath for GitHub Pages (will be updated on client if different)
+  const [basePath, setBasePath] = useState('/lisufoundation');
   const dropdownRef = useRef<HTMLDivElement>(null);
   const t = useTranslations("common");
   const locale = useLocale();
   const pathname = usePathname();
 
-  // Detect basePath for GitHub Pages
+  // Detect basePath for GitHub Pages and update if needed
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const path = window.location.pathname;
@@ -63,7 +64,7 @@ export default function Header() {
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative h-12 w-12 group-hover:scale-105 transition-transform">
               <Image
-                src={basePath ? `${basePath}/lisulogo.png` : '/lisulogo.png'}
+                src={`${basePath || initialBasePath}/lisulogo.png`}
                 alt="LiSu Foundation Logo"
                 fill
                 className="object-contain"

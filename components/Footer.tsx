@@ -15,6 +15,7 @@ export default function Footer() {
   const locale = useLocale();
 
   // Detect basePath for GitHub Pages
+  // Initialize with default basePath for GitHub Pages (will be updated on client if different)
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const path = window.location.pathname;
@@ -22,6 +23,9 @@ export default function Footer() {
       setBasePath(detectedBasePath);
     }
   }, []);
+  
+  // Set initial basePath for static export (GitHub Pages)
+  const initialBasePath = '/lisufoundation';
 
   // Use next-intl's Link component which handles basePath automatically
 
@@ -55,7 +59,7 @@ export default function Footer() {
             <div className="flex items-center space-x-2">
               <div className="relative h-10 w-10">
                 <Image
-                  src={basePath ? `${basePath}/lisulogo.png` : '/lisulogo.png'}
+                  src={`${basePath || initialBasePath}/lisulogo.png`}
                   alt="LiSu Foundation Logo"
                   fill
                   className="object-contain"
