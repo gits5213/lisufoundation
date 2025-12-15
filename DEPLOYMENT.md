@@ -81,11 +81,27 @@ You can also trigger deployment manually:
 2. Verify GitHub Pages Settings → Custom domain is set correctly
 3. Check DNS configuration points to GitHub Pages
 4. Access site via your custom domain (not github.io subdomain)
+5. The `404.html` file will redirect to `/en` automatically
 
 **If NOT using Custom Domain:**
 1. Set `CUSTOM_DOMAIN` variable to `false` or remove it
 2. Access site at: `https://gits5213.github.io/lisufoundation/en`
 3. All routes must include `/lisufoundation` prefix
+4. The `404.html` file will redirect to `/lisufoundation/en` automatically
+5. **Important**: All navigation links now use next-intl's Link component which automatically handles basePath
+
+### Nothing Works After Deployment
+
+If the entire site shows 404 errors:
+1. **Check GitHub Actions workflow**: Ensure the build completed successfully
+2. **Verify basePath**: Check that `CUSTOM_DOMAIN` variable matches your deployment type
+3. **Check asset paths**: All assets should include `/lisufoundation` prefix if not using custom domain
+4. **Clear browser cache**: Hard refresh (Ctrl+Shift+R or Cmd+Shift+R)
+5. **Verify routing**: Ensure you're accessing the correct URL:
+   - Custom domain: `https://yourdomain.com/en`
+   - Subdomain: `https://gits5213.github.io/lisufoundation/en`
+6. **Check 404.html**: The file should be in `out/404.html` after build
+7. **Check index.html**: The file should redirect to the correct locale path
 
 ### Images Not Showing
 

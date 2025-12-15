@@ -4,13 +4,23 @@ import Image from "next/image";
 import { Heart, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Users, Linkedin, Github, Globe } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/routing";
+import { useState, useEffect } from "react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const [basePath, setBasePath] = useState('');
   const t = useTranslations("footer");
   const tCommon = useTranslations("common");
   const tContact = useTranslations("contact");
   const locale = useLocale();
+
+  // Detect basePath for GitHub Pages
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const path = window.location.pathname;
+      setBasePath(path.startsWith('/lisufoundation') ? '/lisufoundation' : '');
+    }
+  }, []);
 
   // Use next-intl's Link component which handles basePath automatically
 
@@ -44,7 +54,7 @@ export default function Footer() {
             <div className="flex items-center space-x-2">
               <div className="relative h-10 w-10">
                 <Image
-                  src="/logo.png"
+                  src={`${basePath}/logo.png`}
                   alt="LiSu Foundation Logo"
                   fill
                   className="object-contain"

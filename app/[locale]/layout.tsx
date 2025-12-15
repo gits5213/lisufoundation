@@ -11,20 +11,29 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
+// Get basePath for static assets
+const getBasePath = () => {
+  if (process.env.NODE_ENV === 'production') {
+    return process.env.CUSTOM_DOMAIN === 'true' ? '' : '/lisufoundation';
+  }
+  return '';
+};
+
 export async function generateMetadata({
   params
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  const basePath = getBasePath();
   
   return {
     title: 'LiSu Foundation - Humanitarian Development Organization',
     description: 'LiSu Foundation is a non-political, non-profit, humanitarian development organization dedicated to improving the lives of the poor, orphans, widows, and disaster-affected people in Bangladesh.',
     icons: {
-      icon: '/favicon.ico',
-      shortcut: '/favicon.ico',
-      apple: '/logo.png',
+      icon: `${basePath}/favicon.ico`,
+      shortcut: `${basePath}/favicon.ico`,
+      apple: `${basePath}/logo.png`,
     },
   };
 }
@@ -47,12 +56,14 @@ export default async function LocaleLayout({
   // side is the easiest way to get started
   const messages = await getMessages({ locale });
 
+  const basePath = getBasePath();
+  
   return (
     <html lang={locale}>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/logo.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/logo.png" />
+        <link rel="icon" href={`${basePath}/favicon.ico`} sizes="any" />
+        <link rel="icon" href={`${basePath}/logo.png`} type="image/png" />
+        <link rel="apple-touch-icon" href={`${basePath}/logo.png`} />
       </head>
       <body className="min-h-screen flex flex-col">
         <NextIntlClientProvider locale={locale} messages={messages}>

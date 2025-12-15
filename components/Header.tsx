@@ -11,13 +11,21 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isOrgChartOpen, setIsOrgChartOpen] = useState(false);
   const [isMobileOrgChartOpen, setIsMobileOrgChartOpen] = useState(false);
+  const [basePath, setBasePath] = useState('');
   const dropdownRef = useRef<HTMLDivElement>(null);
   const t = useTranslations("common");
   const locale = useLocale();
   const pathname = usePathname();
 
-  // Use next-intl's Link component which handles basePath automatically
-  // No need for manual href construction
+  // Detect basePath for GitHub Pages - check both pathname and window location
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // Check pathname first (from next-intl routing)
+      const path = pathname || window.location.pathname;
+      const detectedBasePath = path.startsWith('/lisufoundation') ? '/lisufoundation' : '';
+      setBasePath(detectedBasePath);
+    }
+  }, [pathname]);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -57,7 +65,7 @@ export default function Header() {
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative h-12 w-12 group-hover:scale-105 transition-transform">
               <Image
-                src="/logo.png"
+                src={`${basePath}/logo.png`}
                 alt="LiSu Foundation Logo"
                 fill
                 className="object-contain"
