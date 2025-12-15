@@ -381,7 +381,7 @@ export default function ConstitutionPage() {
             >
               <div className="flex items-start mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-primary-600 to-primary-700 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                  <Image className="h-6 w-6 text-white" alt="" />
+                  <Image className="h-6 w-6 text-white" aria-hidden="true" />
                 </div>
                 <div className="flex-grow">
                   <h2 className="text-2xl font-bold text-gray-900 mb-6">{t("section13.title")}</h2>
