@@ -15,6 +15,7 @@
     "gallery": "Gallery",
     "contact": "Contact",
     "donate": "Donate",
+    "howItWorks": "How It Works",
     "learnMore": "Learn More",
     "donateNow": "Donate Now",
     "viewAll": "View All Programs",
@@ -1068,6 +1069,43 @@
         "title": "Contact Us",
         "content": "For refund inquiries or to request a refund, please contact us at info@lisufoundation.org with your transaction details."
       }
+    }
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "subtitle": "Our transparent process for providing humanitarian support",
+    "steps": {
+      "step1": {
+        "title": "Application Submission",
+        "description": "Individuals or volunteer members submit an application based on the specific humanitarian program they are seeking support for (add programs link).",
+        "programsLink": "programs"
+      },
+      "step2": {
+        "title": "Physical Verification",
+        "description": "After receiving the application, an Executive Committee member conducts a physical, on-site verification to assess the applicant's situation."
+      },
+      "step3": {
+        "title": "Eligibility Assessment",
+        "description": "The verification is carried out strictly according to the program's criteria and guidelines, ensuring that support is provided only to those who are truly eligible and most in need."
+      },
+      "step4": {
+        "title": "Approval Decision",
+        "description": "Based on the verification outcome, the applicant is informed promptly whether they are approved or not approved for the program."
+      },
+      "step5": {
+        "title": "Program Implementation",
+        "description": "Once approved by the Executive Committee, the actual work begins immediately (ASAP), subject to resource availability and project scheduling."
+      }
+    },
+    "transparency": {
+      "title": "Transparency & Accountability",
+      "description": "LiSu Foundation follows a transparent, fair, and Islamic ethical process to ensure that all assistance reaches the right beneficiaries with dignity and responsibility."
+    },
+    "cta": {
+      "title": "Ready to Make a Difference?",
+      "description": "Learn more about our programs or get in touch with us",
+      "viewPrograms": "View Programs",
+      "contactUs": "Contact Us"
     }
   }
 }

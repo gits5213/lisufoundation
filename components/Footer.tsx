@@ -34,6 +34,7 @@ export default function Footer() {
     ],
     support: [
       { href: "/donate", label: tCommon("donate") },
+      { href: "/how-it-works", label: tCommon("howItWorks") },
       { href: "/contact", label: tCommon("contact") },
       { href: "/gallery", label: tCommon("gallery") },
     ],
