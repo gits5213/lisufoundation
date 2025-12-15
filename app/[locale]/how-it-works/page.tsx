@@ -75,71 +75,91 @@ export default function HowItWorksPage() {
 
             {/* Desktop Flowchart */}
             <div className="hidden lg:block">
-              <div className="flex items-center justify-center space-x-4 mb-8">
-                {steps.map((step, index) => {
-                  const Icon = step.icon;
-                  return (
-                    <motion.div
-                      key={step.key}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="flex items-center"
-                    >
-                      <div className="flex flex-col items-center">
-                        <div className="w-20 h-20 bg-gradient-to-br from-primary-600 to-primary-700 rounded-xl flex items-center justify-center shadow-lg mb-3">
-                          <Icon className="h-10 w-10 text-white" />
-                        </div>
-                        <div className="text-center max-w-[180px]">
-                          <div className="w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center text-sm font-bold mb-2 mx-auto">
-                            {index + 1}
+              <div className="bg-white rounded-2xl p-8 shadow-xl">
+                <div className="flex items-start justify-between relative">
+                  {/* Flow lines */}
+                  <div className="absolute top-20 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-200 via-primary-400 to-primary-200 z-0"></div>
+                  
+                  <div className="flex items-start justify-between w-full relative z-10">
+                    {steps.map((step, index) => {
+                      const Icon = step.icon;
+                      return (
+                        <motion.div
+                          key={step.key}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: index * 0.15 }}
+                          className="flex flex-col items-center flex-1"
+                        >
+                          {/* Step Card */}
+                          <div className="bg-gradient-to-br from-primary-600 to-primary-700 rounded-xl p-4 shadow-lg mb-4 w-full max-w-[200px] hover:scale-105 transition-transform">
+                            <div className="flex flex-col items-center">
+                              <div className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center mb-3">
+                                <Icon className="h-8 w-8 text-white" />
+                              </div>
+                              <div className="w-8 h-8 bg-white text-primary-600 rounded-full flex items-center justify-center text-sm font-bold mb-2">
+                                {index + 1}
+                              </div>
+                              <h3 className="text-sm font-bold text-white text-center leading-tight">{step.title}</h3>
+                            </div>
                           </div>
-                          <h3 className="text-sm font-bold text-gray-900 mb-2">{step.title}</h3>
-                        </div>
-                      </div>
-                      {index < steps.length - 1 && (
-                        <div className="mx-4">
-                          <ArrowRight className="h-8 w-8 text-primary-500" />
-                        </div>
-                      )}
-                    </motion.div>
-                  );
-                })}
+                          
+                          {/* Arrow */}
+                          {index < steps.length - 1 && (
+                            <div className="absolute top-20 right-[-60px]">
+                              <ArrowRight className="h-6 w-6 text-primary-500" />
+                            </div>
+                          )}
+                        </motion.div>
+                      );
+                    })}
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* Mobile/Tablet Flowchart */}
             <div className="lg:hidden">
-              <div className="space-y-6">
-                {steps.map((step, index) => {
-                  const Icon = step.icon;
-                  return (
-                    <motion.div
-                      key={step.key}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="flex items-center space-x-4"
-                    >
-                      <div className="flex-shrink-0">
-                        <div className="w-16 h-16 bg-gradient-to-br from-primary-600 to-primary-700 rounded-xl flex items-center justify-center shadow-lg">
-                          <Icon className="h-8 w-8 text-white" />
+              <div className="bg-white rounded-2xl p-6 shadow-xl">
+                <div className="space-y-6 relative">
+                  {/* Vertical flow line */}
+                  <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-200 via-primary-400 to-primary-200"></div>
+                  
+                  {steps.map((step, index) => {
+                    const Icon = step.icon;
+                    return (
+                      <motion.div
+                        key={step.key}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        className="flex items-start space-x-4 relative"
+                      >
+                        {/* Icon and Number */}
+                        <div className="flex-shrink-0 relative z-10">
+                          <div className="w-16 h-16 bg-gradient-to-br from-primary-600 to-primary-700 rounded-xl flex items-center justify-center shadow-lg">
+                            <Icon className="h-8 w-8 text-white" />
+                          </div>
+                          <div className="w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center text-sm font-bold mt-2 mx-auto border-4 border-white">
+                            {index + 1}
+                          </div>
                         </div>
-                        <div className="w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center text-sm font-bold mt-2 mx-auto">
-                          {index + 1}
+                        
+                        {/* Step Card */}
+                        <div className="flex-grow bg-gradient-to-br from-gray-50 to-white rounded-lg p-4 shadow-md">
+                          <h3 className="text-lg font-bold text-gray-900 mb-2">{step.title}</h3>
                         </div>
-                      </div>
-                      <div className="flex-grow">
-                        <h3 className="text-lg font-bold text-gray-900 mb-1">{step.title}</h3>
-                      </div>
-                      {index < steps.length - 1 && (
-                        <div className="absolute left-8 mt-20">
-                          <ArrowDown className="h-6 w-6 text-primary-500" />
-                        </div>
-                      )}
-                    </motion.div>
-                  );
-                })}
+                        
+                        {/* Arrow */}
+                        {index < steps.length - 1 && (
+                          <div className="absolute left-12 top-20 z-10">
+                            <ArrowDown className="h-6 w-6 text-primary-500" />
+                          </div>
+                        )}
+                      </motion.div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>

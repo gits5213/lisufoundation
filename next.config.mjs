@@ -24,7 +24,49 @@ const nextConfig = {
     pagesBufferLength: 2,
   },
   // Ensure webpack handles modules correctly
-  webpack: (config, { isServer }) => {
+  webpack: (config, { isServer, webpack }) => {
+    // Fix for MODULE_NOT_FOUND errors - prevent webpack from trying to resolve server-only modules on client
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+        dns: false,
+        child_process: false,
+      };
+    }
+    
+    // Improve module resolution and prevent chunk loading errors
+    config.resolve.extensionAlias = {
+      '.js': ['.js', '.ts', '.tsx'],
+      '.jsx': ['.jsx', '.tsx'],
+    };
+    
+    // Prevent webpack from creating problematic chunks
+    config.optimization = {
+      ...config.optimization,
+      splitChunks: {
+        ...config.optimization.splitChunks,
+        cacheGroups: {
+          ...config.optimization.splitChunks?.cacheGroups,
+          default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true,
+          },
+        },
+      },
+    };
+    
+    // Ignore warnings about missing modules during development
+    if (process.env.NODE_ENV === 'development') {
+      config.ignoreWarnings = [
+        /Failed to parse source map/,
+        /Module not found/,
+      ];
+    }
+    
     return config;
   },
   // Disable trailing slash for GitHub Pages compatibility
