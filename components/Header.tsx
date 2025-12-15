@@ -64,7 +64,7 @@ export default function Header() {
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative h-12 w-12 group-hover:scale-105 transition-transform">
               <Image
-                src={`${basePath || initialBasePath}/lisulogo.png`}
+                src={`${basePath}/lisulogo.png`}
                 alt="LiSu Foundation Logo"
                 fill
                 className="object-contain"

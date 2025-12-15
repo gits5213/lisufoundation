@@ -8,24 +8,20 @@ import { useState, useEffect } from "react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const [basePath, setBasePath] = useState('');
+  // Initialize with default basePath for GitHub Pages (will be updated on client if different)
+  const [basePath, setBasePath] = useState('/lisufoundation');
   const t = useTranslations("footer");
   const tCommon = useTranslations("common");
   const tContact = useTranslations("contact");
   const locale = useLocale();
 
-  // Detect basePath for GitHub Pages
-  // Initialize with default basePath for GitHub Pages (will be updated on client if different)
+  // Detect basePath for GitHub Pages and update if needed
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const path = window.location.pathname;
-      const detectedBasePath = path.startsWith('/lisufoundation') ? '/lisufoundation' : '';
-      setBasePath(detectedBasePath);
+      setBasePath(path.startsWith('/lisufoundation') ? '/lisufoundation' : '');
     }
   }, []);
-  
-  // Set initial basePath for static export (GitHub Pages)
-  const initialBasePath = '/lisufoundation';
 
   // Use next-intl's Link component which handles basePath automatically
 
@@ -59,7 +55,7 @@ export default function Footer() {
             <div className="flex items-center space-x-2">
               <div className="relative h-10 w-10">
                 <Image
-                  src={`${basePath || initialBasePath}/lisulogo.png`}
+                  src={`${basePath}/lisulogo.png`}
                   alt="LiSu Foundation Logo"
                   fill
                   className="object-contain"
