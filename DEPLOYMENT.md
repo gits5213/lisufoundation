@@ -21,11 +21,11 @@ If you want to use a custom domain:
 
 1. **Create CNAME file:**
    - Create a file named `CNAME` in the repository root
-   - Add your domain name (e.g., `example.com` or `www.example.com`)
+   - Add your domain name: `lisufoundationbd.org`
    - Commit and push the file
 
 2. **DNS Configuration:**
-   - Add a CNAME record in your DNS settings pointing to: `your-username.github.io`
+   - Add a CNAME record in your DNS settings pointing to: `gits5213.github.io`
    - Or add A records pointing to GitHub Pages IP addresses:
      - 185.199.108.153
      - 185.199.109.153
@@ -34,7 +34,7 @@ If you want to use a custom domain:
 
 3. **GitHub Pages Settings:**
    - Go to Settings → Pages
-   - Under "Custom domain", enter your domain
+   - Under "Custom domain", enter: `lisufoundationbd.org`
    - Check "Enforce HTTPS" (recommended)
 
 ## Deployment Process
@@ -98,7 +98,7 @@ If the entire site shows 404 errors:
 3. **Check asset paths**: All assets should include `/lisufoundation` prefix if not using custom domain
 4. **Clear browser cache**: Hard refresh (Ctrl+Shift+R or Cmd+Shift+R)
 5. **Verify routing**: Ensure you're accessing the correct URL:
-   - Custom domain: `https://yourdomain.com/en`
+   - Custom domain: `https://lisufoundationbd.org/en`
    - Subdomain: `https://gits5213.github.io/lisufoundation/en`
 6. **Check 404.html**: The file should be in `out/404.html` after build
 7. **Check index.html**: The file should redirect to the correct locale path

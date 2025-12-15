@@ -139,9 +139,17 @@ The project uses Tailwind CSS. Custom styles can be added in `app/globals.css` o
 - **Lucide React**: Icon library
 - **next-intl**: Internationalization library for Next.js
 
+## Deployment
+
+The website is deployed to GitHub Pages:
+- **Custom Domain**: https://lisufoundationbd.org
+- **GitHub Pages**: https://gits5213.github.io/lisufoundation
+
+For deployment setup, see [DEPLOYMENT.md](./DEPLOYMENT.md) and [CUSTOM_DOMAIN_SETUP.md](./CUSTOM_DOMAIN_SETUP.md).
+
 ## Notes
 
-- The website is ready for deployment to platforms like Vercel, Netlify, or any Node.js hosting service
+- The website is deployed to GitHub Pages with custom domain support
 - Image placeholders are used in the gallery - replace with actual images
 - Contact forms currently show alerts - integrate with your backend/email service
 - Membership forms need backend integration for actual submission
