@@ -27,6 +27,13 @@ yarn-error.log*
 # local env files
 .env*.local
 .env
+.env.local
+
+# cache directories
+.cache
+*.cache
+node_modules/.cache
+.next/cache
 
 # vercel
 .vercel

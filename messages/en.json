@@ -16,6 +16,7 @@
     "contact": "Contact",
     "donate": "Donate",
     "howItWorks": "How It Works",
+    "beneficiaryIdentification": "Beneficiary Identification",
     "learnMore": "Learn More",
     "donateNow": "Donate Now",
     "viewAll": "View All Programs",
@@ -1109,6 +1110,227 @@
       "title": "Ready to Make a Difference?",
       "description": "Learn more about our programs or get in touch with us",
       "viewPrograms": "View Programs",
+      "contactUs": "Contact Us"
+    }
+  },
+  "beneficiaryIdentification": {
+    "title": "How LiSu Foundation Identifies Eligible Beneficiaries",
+    "subtitle": "Transparent, Verified, and Shariah-Compliant Process",
+    "tagline": "Every donation is treated as a responsibility before Allah, and every beneficiary is selected through truth, verification, and justice.",
+    "introduction": "LiSu Foundation follows a strict, multi-layer verification process to ensure that assistance reaches only the truly deserving, minimizing misuse, favoritism, and corruption. Each program has specific eligibility criteria and on-ground verification by our executive team.",
+    "programsTitle": "Program-Specific Eligibility & Verification",
+    "programsSubtitle": "Detailed identification process for each humanitarian program",
+    "eligibilityTitle": "Eligibility Identification Process",
+    "verification": "Verification",
+    "applicationSubmittedBy": "Application submitted by",
+    "requiredInformation": "Required information",
+    "confirmation": "Confirmation that",
+    "recommendationFrom": "Recommendation from",
+    "areaSelectionBasedOn": "Area selection based on",
+    "communityApplicationSignedBy": "Community application signed by",
+    "applicantMust": "Applicant must",
+    "beneficiaryListsPrepared": "Beneficiary lists prepared",
+    "patientOrGuardianSubmits": "Patient or guardian submits",
+    "programsDesignedAs": "Programs designed as",
+    "zakatDistributedAccordingTo": "Zakat distributed strictly according to Shariah categories",
+    "studentMust": "Student must",
+    "deceasedMustBelongTo": "Deceased must belong to",
+    "immediateRequestFrom": "Immediate request from",
+    "priority": "Priority given to",
+    "priorityCases": "Priority cases",
+    "programs": {
+      "program1": {
+        "title": "Comprehensive Support for the Poor and Underprivileged",
+        "subtitle": "Ensuring assistance reaches those most in need",
+        "application": [
+          "The individual/family themselves",
+          "Local community volunteer",
+          "Imam, teacher, or trusted community representative"
+        ],
+        "requiredInfo": [
+          "Family income source",
+          "Number of dependents",
+          "Housing condition",
+          "Existing aid from other organizations (if any)"
+        ],
+        "verification": [
+          "Physical home visit by LiSu volunteer/executive member",
+          "Cross-check with neighbors",
+          "Cross-check with local elders"
+        ],
+        "priority": [
+          "Widows",
+          "Disabled persons",
+          "Elderly without support"
+        ]
+      },
+      "program2": {
+        "title": "Welfare, Education, and Moral Development of Orphans & Remote Children",
+        "subtitle": "Supporting vulnerable children's education and development",
+        "confirmation": [
+          "One or both parents are deceased OR abandoned",
+          "Child belongs to a low-income family"
+        ],
+        "recommendation": [
+          "Madrasa/school authority",
+          "Local Imam or guardian"
+        ],
+        "verification": [
+          "Birth certificate / guardian confirmation (where available)",
+          "Visit to school/madrasa",
+          "Regular attendance monitoring"
+        ]
+      },
+      "program3": {
+        "title": "Safe Drinking Water (Tube Wells / Deep Tube Wells)",
+        "subtitle": "Providing access to clean water in underserved areas",
+        "areaSelection": [
+          "Lack of clean water source",
+          "Distance to nearest safe water"
+        ],
+        "communityApplication": [
+          "Local elders",
+          "Mosque committee",
+          "School authority"
+        ],
+        "verification": [
+          "Physical survey by executive member",
+          "Water source assessment",
+          "Community consensus (not individual favoritism)"
+        ]
+      },
+      "program4": {
+        "title": "House Construction for Homeless & Disadvantaged",
+        "subtitle": "Building safe and permanent homes for those in need",
+        "applicantMust": [
+          "Own no permanent house",
+          "Live in unsafe or temporary shelter"
+        ],
+        "priority": [
+          "Widows with children",
+          "Elderly persons",
+          "Disabled heads of households"
+        ],
+        "verification": [
+          "On-site inspection of current living condition",
+          "Land ownership or legal permission confirmation",
+          "Neighbor and local leader validation"
+        ]
+      },
+      "program5": {
+        "title": "Ramadan, Qurbani, Winter Clothing, Iftar & Sadaqah Programs",
+        "subtitle": "Seasonal assistance programs for vulnerable communities",
+        "beneficiaryLists": "Beneficiary lists prepared before Ramadan/Eid",
+        "priority": [
+          "Orphans",
+          "Daily wage laborers",
+          "Families below poverty line"
+        ],
+        "verification": [
+          "Duplicate prevention using beneficiary register",
+          "Local volunteer coordination",
+          "No political or personal influence allowed"
+        ]
+      },
+      "program6": {
+        "title": "Healthcare & Medical Assistance Programs",
+        "subtitle": "Providing medical support to those who cannot afford treatment",
+        "patientSubmission": [
+          "Medical report or prescription"
+        ],
+        "priorityCases": [
+          "Life-threatening conditions",
+          "Chronic illness with no financial support"
+        ],
+        "verification": [
+          "Doctor/hospital confirmation",
+          "Executive approval for fund allocation",
+          "Direct payment to hospital/pharmacy (where possible)"
+        ]
+      },
+      "program7": {
+        "title": "Building Bridge Between Wealthy & Underprivileged Communities",
+        "subtitle": "Connecting donors with beneficiaries transparently",
+        "programsDesigned": [
+          "Community iftars",
+          "Joint charity drives",
+          "Sponsorship-based assistance"
+        ],
+        "verification": [
+          "Transparency in donor-to-beneficiary mapping",
+          "No cash handover without documentation"
+        ]
+      },
+      "program8": {
+        "title": "Charity & Welfare Activities Based on Islamic Principles",
+        "subtitle": "Zakat distribution according to Shariah guidelines",
+        "zakatCategories": [
+          "Poor (Fuqara)",
+          "Needy (Masakin)",
+          "Orphans",
+          "Debtors in hardship"
+        ],
+        "verification": [
+          "Shariah-aware committee review",
+          "No Zakat used for administration or publicity"
+        ]
+      },
+      "program9": {
+        "title": "Educational Scholarships (School, Madrasa & Orphans)",
+        "subtitle": "Supporting education for deserving students",
+        "studentMust": [
+          "Be financially poor",
+          "Show academic or moral merit"
+        ],
+        "recommendation": [
+          "School/madrasa authority"
+        ],
+        "verification": [
+          "Academic record review",
+          "Home visit (when needed)",
+          "Annual re-evaluation to continue scholarship"
+        ]
+      },
+      "program10": {
+        "title": "Funeral, Burial & Graveyard Assistance",
+        "subtitle": "Supporting dignified burial for the deceased",
+        "deceasedMust": [
+          "Poor or underprivileged family"
+        ],
+        "immediateRequest": [
+          "Family member",
+          "Imam or local volunteer"
+        ],
+        "verification": [
+          "Local confirmation",
+          "No cash handover—direct arrangement/payment"
+        ]
+      }
+    },
+    "antiCorruption": {
+      "title": "Anti-Corruption Measures",
+      "subtitle": "Applicable to All Programs",
+      "notAllowed": "Not Allowed",
+      "allowed": "Required Practices",
+      "measures": {
+        "notAllowed": [
+          "No political affiliation",
+          "No favoritism or family influence",
+          "No cash distribution without record"
+        ],
+        "allowed": [
+          "Physical verification mandatory",
+          "Executive committee approval required",
+          "Documentation & beneficiary register maintained"
+        ]
+      }
+    },
+    "finalStatement": "LiSu Foundation believes that Amanah (trust) is an Ibadah. Every donation is treated as a responsibility before Allah, and every beneficiary is selected through truth, verification, and justice.",
+    "cta": {
+      "title": "Learn More About Our Programs",
+      "description": "Explore our programs or contact us for more information",
+      "viewPrograms": "View Programs",
+      "howItWorks": "How It Works",
       "contactUs": "Contact Us"
     }
   }
