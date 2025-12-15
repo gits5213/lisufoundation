@@ -18,10 +18,17 @@ export default function Footer() {
   // Detect basePath for GitHub Pages and update if needed
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const path = window.location.pathname;
-      // In development, don't use basePath
-      const isDevelopment = process.env.NODE_ENV === 'development';
-      setBasePath(isDevelopment ? '' : (path.startsWith('/lisufoundation') ? '/lisufoundation' : ''));
+      // Always use empty basePath in development mode
+      // Check if we're in development by checking if we're on localhost
+      const isDevelopment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+      
+      if (isDevelopment) {
+        setBasePath('');
+      } else {
+        // In production, check if path starts with /lisufoundation
+        const path = window.location.pathname;
+        setBasePath(path.startsWith('/lisufoundation') ? '/lisufoundation' : '');
+      }
     }
   }, []);
 
@@ -36,6 +43,7 @@ export default function Footer() {
     ],
     support: [
       { href: "/donate", label: tCommon("donate") },
+      { href: "/application", label: tCommon("application") },
       { href: "/how-it-works", label: tCommon("howItWorks") },
       { href: "/beneficiary-identification", label: tCommon("beneficiaryIdentification") },
       { href: "/contact", label: tCommon("contact") },

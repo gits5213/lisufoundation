@@ -15,6 +15,7 @@
     "gallery": "Gallery",
     "contact": "Contact",
     "donate": "Donate",
+    "application": "Application",
     "howItWorks": "How It Works",
     "beneficiaryIdentification": "Beneficiary Identification",
     "learnMore": "Learn More",
@@ -23,6 +24,7 @@
     "getDetails": "Get Details",
     "sendMessage": "Send Message",
     "submit": "Submit",
+    "apply": "Apply",
     "required": "Required",
     "loading": "Loading...",
     "error": "Something went wrong!",
@@ -361,12 +363,7 @@
   "gallery": {
     "title": "Gallery",
     "subtitle": "Explore our activities and see the impact we're making in communities",
-    "shareTitle": "Share Your Photos",
-    "shareDescription": "If you have photos from our activities that you'd like to share, please contact us. We'd love to add them to our gallery!",
-    "noItems": "No items found in this category.",
-    "contactUs": "Contact Us",
     "categories": [
-      { "id": "all", "name": "All Activities" },
       { "id": "education", "name": "Education" },
       { "id": "healthcare", "name": "Healthcare" },
       { "id": "humanitarian", "name": "Humanitarian Aid" },
@@ -374,71 +371,354 @@
       { "id": "housing", "name": "Housing" },
       { "id": "disaster", "name": "Disaster Relief" }
     ],
-    "items": [
-      {
-        "id": 1,
-        "category": "education",
-        "title": "Scholarship Distribution",
-        "date": "2024",
-        "location": "Sherpur, Mymensingh"
+    "status": {
+      "active": "Active",
+      "completed": "Completed",
+      "upcoming": "Upcoming"
+    },
+    "fields": {
+      "referenceName": "Reference Name",
+      "fullName": "Full Name",
+      "phone": "Phone",
+      "village": "Village",
+      "po": "P.O.",
+      "description": "Description"
+    },
+    "programs": {
+      "education": {
+        "active": [
+          {
+            "referenceName": "EDU-2024-001",
+            "fullName": "Rashida Begum",
+            "village": "Kaya Kori",
+            "po": "Baligange Bazar",
+            "description": "Scholarship support for undergraduate studies in Mathematics at Mymensingh University. Monthly stipend of 2000 BDT for tuition and books."
+          },
+          {
+            "referenceName": "EDU-2024-002",
+            "fullName": "Karim Uddin",
+            "village": "Kandapara",
+            "po": "Nakla",
+            "description": "Financial assistance for SSC examination preparation. Providing study materials, coaching fees, and exam registration support."
+          }
+        ],
+        "completed": [
+          {
+            "referenceName": "EDU-2023-015",
+            "fullName": "Fatima Khatun",
+            "village": "Kaya Kori",
+            "po": "Baligange Bazar",
+            "description": "Successfully completed HSC examination with scholarship support. Received full tuition coverage and study materials throughout the academic year."
+          },
+          {
+            "referenceName": "EDU-2023-016",
+            "fullName": "Abdul Rahman",
+            "village": "Kandapara",
+            "po": "Nakla",
+            "description": "Completed primary education support program. Provided school supplies, uniforms, and tuition fees for the entire academic year."
+          }
+        ],
+        "upcoming": [
+          {
+            "referenceName": "EDU-2025-001",
+            "fullName": "Ayesha Akter",
+            "village": "Kaya Kori",
+            "po": "Baligange Bazar",
+            "description": "Planned scholarship program for medical college admission preparation. Will provide coaching fees and study materials for competitive exams."
+          },
+          {
+            "referenceName": "EDU-2025-002",
+            "fullName": "Mohammad Hasan",
+            "village": "Kandapara",
+            "po": "Nakla",
+            "description": "Upcoming vocational training program in computer skills. Will include course fees, certification, and job placement assistance."
+          }
+        ]
       },
-      {
-        "id": 2,
-        "category": "humanitarian",
-        "title": "Ramadan Food Distribution",
-        "date": "2024",
-        "location": "Nakla, Sherpur"
+      "healthcare": {
+        "active": [
+          {
+            "referenceName": "HC-2024-001",
+            "fullName": "Rokeya Begum",
+            "village": "Kaya Kori",
+            "po": "Baligange Bazar",
+            "description": "Ongoing treatment support for diabetes management. Monthly medication supply and regular health check-ups at local clinic."
+          },
+          {
+            "referenceName": "HC-2024-002",
+            "fullName": "Abdul Malek",
+            "village": "Kandapara",
+            "po": "Nakla",
+            "description": "Medical assistance for chronic kidney disease. Providing dialysis treatment support and medication coverage."
+          }
+        ],
+        "completed": [
+          {
+            "referenceName": "HC-2023-010",
+            "fullName": "Sultana Begum",
+            "village": "Kaya Kori",
+            "po": "Baligange Bazar",
+            "description": "Completed cataract surgery support. Successfully provided surgery fees, post-operative care, and follow-up treatments."
+          },
+          {
+            "referenceName": "HC-2023-011",
+            "fullName": "Nurul Islam",
+            "village": "Kandapara",
+            "po": "Nakla",
+            "description": "Completed emergency medical treatment for appendicitis. Covered all hospital expenses and post-surgery medication."
+          }
+        ],
+        "upcoming": [
+          {
+            "referenceName": "HC-2025-001",
+            "fullName": "Jahanara Begum",
+            "village": "Kaya Kori",
+            "po": "Baligange Bazar",
+            "description": "Planned free medical camp for general health check-up. Will provide basic health screening, consultation, and free medicine distribution."
+          },
+          {
+            "referenceName": "HC-2025-002",
+            "fullName": "Kamal Hossain",
+            "village": "Kandapara",
+            "po": "Nakla",
+            "description": "Upcoming vaccination program for children. Will provide immunization services for polio, measles, and other essential vaccines."
+          }
+        ]
       },
-      {
-        "id": 3,
-        "category": "water",
-        "title": "Tube Well Installation",
-        "date": "2024",
-        "location": "Kandapara"
+      "humanitarian": {
+        "active": [
+          {
+            "referenceName": "HA-2024-001",
+            "fullName": "Multiple Families",
+            "village": "Kaya Kori",
+            "po": "Baligange Bazar",
+            "description": "Ongoing Ramadan food distribution program. Providing essential food items including rice, lentils, oil, and dates to 50 families."
+          },
+          {
+            "referenceName": "HA-2024-002",
+            "fullName": "Winter Relief Program",
+            "village": "Kandapara",
+            "po": "Nakla",
+            "description": "Active winter clothing distribution. Providing warm clothes, blankets, and winter essentials to underprivileged families."
+          }
+        ],
+        "completed": [
+          {
+            "referenceName": "HA-2023-020",
+            "fullName": "Qurbani Program 2023",
+            "village": "Kaya Kori",
+            "po": "Baligange Bazar",
+            "description": "Successfully completed Qurbani meat distribution. Distributed meat to 100 families during Eid-ul-Adha celebration."
+          },
+          {
+            "referenceName": "HA-2023-021",
+            "fullName": "Iftar Program",
+            "village": "Kandapara",
+            "po": "Nakla",
+            "description": "Completed Ramadan Iftar distribution. Provided daily Iftar meals to 200 people throughout the holy month of Ramadan."
+          }
+        ],
+        "upcoming": [
+          {
+            "referenceName": "HA-2025-001",
+            "fullName": "Eid Gift Program",
+            "village": "Kaya Kori",
+            "po": "Baligange Bazar",
+            "description": "Planned Eid gift distribution for children. Will provide new clothes, toys, and sweets to 150 children from underprivileged families."
+          },
+          {
+            "referenceName": "HA-2025-002",
+            "fullName": "Emergency Relief Fund",
+            "village": "Kandapara",
+            "po": "Nakla",
+            "description": "Upcoming emergency financial assistance program. Will provide immediate cash support to families facing sudden financial crises."
+          }
+        ]
       },
-      {
-        "id": 4,
-        "category": "healthcare",
-        "title": "Medical Camp",
-        "date": "2024",
-        "location": "Baligange Bazar"
+      "water": {
+        "active": [
+          {
+            "referenceName": "WP-2024-001",
+            "fullName": "Community Tube Well",
+            "village": "Kaya Kori",
+            "po": "Baligange Bazar",
+            "description": "Installing deep tube well for safe drinking water. Currently in progress, will serve 30 families in the village."
+          },
+          {
+            "referenceName": "WP-2024-002",
+            "fullName": "School Water Project",
+            "village": "Kandapara",
+            "po": "Nakla",
+            "description": "Ongoing installation of water supply system at local primary school. Will provide clean water for 200 students and staff."
+          }
+        ],
+        "completed": [
+          {
+            "referenceName": "WP-2023-008",
+            "fullName": "Village Tube Well",
+            "village": "Kaya Kori",
+            "po": "Baligange Bazar",
+            "description": "Successfully installed tube well in village center. Now providing safe drinking water to 25 families daily."
+          },
+          {
+            "referenceName": "WP-2023-009",
+            "fullName": "Deep Tube Well Project",
+            "village": "Kandapara",
+            "po": "Nakla",
+            "description": "Completed installation of deep tube well. Provides arsenic-free water to 40 families in the area."
+          }
+        ],
+        "upcoming": [
+          {
+            "referenceName": "WP-2025-001",
+            "fullName": "Water Purification System",
+            "village": "Kaya Kori",
+            "po": "Baligange Bazar",
+            "description": "Planned installation of water purification system. Will provide filtered drinking water facility for the entire community."
+          },
+          {
+            "referenceName": "WP-2025-002",
+            "fullName": "Community Water Tank",
+            "village": "Kandapara",
+            "po": "Nakla",
+            "description": "Upcoming project for community water storage tank. Will ensure continuous water supply during dry seasons."
+          }
+        ]
       },
-      {
-        "id": 5,
-        "category": "housing",
-        "title": "House Construction",
-        "date": "2024",
-        "location": "Sherpur"
+      "housing": {
+        "active": [
+          {
+            "referenceName": "HS-2024-001",
+            "fullName": "Abdul Kader Family",
+            "village": "Kaya Kori",
+            "po": "Baligange Bazar",
+            "description": "Ongoing house construction for homeless family. Building 2-room house with tin roof and concrete foundation."
+          },
+          {
+            "referenceName": "HS-2024-002",
+            "fullName": "Rashida Begum",
+            "village": "Kandapara",
+            "po": "Nakla",
+            "description": "Active house repair and renovation project. Fixing damaged roof, walls, and adding proper sanitation facilities."
+          }
+        ],
+        "completed": [
+          {
+            "referenceName": "HS-2023-005",
+            "fullName": "Mohammad Ali Family",
+            "village": "Kaya Kori",
+            "po": "Baligange Bazar",
+            "description": "Successfully completed house construction. Family moved into new 3-room house with proper ventilation and sanitation."
+          },
+          {
+            "referenceName": "HS-2023-006",
+            "fullName": "Fatema Khatun",
+            "village": "Kandapara",
+            "po": "Nakla",
+            "description": "Completed emergency shelter construction. Built temporary housing for family affected by natural disaster."
+          }
+        ],
+        "upcoming": [
+          {
+            "referenceName": "HS-2025-001",
+            "fullName": "Orphan Family Housing",
+            "village": "Kaya Kori",
+            "po": "Baligange Bazar",
+            "description": "Planned housing project for orphan family. Will construct safe and secure home for children and their guardian."
+          },
+          {
+            "referenceName": "HS-2025-002",
+            "fullName": "Elderly Couple Housing",
+            "village": "Kandapara",
+            "po": "Nakla",
+            "description": "Upcoming housing support for elderly couple. Will build accessible home suitable for senior citizens."
+          }
+        ]
       },
-      {
-        "id": 6,
-        "category": "humanitarian",
-        "title": "Winter Clothing Distribution",
-        "date": "2024",
-        "location": "Mymensingh"
-      },
-      {
-        "id": 7,
-        "category": "education",
-        "title": "Orphan Support Program",
-        "date": "2024",
-        "location": "Nakla"
-      },
-      {
-        "id": 8,
-        "category": "disaster",
-        "title": "Flood Relief Distribution",
-        "date": "2024",
-        "location": "Sherpur"
-      },
-      {
-        "id": 9,
-        "category": "humanitarian",
-        "title": "Qurbani Program",
-        "date": "2024",
-        "location": "Kandapara"
+      "disaster": {
+        "active": [
+          {
+            "referenceName": "DR-2024-001",
+            "fullName": "Flood Affected Families",
+            "village": "Kaya Kori",
+            "po": "Baligange Bazar",
+            "description": "Ongoing flood relief distribution. Providing emergency food, clean water, and temporary shelter to affected families."
+          },
+          {
+            "referenceName": "DR-2024-002",
+            "fullName": "Storm Damage Relief",
+            "village": "Kandapara",
+            "po": "Nakla",
+            "description": "Active relief program for storm-affected households. Distributing building materials and financial assistance for repairs."
+          }
+        ],
+        "completed": [
+          {
+            "referenceName": "DR-2023-012",
+            "fullName": "Cyclone Relief 2023",
+            "village": "Kaya Kori",
+            "po": "Baligange Bazar",
+            "description": "Successfully completed cyclone relief program. Provided emergency supplies, medical aid, and temporary shelter to 75 affected families."
+          },
+          {
+            "referenceName": "DR-2023-013",
+            "fullName": "Flood Recovery Program",
+            "village": "Kandapara",
+            "po": "Nakla",
+            "description": "Completed post-flood recovery assistance. Helped families rebuild homes and restore livelihoods after severe flooding."
+          }
+        ],
+        "upcoming": [
+          {
+            "referenceName": "DR-2025-001",
+            "fullName": "Disaster Preparedness Training",
+            "village": "Kaya Kori",
+            "po": "Baligange Bazar",
+            "description": "Planned disaster preparedness workshop. Will train community members on emergency response and safety measures."
+          },
+          {
+            "referenceName": "DR-2025-002",
+            "fullName": "Emergency Relief Fund",
+            "village": "Kandapara",
+            "po": "Nakla",
+            "description": "Upcoming emergency relief fund establishment. Will provide immediate financial assistance during natural disasters."
+          }
+        ]
       }
-    ]
+    },
+    "noItems": "No programs found in this category",
+    "noItemsDescription": "Programs will be added here as they become available",
+    "shareTitle": "Share Your Story",
+    "shareDescription": "Have photos or stories from our programs? We'd love to feature them in our gallery. Contact us to share your experiences.",
+    "contactUs": "Contact Us",
+    "workInProgress": "Work in Progress"
+  },
+  "application": {
+    "title": "Program Application",
+    "subtitle": "Submit an application for our humanitarian programs and services",
+    "formTitle": "Application Form",
+    "formSubtitle": "Please fill out all required fields to submit your application",
+    "programCategory": "Program Category",
+    "selectCategory": "Select a program category",
+    "referenceName": "Reference Name",
+    "optional": "Optional",
+    "referenceNamePlaceholder": "e.g., EDU-2024-001",
+    "referenceNameHint": "Leave blank to auto-generate",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Enter full name",
+    "phone": "Phone Number",
+    "phonePlaceholder": "Enter phone number",
+    "village": "Village",
+    "villagePlaceholder": "Enter village name",
+    "po": "P.O.",
+    "poPlaceholder": "Enter post office name",
+    "description": "Description",
+    "descriptionPlaceholder": "Describe the program or service needed...",
+    "submitApplication": "Submit Application",
+    "successTitle": "Application Submitted Successfully!",
+    "successMessage": "Your application has been submitted and will be reviewed. It will appear in the gallery under the selected program category with 'Work in Progress' status.",
+    "viewGallery": "View Gallery",
+    "submitAnother": "Submit Another Application"
   },
   "executiveBoard": {
     "title": "Executive Committee",

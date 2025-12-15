@@ -98,7 +98,7 @@ export default function ProgramsPage() {
                       <p className="text-gray-700 leading-relaxed mb-6">{program.description}</p>
                       <div>
                         <h3 className="font-semibold text-gray-900 mb-3">{t("keyFeatures")}</h3>
-                        <ul className="space-y-2">
+                        <ul className="space-y-2 mb-6">
                           {program.features.map((feature, idx) => (
                             <li key={idx} className="flex items-start">
                               <div className="flex-shrink-0 w-5 h-5 bg-primary-600 rounded-full flex items-center justify-center mt-0.5 mr-3">
@@ -108,6 +108,12 @@ export default function ProgramsPage() {
                             </li>
                           ))}
                         </ul>
+                        <Link
+                          href={`/application?category=${program.key}`}
+                          className="inline-flex items-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-all duration-200 shadow-md hover:shadow-lg"
+                        >
+                          {tCommon("apply")}
+                        </Link>
                       </div>
                     </div>
                   </div>

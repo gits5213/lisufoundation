@@ -1,15 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Image as ImageIcon, Calendar, MapPin } from "lucide-react";
-import { useState } from "react";
+import { Calendar, MapPin, User, FileText, CheckCircle, Clock, PlayCircle, Phone } from "lucide-react";
+import { useState, useEffect } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/routing";
 
 export default function GalleryPage() {
   const t = useTranslations("gallery");
   const locale = useLocale();
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedCategory, setSelectedCategory] = useState("education");
+  const [selectedStatus, setSelectedStatus] = useState<"active" | "completed" | "upcoming">("active");
+  const [submittedApplications, setSubmittedApplications] = useState<any[]>([]);
 
   // Use next-intl's Link component which handles basePath automatically
 
@@ -18,18 +20,106 @@ export default function GalleryPage() {
     name: string;
   }>;
 
-  const galleryItems = t.raw("items") as Array<{
-    id: number;
-    category: string;
-    title: string;
-    date: string;
-    location: string;
+  // Load submitted applications from localStorage
+  const loadApplications = () => {
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem("galleryApplications");
+      if (stored) {
+        try {
+          const applications = JSON.parse(stored);
+          setSubmittedApplications(applications);
+        } catch (e) {
+          console.error("Error parsing stored applications:", e);
+          setSubmittedApplications([]);
+        }
+      } else {
+        setSubmittedApplications([]);
+      }
+    }
+  };
+
+  useEffect(() => {
+    // Load applications on mount
+    loadApplications();
+
+    // Listen for custom event when application is submitted
+    const handleApplicationSubmitted = () => {
+      loadApplications();
+    };
+
+    window.addEventListener("applicationSubmitted", handleApplicationSubmitted);
+
+    // Also check localStorage when page becomes visible (user switches tabs back)
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        loadApplications();
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      window.removeEventListener("applicationSubmitted", handleApplicationSubmitted);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
+
+  // Reload applications when category or status changes
+  useEffect(() => {
+    loadApplications();
+  }, [selectedCategory, selectedStatus]);
+
+  const programs = t.raw("programs") as Record<string, {
+    active: Array<{
+      referenceName: string;
+      fullName: string;
+      phone?: string;
+      village: string;
+      po: string;
+      description: string;
+    }>;
+    completed: Array<{
+      referenceName: string;
+      fullName: string;
+      phone?: string;
+      village: string;
+      po: string;
+      description: string;
+    }>;
+    upcoming: Array<{
+      referenceName: string;
+      fullName: string;
+      phone?: string;
+      village: string;
+      po: string;
+      description: string;
+    }>;
   }>;
 
-  const filteredItems =
-    selectedCategory === "all"
-      ? galleryItems
-      : galleryItems.filter((item) => item.category === selectedCategory);
+  // Merge submitted applications with existing programs
+  const getMergedPrograms = () => {
+    const basePrograms = programs[selectedCategory] || { active: [], completed: [], upcoming: [] };
+    const baseList = basePrograms[selectedStatus] || [];
+    
+    // Filter submitted applications for current category and status
+    const filteredApplications = submittedApplications.filter(
+      (app: any) => app.programCategory === selectedCategory && 
+               app.status === selectedStatus &&
+               app.workInProgress === true
+    );
+    
+    // Merge and return
+    return [...filteredApplications, ...baseList] as Array<{
+      referenceName: string;
+      fullName: string;
+      village: string;
+      po: string;
+      description: string;
+      workInProgress?: boolean;
+    }>;
+  };
+
+  const currentList = getMergedPrograms();
 
   return (
     <div className="min-h-screen bg-white">
@@ -50,10 +140,10 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* Category Filter */}
+      {/* Category Tabs */}
       <section className="py-8 bg-gray-50 sticky top-20 z-40 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-3 mb-6">
             {categories.map((category) => (
               <button
                 key={category.id}
@@ -68,49 +158,157 @@ export default function GalleryPage() {
               </button>
             ))}
           </div>
+          
+          {/* Status Tabs */}
+          <div className="flex justify-center gap-3">
+            <button
+              onClick={() => setSelectedStatus("active")}
+              className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 ${
+                selectedStatus === "active"
+                  ? "bg-green-600 text-white shadow-lg"
+                  : "bg-white text-gray-700 hover:bg-green-50 hover:text-green-600"
+              }`}
+            >
+              <PlayCircle className="h-4 w-4" />
+              {t("status.active")}
+            </button>
+            <button
+              onClick={() => setSelectedStatus("completed")}
+              className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 ${
+                selectedStatus === "completed"
+                  ? "bg-blue-600 text-white shadow-lg"
+                  : "bg-white text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+              }`}
+            >
+              <CheckCircle className="h-4 w-4" />
+              {t("status.completed")}
+            </button>
+            <button
+              onClick={() => setSelectedStatus("upcoming")}
+              className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 ${
+                selectedStatus === "upcoming"
+                  ? "bg-orange-600 text-white shadow-lg"
+                  : "bg-white text-gray-700 hover:bg-orange-50 hover:text-orange-600"
+              }`}
+            >
+              <Clock className="h-4 w-4" />
+              {t("status.upcoming")}
+            </button>
+          </div>
         </div>
       </section>
 
-      {/* Gallery Grid */}
-      <section className="py-16 bg-gray-50">
+      {/* Programs Table */}
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          {filteredItems.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredItems.map((item, index) => (
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer"
-                >
-                  <div className="relative h-64 bg-gradient-to-br from-primary-200 to-primary-300 flex items-center justify-center">
-                    <ImageIcon className="h-16 w-16 text-primary-600 opacity-50" />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                    <div className="space-y-2 text-sm text-gray-600">
-                      <div className="flex items-center">
-                        <Calendar className="h-4 w-4 mr-2 text-primary-600" />
-                        {item.date}
-                      </div>
-                      <div className="flex items-center">
-                        <MapPin className="h-4 w-4 mr-2 text-primary-600" />
-                        {item.location}
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-16">
-              <ImageIcon className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-600 text-lg">{t("noItems")}</p>
-            </div>
-          )}
+          <div className="max-w-7xl mx-auto">
+            {currentList.length > 0 ? (
+              <div className="overflow-x-auto shadow-lg rounded-lg border border-gray-200">
+                <table className="min-w-full divide-y divide-gray-200">
+                  <thead className={`${
+                    selectedStatus === "active" ? "bg-green-50" :
+                    selectedStatus === "completed" ? "bg-blue-50" : "bg-orange-50"
+                  }`}>
+                    <tr>
+                      <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
+                        <div className="flex items-center">
+                          <FileText className="h-4 w-4 mr-2" />
+                          {t("fields.referenceName")}
+                        </div>
+                      </th>
+                      <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
+                        <div className="flex items-center">
+                          <User className="h-4 w-4 mr-2" />
+                          {t("fields.fullName")}
+                        </div>
+                      </th>
+                      <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
+                        <div className="flex items-center">
+                          <MapPin className="h-4 w-4 mr-2" />
+                          {t("fields.village")}
+                        </div>
+                      </th>
+                      <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
+                        <div className="flex items-center">
+                          <MapPin className="h-4 w-4 mr-2" />
+                          {t("fields.po")}
+                        </div>
+                      </th>
+                      <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
+                        <div className="flex items-center">
+                          <Phone className="h-4 w-4 mr-2" />
+                          {t("fields.phone")}
+                        </div>
+                      </th>
+                      <th scope="col" className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
+                        <div className="flex items-center">
+                          <FileText className="h-4 w-4 mr-2" />
+                          {t("fields.description")}
+                        </div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white divide-y divide-gray-200">
+                    {currentList.map((program, index) => (
+                      <tr
+                        key={index}
+                        className="hover:bg-gray-50 transition-all duration-150"
+                        style={{
+                          animation: `fadeIn 0.3s ease-in-out ${index * 0.05}s both`
+                        }}
+                      >
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="flex items-center gap-2">
+                            <div className="text-sm font-bold text-gray-900">{program.referenceName}</div>
+                            {(program as any).workInProgress && (
+                              <span className="px-2 py-1 text-xs font-semibold bg-yellow-100 text-yellow-800 rounded-full">
+                                {t("workInProgress")}
+                              </span>
+                            )}
+                          </div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="text-sm text-gray-900">{program.fullName}</div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="text-sm text-gray-900">{program.village}</div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="text-sm text-gray-900">{program.po}</div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="text-sm text-gray-900">{(program as any).phone || "-"}</div>
+                        </td>
+                        <td className="px-6 py-4">
+                          <div className="text-sm text-gray-700 max-w-md">{program.description}</div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <div className="text-center py-16">
+                <div className={`h-16 w-16 mx-auto mb-4 rounded-full flex items-center justify-center ${
+                  selectedStatus === "active" ? "bg-green-100" :
+                  selectedStatus === "completed" ? "bg-blue-100" : "bg-orange-100"
+                }`}>
+                  {selectedStatus === "active" ? (
+                    <PlayCircle className={`h-8 w-8 ${
+                      selectedStatus === "active" ? "text-green-600" :
+                      selectedStatus === "completed" ? "text-blue-600" : "text-orange-600"
+                    }`} />
+                  ) : selectedStatus === "completed" ? (
+                    <CheckCircle className="h-8 w-8 text-blue-600" />
+                  ) : (
+                    <Clock className="h-8 w-8 text-orange-600" />
+                  )}
+                </div>
+                <p className="text-gray-600 text-lg">{t("noItems")}</p>
+                <p className="text-gray-500 text-sm mt-2">{t("noItemsDescription")}</p>
+              </div>
+            )}
+          </div>
         </div>
       </section>
 

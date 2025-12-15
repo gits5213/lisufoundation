@@ -27,13 +27,24 @@ export async function generateMetadata({
   const { locale } = await params;
   const basePath = getBasePath();
   
+  // Use absolute paths for favicon to avoid issues with basePath in dev mode
+  const faviconPath = process.env.NODE_ENV === 'production' 
+    ? `${basePath}/favicon.ico`
+    : '/favicon.ico';
+  const logoPath = process.env.NODE_ENV === 'production'
+    ? `${basePath}/lisulogo.png`
+    : '/lisulogo.png';
+  
   return {
     title: 'LiSu Foundation - Humanitarian Development Organization',
     description: 'LiSu Foundation is a non-political, non-profit, humanitarian development organization dedicated to improving the lives of the poor, orphans, widows, and disaster-affected people in Bangladesh.',
     icons: {
-      icon: `${basePath}/favicon.ico`,
-      shortcut: `${basePath}/favicon.ico`,
-      apple: `${basePath}/lisulogo.png`,
+      icon: [
+        { url: faviconPath, sizes: 'any' },
+        { url: logoPath, type: 'image/png' },
+      ],
+      shortcut: faviconPath,
+      apple: logoPath,
     },
   };
 }
@@ -55,16 +66,9 @@ export default async function LocaleLayout({
   // Providing all messages to the client
   // side is the easiest way to get started
   const messages = await getMessages({ locale });
-
-  const basePath = getBasePath();
   
   return (
     <html lang={locale}>
-      <head>
-        <link rel="icon" href={`${basePath}/favicon.ico`} sizes="any" />
-        <link rel="icon" href={`${basePath}/lisulogo.png`} type="image/png" />
-        <link rel="apple-touch-icon" href={`${basePath}/lisulogo.png`} />
-      </head>
       <body className="min-h-screen flex flex-col">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <div className="min-h-screen flex flex-col">
