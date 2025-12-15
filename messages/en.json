@@ -328,7 +328,7 @@
     "formSubtitle": "Fill out the form below and we'll get back to you as soon as possible",
     "name": "Your Name",
     "email": "Email Address",
-    "phone": "Phone Number",
+    "phone": "Phone Number | WhatsApp",
     "subject": "Subject",
     "message": "Message",
     "messagePlaceholder": "Please share your message or inquiry...",
@@ -337,10 +337,12 @@
     "address": "Address",
     "addressValue": "Kaya Kori (Baligange Bazar)\nNakla, Sherpur, Mymensingh\nBangladesh",
     "phoneValue": "+880 17 2801 4014 | +1(917)561-6554",
-    "emailValue": "info@lisufoundation.org",
+    "emailValue": "lisufoundationbd@gmail.com",
     "executiveDirector": "Executive Director",
     "executiveDirectorName": "Md. Shahnewaz Zaman (Shanto)",
     "executiveDirectorLabel": "Executive Director:",
+    "connectWithUs": "Connect with us:",
+    "additionalInfo": "We're here to help and answer any questions you may have. Feel free to reach out to us through any of the contact methods above.",
     "socialMedia": {
       "facebook": "Facebook",
       "linkedin": "LinkedIn",
@@ -696,6 +698,19 @@
   "application": {
     "title": "Program Application",
     "subtitle": "Submit an application for our humanitarian programs and services",
+    "verificationTitle": "Program Verification Process",
+    "verificationSubtitle": "Before you apply, please understand our verification process",
+    "verificationStep1": "Application Submission",
+    "verificationStep1Desc": "Submit your application with accurate information about your needs and situation",
+    "verificationStep2": "Review & Verification",
+    "verificationStep2Desc": "Our team will review your application and verify the provided information",
+    "verificationStep3": "Site Visit (If Required)",
+    "verificationStep3Desc": "For certain programs, we may conduct a site visit to assess the situation",
+    "verificationStep4": "Decision & Notification",
+    "verificationStep4Desc": "You will be notified of the decision via phone or email within 7-14 business days",
+    "verificationNote": "Please ensure all information provided is accurate and complete. False information may result in application rejection.",
+    "verificationInfo": "What You're Applying For",
+    "verificationInfoDesc": "You are applying for humanitarian assistance through our programs. Your application will be reviewed based on eligibility criteria, need assessment, and available resources.",
     "formTitle": "Application Form",
     "formSubtitle": "Please fill out all required fields to submit your application",
     "programCategory": "Program Category",
@@ -1240,7 +1255,7 @@
       },
       "contact": {
         "title": "Contact Information",
-        "content": "For questions about these Terms, please contact us at info@lisufoundation.org."
+        "content": "For questions about these Terms, please contact us at lisufoundationbd@gmail.com."
       }
     },
     "accessibility": {
@@ -1286,7 +1301,7 @@
       },
       "feedback": {
         "title": "Feedback",
-        "content": "If you encounter any accessibility barriers on our website, please contact us at info@lisufoundation.org. We welcome your feedback and will work to address accessibility issues promptly."
+        "content": "If you encounter any accessibility barriers on our website, please contact us at lisufoundationbd@gmail.com. We welcome your feedback and will work to address accessibility issues promptly."
       }
     },
     "disclaimer": {
@@ -1335,7 +1350,7 @@
         "title": "Refund Process",
         "description": "To request a refund, please follow these steps:",
         "steps": [
-          "Contact us at info@lisufoundation.org within 7 days of the transaction",
+          "Contact us at lisufoundationbd@gmail.com within 7 days of the transaction",
           "Provide transaction details including date, amount, and transaction ID",
           "Explain the reason for the refund request",
           "Our team will review your request within 14 business days",
@@ -1348,7 +1363,7 @@
       },
       "contact": {
         "title": "Contact Us",
-        "content": "For refund inquiries or to request a refund, please contact us at info@lisufoundation.org with your transaction details."
+        "content": "For refund inquiries or to request a refund, please contact us at lisufoundationbd@gmail.com with your transaction details."
       }
     }
   },

@@ -160,16 +160,16 @@ export default function Footer() {
                     {t("executiveDirectorName")}
                   </div>
                   <div className="flex space-x-3 mt-2">
-                    <a href="#" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 transition-colors" aria-label="Facebook">
+                    <a href="https://www.facebook.com/profile.php?id=100091330725436" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 transition-colors" aria-label="Facebook">
                       <Facebook className="h-4 w-4" />
                     </a>
-                    <a href="#" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 transition-colors" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/in/zamanmd/" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 transition-colors" aria-label="LinkedIn">
                       <Linkedin className="h-4 w-4" />
                     </a>
-                    <a href="#" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 transition-colors" aria-label="GitHub">
+                    <a href="https://github.com/gits5213" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 transition-colors" aria-label="GitHub">
                       <Github className="h-4 w-4" />
                     </a>
-                    <a href="#" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 transition-colors" aria-label="Portfolio">
+                    <a href="https://mdszaman.com/" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 transition-colors" aria-label="Portfolio">
                       <Globe className="h-4 w-4" />
                     </a>
                   </div>
@@ -183,8 +183,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-primary-400 flex-shrink-0" />
-                <a href="mailto:" className="hover:text-primary-400 transition-colors">
-                  info@lisufoundation.org
+                <a href="mailto:lisufoundationbd@gmail.com" className="hover:text-primary-400 transition-colors">
+                  lisufoundationbd@gmail.com
                 </a>
               </li>
             </ul>

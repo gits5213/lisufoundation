@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { MapPin, Phone, Mail, Send, MessageSquare, Users, Facebook, Linkedin, Github, Globe } from "lucide-react";
+import { MapPin, Phone, Mail, Users, Facebook, Linkedin, Github, Globe } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 
 export default function ContactPage() {
@@ -10,32 +9,11 @@ export default function ContactPage() {
   const tExecutiveBoard = useTranslations("executiveBoard");
   const locale = useLocale();
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert(t("thankYouMessage"));
-    setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
   const socialLinks = [
-    { icon: Facebook, href: "#", label: tExecutiveBoard("socialMedia.facebook"), color: "hover:text-blue-600" },
-    { icon: Linkedin, href: "#", label: tExecutiveBoard("socialMedia.linkedin"), color: "hover:text-blue-700" },
-    { icon: Github, href: "#", label: tExecutiveBoard("socialMedia.github"), color: "hover:text-gray-800" },
-    { icon: Globe, href: "#", label: tExecutiveBoard("socialMedia.portfolio"), color: "hover:text-primary-600" },
+    { icon: Facebook, href: "https://www.facebook.com/profile.php?id=100091330725436", label: tExecutiveBoard("socialMedia.facebook"), color: "hover:text-blue-600" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/zamanmd/", label: tExecutiveBoard("socialMedia.linkedin"), color: "hover:text-blue-700" },
+    { icon: Github, href: "https://github.com/gits5213", label: tExecutiveBoard("socialMedia.github"), color: "hover:text-gray-800" },
+    { icon: Globe, href: "https://mdszaman.com/", label: tExecutiveBoard("socialMedia.portfolio"), color: "hover:text-primary-600" },
   ];
 
   const contactInfo = [
@@ -88,26 +66,103 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Information */}
-      <section className="py-16 bg-gray-50">
+      {/* Contact Information - Redesigned Layout */}
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mb-16">
-            {contactInfo.map((info, index) => (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-7xl mx-auto"
+          >
+            {/* Main Contact Details Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+              {/* Left Column - Address & Phone */}
+              <div className="space-y-6">
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                  className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-blue-500"
+                >
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <MapPin className="h-6 w-6 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-gray-900 mb-3">{t("address")}</h3>
+                      <p className="text-gray-600 leading-relaxed whitespace-pre-line">
+                        {t("addressValue")}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-green-500"
+                >
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Phone className="h-6 w-6 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-gray-900 mb-3">{t("phone")}</h3>
+                      <a href="tel:+8801728014014" className="text-gray-600 hover:text-primary-600 transition-colors text-lg">
+                        {t("phoneValue")}
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                  className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-purple-500"
+                >
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Mail className="h-6 w-6 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-gray-900 mb-3">{t("email")}</h3>
+                      <a href={`mailto:${t("emailValue")}`} className="text-gray-600 hover:text-primary-600 transition-colors text-lg">
+                        {t("emailValue")}
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* Right Column - Executive Director */}
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center"
+                transition={{ delay: 0.2 }}
+                className="bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 rounded-2xl p-8 shadow-2xl text-white"
               >
-                <div className={`w-14 h-14 bg-gradient-to-br ${info.color} rounded-lg flex items-center justify-center mx-auto mb-4`}>
-                  <info.icon className="h-7 w-7 text-white" />
+                <div className="flex items-start space-x-4 mb-6">
+                  <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Users className="h-6 w-6 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold mb-2">{t("executiveDirectorLabel")}</h3>
+                    <p className="text-xl font-semibold text-primary-100 mb-6">
+                      {t("executiveDirectorName")}
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{info.title}</h3>
-                <p className="text-gray-600 leading-relaxed whitespace-pre-line mb-3">{info.content}</p>
-                {info.showSocial && (
-                  <div className="flex justify-center space-x-3 pt-3 border-t border-gray-200">
+                
+                <div className="pt-6 border-t border-white/20">
+                  <p className="text-sm text-primary-100 mb-4 font-medium">{t("connectWithUs")}</p>
+                  <div className="flex space-x-4">
                     {socialLinks.map((social, idx) => {
                       const Icon = social.icon;
                       return (
@@ -116,130 +171,35 @@ export default function ContactPage() {
                           href={social.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`text-gray-400 transition-colors ${social.color}`}
+                          className="w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
                           aria-label={social.label}
                         >
-                          <Icon className="h-5 w-5" />
+                          <Icon className="h-6 w-6 text-white" />
                         </a>
                       );
                     })}
                   </div>
-                )}
+                </div>
               </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Form */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-2xl mx-auto"
-          >
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4 flex items-center justify-center">
-                <MessageSquare className="h-8 w-8 text-primary-600 mr-3" />
-                {t("formTitle")}
-              </h2>
-              <p className="text-gray-600">
-                {t("formSubtitle")}
-              </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="bg-gray-50 rounded-xl p-8 shadow-lg space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    {t("name")} *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    {t("email")} *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent"
-                  />
-                </div>
+            {/* Additional Info Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="bg-white rounded-2xl p-8 shadow-lg border-t-4 border-primary-600"
+            >
+              <div className="text-center">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  {t("subtitle")}
+                </h3>
+                <p className="text-gray-600 max-w-2xl mx-auto">
+                  {t("additionalInfo")}
+                </p>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                    {t("phone")}
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                    {t("subject")} *
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    required
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  {t("message")} *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={6}
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-600 focus:border-transparent"
-                  placeholder={t("messagePlaceholder")}
-                />
-              </div>
-
-              <div className="pt-4">
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold py-4 rounded-lg hover:from-primary-700 hover:to-primary-800 transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
-                >
-                  <Send className="h-5 w-5 mr-2" />
-                  {t("sendMessage")}
-                </button>
-              </div>
-            </form>
+            </motion.div>
           </motion.div>
         </div>
       </section>

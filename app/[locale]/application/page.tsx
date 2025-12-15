@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState, useEffect, Suspense } from "react";
-import { FileText, Send, CheckCircle, AlertCircle } from "lucide-react";
+import { FileText, Send, CheckCircle, AlertCircle, ClipboardCheck, Search, MapPin, Bell, Info } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/routing";
 import { useSearchParams } from "next/navigation";
@@ -144,6 +144,169 @@ function ApplicationFormContent() {
             <p className="text-xl text-primary-100 leading-relaxed">
               {t("subtitle")}
             </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Program Verification Process */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-5xl mx-auto"
+          >
+            {/* Verification Process Header */}
+            <div className="text-center mb-12">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <ClipboardCheck className="h-8 w-8 text-white" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                {t("verificationTitle")}
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                {t("verificationSubtitle")}
+              </p>
+            </div>
+
+            {/* What You're Applying For */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl p-6 md:p-8 mb-8 border-l-4 border-primary-600"
+            >
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-primary-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Info className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    {t("verificationInfo")}
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    {t("verificationInfoDesc")}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Verification Steps */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              {/* Step 1 */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border-t-4 border-blue-500"
+              >
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <FileText className="h-6 w-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <div className="flex items-center mb-2">
+                      <span className="text-sm font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded mr-2">Step 1</span>
+                      <h3 className="text-lg font-bold text-gray-900">{t("verificationStep1")}</h3>
+                    </div>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {t("verificationStep1Desc")}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Step 2 */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border-t-4 border-green-500"
+              >
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Search className="h-6 w-6 text-green-600" />
+                  </div>
+                  <div>
+                    <div className="flex items-center mb-2">
+                      <span className="text-sm font-semibold text-green-600 bg-green-100 px-2 py-1 rounded mr-2">Step 2</span>
+                      <h3 className="text-lg font-bold text-gray-900">{t("verificationStep2")}</h3>
+                    </div>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {t("verificationStep2Desc")}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Step 3 */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border-t-4 border-purple-500"
+              >
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <MapPin className="h-6 w-6 text-purple-600" />
+                  </div>
+                  <div>
+                    <div className="flex items-center mb-2">
+                      <span className="text-sm font-semibold text-purple-600 bg-purple-100 px-2 py-1 rounded mr-2">Step 3</span>
+                      <h3 className="text-lg font-bold text-gray-900">{t("verificationStep3")}</h3>
+                    </div>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {t("verificationStep3Desc")}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Step 4 */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+                className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border-t-4 border-orange-500"
+              >
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Bell className="h-6 w-6 text-orange-600" />
+                  </div>
+                  <div>
+                    <div className="flex items-center mb-2">
+                      <span className="text-sm font-semibold text-orange-600 bg-orange-100 px-2 py-1 rounded mr-2">Step 4</span>
+                      <h3 className="text-lg font-bold text-gray-900">{t("verificationStep4")}</h3>
+                    </div>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {t("verificationStep4Desc")}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Important Note */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+              className="bg-amber-50 border-l-4 border-amber-500 rounded-lg p-4 md:p-6"
+            >
+              <div className="flex items-start space-x-3">
+                <AlertCircle className="h-6 w-6 text-amber-600 flex-shrink-0 mt-0.5" />
+                <p className="text-amber-800 font-medium">
+                  {t("verificationNote")}
+                </p>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>

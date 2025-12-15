@@ -151,7 +151,7 @@ export default function PrivacyPolicyPage() {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">{t("contact.title")}</h2>
               <p className="text-gray-700 leading-relaxed mb-4">{t("contact.description")}</p>
               <p className="text-gray-700">
-                <strong>{t("contact.email")}:</strong> info@lisufoundation.org
+                <strong>{t("contact.email")}:</strong> lisufoundationbd@gmail.com
               </p>
             </motion.div>
 

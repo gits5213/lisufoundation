@@ -34,10 +34,10 @@ export default function ExecutiveBoardPage() {
   ];
 
   const socialLinks = [
-    { icon: Facebook, label: t("socialMedia.facebook"), href: "#", color: "hover:text-blue-600" },
-    { icon: Linkedin, label: t("socialMedia.linkedin"), href: "#", color: "hover:text-blue-700" },
-    { icon: Github, label: t("socialMedia.github"), href: "#", color: "hover:text-gray-800" },
-    { icon: Globe, label: t("socialMedia.portfolio"), href: "#", color: "hover:text-primary-600" },
+    { icon: Facebook, label: t("socialMedia.facebook"), href: "https://www.facebook.com/profile.php?id=100091330725436", color: "hover:text-blue-600" },
+    { icon: Linkedin, label: t("socialMedia.linkedin"), href: "https://www.linkedin.com/in/zamanmd/", color: "hover:text-blue-700" },
+    { icon: Github, label: t("socialMedia.github"), href: "https://github.com/gits5213", color: "hover:text-gray-800" },
+    { icon: Globe, label: t("socialMedia.portfolio"), href: "https://mdszaman.com/", color: "hover:text-primary-600" },
   ];
 
   // Placeholder members for different types - to be updated with real data
