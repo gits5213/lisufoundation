@@ -33,7 +33,7 @@ export async function generateMetadata({
     icons: {
       icon: `${basePath}/favicon.ico`,
       shortcut: `${basePath}/favicon.ico`,
-      apple: `${basePath}/logo.png`,
+      apple: `${basePath}/lisulogo.png`,
     },
   };
 }
@@ -62,8 +62,8 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <head>
         <link rel="icon" href={`${basePath}/favicon.ico`} sizes="any" />
-        <link rel="icon" href={`${basePath}/logo.png`} type="image/png" />
-        <link rel="apple-touch-icon" href={`${basePath}/logo.png`} />
+        <link rel="icon" href={`${basePath}/lisulogo.png`} type="image/png" />
+        <link rel="apple-touch-icon" href={`${basePath}/lisulogo.png`} />
       </head>
       <body className="min-h-screen flex flex-col">
         <NextIntlClientProvider locale={locale} messages={messages}>

@@ -18,7 +18,8 @@ export default function Footer() {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const path = window.location.pathname;
-      setBasePath(path.startsWith('/lisufoundation') ? '/lisufoundation' : '');
+      const detectedBasePath = path.startsWith('/lisufoundation') ? '/lisufoundation' : '';
+      setBasePath(detectedBasePath);
     }
   }, []);
 
@@ -54,7 +55,7 @@ export default function Footer() {
             <div className="flex items-center space-x-2">
               <div className="relative h-10 w-10">
                 <Image
-                  src={`${basePath}/logo.png`}
+                  src={basePath ? `${basePath}/lisulogo.png` : '/lisulogo.png'}
                   alt="LiSu Foundation Logo"
                   fill
                   className="object-contain"

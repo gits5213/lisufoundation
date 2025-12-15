@@ -17,15 +17,13 @@ export default function Header() {
   const locale = useLocale();
   const pathname = usePathname();
 
-  // Detect basePath for GitHub Pages - check both pathname and window location
+  // Detect basePath for GitHub Pages
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      // Check pathname first (from next-intl routing)
-      const path = pathname || window.location.pathname;
-      const detectedBasePath = path.startsWith('/lisufoundation') ? '/lisufoundation' : '';
-      setBasePath(detectedBasePath);
+      const path = window.location.pathname;
+      setBasePath(path.startsWith('/lisufoundation') ? '/lisufoundation' : '');
     }
-  }, [pathname]);
+  }, []);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -65,7 +63,7 @@ export default function Header() {
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative h-12 w-12 group-hover:scale-105 transition-transform">
               <Image
-                src={`${basePath}/logo.png`}
+                src={basePath ? `${basePath}/lisulogo.png` : '/lisulogo.png'}
                 alt="LiSu Foundation Logo"
                 fill
                 className="object-contain"
