@@ -4,7 +4,13 @@
 
 If you encounter `MODULE_NOT_FOUND` errors or webpack chunk loading issues, follow these steps:
 
-### Quick Fix
+### Quick Fix (Recommended)
+```bash
+npm run dev:clean
+```
+This will clean cache and restart the dev server automatically.
+
+### Manual Quick Fix
 ```bash
 npm run clean
 npm run dev
@@ -14,6 +20,12 @@ npm run dev
 ```bash
 npm run clean:all
 ```
+
+### Nuclear Option (Complete Reset)
+```bash
+npm run reset
+```
+This removes everything including node_modules and package-lock.json, then reinstalls.
 
 ### Manual Steps
 1. Stop the development server (Ctrl+C)

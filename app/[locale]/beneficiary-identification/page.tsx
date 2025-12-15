@@ -447,7 +447,7 @@ export default function BeneficiaryIdentificationPage() {
             >
               <BookOpen className="h-16 w-16 mx-auto mb-6 text-primary-200" />
               <blockquote className="text-2xl md:text-3xl font-semibold italic leading-relaxed mb-4">
-                "{t("finalStatement")}"
+                &ldquo;{t("finalStatement")}&rdquo;
               </blockquote>
             </motion.div>
           </div>

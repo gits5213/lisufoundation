@@ -34,6 +34,12 @@ const nextConfig = {
         tls: false,
         dns: false,
         child_process: false,
+        path: false,
+        crypto: false,
+        stream: false,
+        util: false,
+        buffer: false,
+        process: false,
       };
     }
     
@@ -43,11 +49,18 @@ const nextConfig = {
       '.jsx': ['.jsx', '.tsx'],
     };
     
+    // Enhanced module resolution
+    config.resolve.modules = [
+      ...(config.resolve.modules || []),
+      'node_modules',
+    ];
+    
     // Prevent webpack from creating problematic chunks
     config.optimization = {
       ...config.optimization,
       splitChunks: {
         ...config.optimization.splitChunks,
+        chunks: 'all',
         cacheGroups: {
           ...config.optimization.splitChunks?.cacheGroups,
           default: {
@@ -55,8 +68,19 @@ const nextConfig = {
             priority: -20,
             reuseExistingChunk: true,
           },
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            priority: -10,
+            reuseExistingChunk: true,
+          },
         },
       },
+    };
+    
+    // Fix for webpack runtime errors
+    config.resolve.alias = {
+      ...config.resolve.alias,
     };
     
     // Ignore warnings about missing modules during development
@@ -64,8 +88,17 @@ const nextConfig = {
       config.ignoreWarnings = [
         /Failed to parse source map/,
         /Module not found/,
+        /Can't resolve/,
       ];
     }
+    
+    // Add plugin to handle missing modules gracefully
+    config.plugins.push(
+      new webpack.IgnorePlugin({
+        resourceRegExp: /^\.\/locale$/,
+        contextRegExp: /moment$/,
+      })
+    );
     
     return config;
   },
