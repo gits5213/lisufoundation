@@ -56,35 +56,41 @@ const nextConfig = {
     ];
     
     // Prevent webpack from creating problematic chunks
-    // Only configure splitChunks for client-side builds
-    if (!isServer) {
-      config.optimization = {
-        ...config.optimization,
-        splitChunks: {
-          ...config.optimization.splitChunks,
-          chunks: 'all',
-          cacheGroups: {
-            ...config.optimization.splitChunks?.cacheGroups,
-            default: {
-              minChunks: 2,
-              priority: -20,
-              reuseExistingChunk: true,
-            },
-            vendor: {
-              test: /[\\/]node_modules[\\/]/,
-              name: 'vendors',
-              priority: -10,
-              reuseExistingChunk: true,
-            },
+    config.optimization = {
+      ...config.optimization,
+      splitChunks: {
+        ...config.optimization.splitChunks,
+        chunks: 'all',
+        cacheGroups: {
+          ...config.optimization.splitChunks?.cacheGroups,
+          default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true,
+          },
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            priority: -10,
+            reuseExistingChunk: true,
           },
         },
-      };
-    }
+      },
+    };
     
-    // Fix for webpack runtime errors
+    // Fix for webpack runtime errors - ensure proper module format
     config.resolve.alias = {
       ...config.resolve.alias,
     };
+    
+    // Fix for "exports is not defined" error
+    if (isServer) {
+      // For server-side, ensure proper CommonJS/ESM handling
+      config.output = {
+        ...config.output,
+        libraryTarget: 'commonjs2',
+      };
+    }
     
     // Ignore warnings about missing modules during development
     if (process.env.NODE_ENV === 'development') {
@@ -95,13 +101,15 @@ const nextConfig = {
       ];
     }
     
-    // Add plugin to handle missing modules gracefully
-    config.plugins.push(
-      new webpack.IgnorePlugin({
-        resourceRegExp: /^\.\/locale$/,
-        contextRegExp: /moment$/,
-      })
-    );
+    // Add plugin to handle missing modules gracefully (only for client)
+    if (!isServer) {
+      config.plugins.push(
+        new webpack.IgnorePlugin({
+          resourceRegExp: /^\.\/locale$/,
+          contextRegExp: /moment$/,
+        })
+      );
+    }
     
     return config;
   },
