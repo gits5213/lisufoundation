@@ -74,7 +74,7 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href={getLocalizedHref("/donate")}
+                href="/donate"
                 className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-700 font-semibold rounded-lg hover:bg-accent-50 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 {tCommon("donateNow")}
@@ -163,7 +163,7 @@ export default function Home() {
             className="text-center mt-12"
           >
             <Link
-              href={getLocalizedHref("/programs")}
+              href="/programs"
               className="inline-flex items-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               {tCommon("viewAll")}
@@ -228,7 +228,7 @@ export default function Home() {
                 {t("becomeMember")}
               </Link>
               <Link
-                href={getLocalizedHref("/donate")}
+                href="/donate"
                 className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-600 font-semibold rounded-lg hover:bg-gray-50 transition-all duration-200 shadow-lg hover:shadow-xl border-2 border-primary-600"
               >
                 {t("makeDonation")}

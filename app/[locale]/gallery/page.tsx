@@ -11,7 +11,7 @@ export default function GalleryPage() {
   const locale = useLocale();
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  const getLocalizedHref = (href: string) => `/${locale}${href}`;
+  // Use next-intl's Link component which handles basePath automatically
 
   const categories = t.raw("categories") as Array<{
     id: string;
