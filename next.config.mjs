@@ -55,42 +55,48 @@ const nextConfig = {
       'node_modules',
     ];
     
-    // Prevent webpack from creating problematic chunks
-    config.optimization = {
-      ...config.optimization,
-      splitChunks: {
-        ...config.optimization.splitChunks,
-        chunks: 'all',
-        cacheGroups: {
-          ...config.optimization.splitChunks?.cacheGroups,
-          default: {
-            minChunks: 2,
-            priority: -20,
-            reuseExistingChunk: true,
-          },
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            priority: -10,
-            reuseExistingChunk: true,
+    // CRITICAL: Disable chunk splitting for server-side to prevent "exports is not defined" error
+    if (isServer) {
+      // For server-side, disable all chunk splitting completely
+      config.optimization = {
+        ...config.optimization,
+        splitChunks: false,
+      };
+      
+      // Ensure proper CommonJS output format for server
+      config.output = {
+        ...config.output,
+        libraryTarget: 'commonjs2',
+      };
+    } else {
+      // Only configure splitChunks for client-side builds
+      config.optimization = {
+        ...config.optimization,
+        splitChunks: {
+          ...config.optimization.splitChunks,
+          chunks: 'all',
+          cacheGroups: {
+            ...config.optimization.splitChunks?.cacheGroups,
+            default: {
+              minChunks: 2,
+              priority: -20,
+              reuseExistingChunk: true,
+            },
+            vendor: {
+              test: /[\\/]node_modules[\\/]/,
+              name: 'vendors',
+              priority: -10,
+              reuseExistingChunk: true,
+            },
           },
         },
-      },
-    };
+      };
+    }
     
     // Fix for webpack runtime errors - ensure proper module format
     config.resolve.alias = {
       ...config.resolve.alias,
     };
-    
-    // Fix for "exports is not defined" error
-    if (isServer) {
-      // For server-side, ensure proper CommonJS/ESM handling
-      config.output = {
-        ...config.output,
-        libraryTarget: 'commonjs2',
-      };
-    }
     
     // Ignore warnings about missing modules during development
     if (process.env.NODE_ENV === 'development') {
