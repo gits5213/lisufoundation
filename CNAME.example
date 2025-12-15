@@ -1,3 +1,4 @@
-# Replace 'yourdomain.com' with your actual custom domain
+# Custom domain for LiSu Foundation
+# This file should contain: lisufoundationbd.org
 # Then rename this file to 'CNAME' (without .example)
-yourdomain.com
+lisufoundationbd.org
