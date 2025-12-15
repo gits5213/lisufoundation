@@ -1074,6 +1074,10 @@
   "howItWorks": {
     "title": "How It Works",
     "subtitle": "Our transparent process for providing humanitarian support",
+    "flowchart": {
+      "title": "Process Flow",
+      "subtitle": "Visual representation of our application and approval process"
+    },
     "steps": {
       "step1": {
         "title": "Application Submission",

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileText, CheckCircle, ClipboardCheck, UserCheck, Rocket, Shield } from "lucide-react";
+import { FileText, CheckCircle, ClipboardCheck, UserCheck, Rocket, Shield, ArrowDown, ArrowRight } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/routing";
 
@@ -59,6 +59,93 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
+      {/* Flowchart Section */}
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t("flowchart.title")}</h2>
+              <p className="text-lg text-gray-600">{t("flowchart.subtitle")}</p>
+            </motion.div>
+
+            {/* Desktop Flowchart */}
+            <div className="hidden lg:block">
+              <div className="flex items-center justify-center space-x-4 mb-8">
+                {steps.map((step, index) => {
+                  const Icon = step.icon;
+                  return (
+                    <motion.div
+                      key={step.key}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      className="flex items-center"
+                    >
+                      <div className="flex flex-col items-center">
+                        <div className="w-20 h-20 bg-gradient-to-br from-primary-600 to-primary-700 rounded-xl flex items-center justify-center shadow-lg mb-3">
+                          <Icon className="h-10 w-10 text-white" />
+                        </div>
+                        <div className="text-center max-w-[180px]">
+                          <div className="w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center text-sm font-bold mb-2 mx-auto">
+                            {index + 1}
+                          </div>
+                          <h3 className="text-sm font-bold text-gray-900 mb-2">{step.title}</h3>
+                        </div>
+                      </div>
+                      {index < steps.length - 1 && (
+                        <div className="mx-4">
+                          <ArrowRight className="h-8 w-8 text-primary-500" />
+                        </div>
+                      )}
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Mobile/Tablet Flowchart */}
+            <div className="lg:hidden">
+              <div className="space-y-6">
+                {steps.map((step, index) => {
+                  const Icon = step.icon;
+                  return (
+                    <motion.div
+                      key={step.key}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      className="flex items-center space-x-4"
+                    >
+                      <div className="flex-shrink-0">
+                        <div className="w-16 h-16 bg-gradient-to-br from-primary-600 to-primary-700 rounded-xl flex items-center justify-center shadow-lg">
+                          <Icon className="h-8 w-8 text-white" />
+                        </div>
+                        <div className="w-8 h-8 bg-primary-600 text-white rounded-full flex items-center justify-center text-sm font-bold mt-2 mx-auto">
+                          {index + 1}
+                        </div>
+                      </div>
+                      <div className="flex-grow">
+                        <h3 className="text-lg font-bold text-gray-900 mb-1">{step.title}</h3>
+                      </div>
+                      {index < steps.length - 1 && (
+                        <div className="absolute left-8 mt-20">
+                          <ArrowDown className="h-6 w-6 text-primary-500" />
+                        </div>
+                      )}
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Process Steps */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -88,11 +175,11 @@ export default function HowItWorksPage() {
                         <p className="text-lg text-gray-700 leading-relaxed">
                           {step.key === "step1" ? (
                             <>
-                              {t("steps.step1.description").split("(add programs link)")[0]}
-                              <Link href="/programs" className="text-primary-600 hover:text-primary-700 underline">
-                                {t("steps.step1.programsLink")}
+                              Individuals or volunteer members submit an application based on the specific humanitarian program they are seeking support for (
+                              <Link href="/programs" className="text-primary-600 hover:text-primary-700 underline font-medium">
+                                {locale === 'bn' ? 'প্রোগ্রাম' : 'programs'}
                               </Link>
-                              {t("steps.step1.description").split("(add programs link)")[1]}
+                              ).
                             </>
                           ) : (
                             step.description
