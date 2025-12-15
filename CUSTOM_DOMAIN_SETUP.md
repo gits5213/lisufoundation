@@ -5,6 +5,15 @@
 - **Domain**: `lisufoundationbd.org`
 - **GitHub Actions Variable**: `CUSTOM_DOMAIN=true`
 
+## ⚠️ IMPORTANT: Variable vs Secret
+
+**This MUST be set as a GitHub Actions VARIABLE, NOT a Secret!**
+
+- ✅ **Correct**: Settings → Secrets and variables → Actions → **Variables** tab → Add `CUSTOM_DOMAIN` with value `true`
+- ❌ **Wrong**: Settings → Secrets and variables → Actions → **Secrets** tab
+
+The workflow uses `vars.CUSTOM_DOMAIN` which only works with Variables, not Secrets.
+
 ## DNS Configuration Required
 
 For GitHub Pages to recognize your custom domain, you need to configure DNS records with your domain registrar.
