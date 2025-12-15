@@ -59,7 +59,7 @@ export default function Footer() {
             <div className="flex items-center space-x-2">
               <div className="relative h-10 w-10">
                 <Image
-                  src={`${basePath}/lisulogo.png`}
+                  src={basePath ? `${basePath}/lisulogo.png` : '/lisulogo.png'}
                   alt="LiSu Foundation Logo"
                   fill
                   className="object-contain"
