@@ -48,7 +48,11 @@ jobs:
       
       - name: Create index.html redirect
         run: |
-          echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=/en"><script>window.location.replace("/en");</script></head><body>Redirecting...</body></html>' > out/index.html
+          if [ "${{ vars.CUSTOM_DOMAIN }}" == "true" ]; then
+            echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=/en"><script>window.location.replace("/en");</script></head><body>Redirecting...</body></html>' > out/index.html
+          else
+            echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=/lisufoundation/en"><script>window.location.replace("/lisufoundation/en");</script></head><body>Redirecting...</body></html>' > out/index.html
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

@@ -4,22 +4,32 @@
   <meta charset="utf-8">
   <title>Redirecting to LiSu Foundation...</title>
   <script>
-    // Get the current path
-    const path = window.location.pathname;
-    const basePath = window.location.pathname.split('/')[1] === 'lisufoundation' ? '/lisufoundation' : '';
-    
-    // Check if path starts with /en or /bn
-    if (path.startsWith('/en') || path.startsWith('/bn')) {
-      // Already has locale, just reload
-      window.location.reload();
-    } else if (path === '/' || path === '/index.html') {
-      // Redirect root to /en
-      window.location.replace(basePath + '/en');
-    } else {
-      // Redirect to /en (default locale) with the current path
-      const newPath = basePath + '/en' + (path === '/' ? '' : path);
-      window.location.replace(newPath);
-    }
+    (function() {
+      // Detect base path
+      const path = window.location.pathname;
+      const isSubdomain = path.split('/')[1] === 'lisufoundation';
+      const basePath = isSubdomain ? '/lisufoundation' : '';
+      
+      // Check if already on a locale path
+      if (path.startsWith(basePath + '/en') || path.startsWith(basePath + '/bn')) {
+        // Already has locale, check if page exists
+        return;
+      }
+      
+      // Redirect root or 404 to default locale
+      if (path === '/' || path === '/index.html' || path === basePath || path === basePath + '/' || path === basePath + '/index.html') {
+        window.location.replace(basePath + '/en');
+      } else if (isSubdomain && !path.startsWith('/lisufoundation/')) {
+        // Missing base path, add it
+        window.location.replace('/lisufoundation' + path);
+      } else {
+        // Try redirecting to /en with the path
+        const cleanPath = path.replace(/^\//, '').replace(/^lisufoundation\//, '');
+        if (!cleanPath.startsWith('en/') && !cleanPath.startsWith('bn/')) {
+          window.location.replace(basePath + '/en/' + cleanPath);
+        }
+      }
+    })();
   </script>
   <noscript>
     <meta http-equiv="refresh" content="0; url=/en">
