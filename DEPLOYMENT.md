@@ -9,15 +9,11 @@ This project is configured to deploy to GitHub Pages using GitHub Actions.
    - Source: Select "GitHub Actions"
    - Save the settings
 
-2. **GitHub Actions Variable (IMPORTANT - Use Variables, NOT Secrets):**
+2. **GitHub Actions Variable:**
    - Go to Settings → Secrets and variables → Actions
-   - Click on "Variables" tab (NOT "Secrets" tab)
-   - Click "New repository variable"
-   - Name: `CUSTOM_DOMAIN`
-   - Value: `true` (if you want to use a custom domain) or `false`/leave empty
-   - Click "Add variable"
-   
-   **⚠️ Important**: This MUST be set as a **Variable**, not a **Secret**. The workflow uses `vars.CUSTOM_DOMAIN`, not `secrets.CUSTOM_DOMAIN`.
+   - Under "Variables" tab, add:
+     - Name: `CUSTOM_DOMAIN`
+     - Value: `true` (if you want to use a custom domain) or leave empty/false
 
 ## Custom Domain Setup
 

@@ -67,9 +67,27 @@ This means:
 
 ## Common Mistakes
 
-❌ **Wrong**: Adding as Secret instead of Variable
+❌ **Wrong**: Adding as Secret instead of Variable (MOST COMMON ERROR!)
+   - If you added it as a Secret, delete it and add as Variable instead
+   - Secrets use `secrets.CUSTOM_DOMAIN` (we don't use this)
+   - Variables use `vars.CUSTOM_DOMAIN` (this is what we need)
+
 ❌ **Wrong**: Value is `True` or `TRUE` (should be lowercase `true`)
 ❌ **Wrong**: Value has quotes: `"true"` (should be just `true`)
 ❌ **Wrong**: Variable name is different: `CUSTOM_DOMAIN_NAME` or `CUSTOMDOMAIN`
+❌ **Wrong**: Variable not set at all (workflow will use empty string)
 
-✅ **Correct**: Variable name: `CUSTOM_DOMAIN`, Value: `true`, Location: Variables tab
+✅ **Correct**: 
+   - Variable name: `CUSTOM_DOMAIN`
+   - Value: `true` (lowercase, no quotes)
+   - Location: **Variables** tab (NOT Secrets tab)
+   - Repository: `gits5213/lisufoundation`
+
+## How to Fix If You Added It as a Secret
+
+1. Go to Settings → Secrets and variables → Actions → **Secrets** tab
+2. Find `CUSTOM_DOMAIN` if it exists there
+3. Delete it (click the delete button)
+4. Go to **Variables** tab
+5. Add it as a Variable with value `true`
+6. Re-run the workflow or push a new commit

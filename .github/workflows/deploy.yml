@@ -31,9 +31,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Debug CUSTOM_DOMAIN variable
+        run: |
+          echo "CUSTOM_DOMAIN variable value: ${{ vars.CUSTOM_DOMAIN }}"
+          echo "CUSTOM_DOMAIN is set: ${{ vars.CUSTOM_DOMAIN != '' && vars.CUSTOM_DOMAIN != null }}"
+          if [ "${{ vars.CUSTOM_DOMAIN }}" == "true" ]; then
+            echo "✅ Custom domain mode enabled"
+          else
+            echo "ℹ️  Using GitHub Pages subdomain mode"
+          fi
+
       - name: Build with Next.js
         run: npm run build
         env:
+          NODE_ENV: production
           CUSTOM_DOMAIN: ${{ vars.CUSTOM_DOMAIN }}
 
       - name: Handle Custom Domain
@@ -61,10 +72,13 @@ jobs:
       - name: Create index.html redirect
         run: |
           if [ "${{ vars.CUSTOM_DOMAIN }}" == "true" ]; then
+            echo "🔧 Creating index.html redirect for custom domain (redirects to /en)"
             echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=/en"><script>window.location.replace("/en");</script></head><body>Redirecting...</body></html>' > out/index.html
           else
+            echo "🔧 Creating index.html redirect for GitHub Pages subdomain (redirects to /lisufoundation/en)"
             echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=/lisufoundation/en"><script>window.location.replace("/lisufoundation/en");</script></head><body>Redirecting...</body></html>' > out/index.html
           fi
+          echo "✅ index.html created"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
