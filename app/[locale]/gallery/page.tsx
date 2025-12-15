@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Image as ImageIcon, Calendar, MapPin } from "lucide-react";
 import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
-import Link from "next/link";
+import { Link } from "@/routing";
 
 export default function GalleryPage() {
   const t = useTranslations("gallery");
@@ -130,7 +130,7 @@ export default function GalleryPage() {
               {t("shareDescription")}
             </p>
             <Link
-              href={getLocalizedHref("/contact")}
+              href="/contact"
               className="inline-flex items-center px-8 py-4 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               {t("contactUs")}

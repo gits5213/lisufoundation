@@ -13,14 +13,14 @@ import {
   Heart,
 } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
-import Link from "next/link";
+import { Link } from "@/routing";
 
 export default function ProgramsPage() {
   const t = useTranslations("programs");
   const tCommon = useTranslations("common");
   const locale = useLocale();
 
-  const getLocalizedHref = (href: string) => `/${locale}${href}`;
+  // Use next-intl's Link component which handles basePath automatically
 
   const iconMap: Record<string, typeof GraduationCap> = {
     education: GraduationCap,
@@ -134,7 +134,7 @@ export default function ProgramsPage() {
               {t("supportDescription")}
             </p>
             <Link
-              href={getLocalizedHref("/donate")}
+              href="/donate"
               className="inline-flex items-center px-8 py-4 bg-white text-primary-700 font-semibold rounded-lg hover:bg-accent-50 transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               {t("donateNow")}

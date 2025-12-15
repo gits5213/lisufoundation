@@ -1,11 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
-import { usePathname } from "next/navigation";
+import { Link, usePathname } from "@/routing";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Header() {
@@ -17,9 +16,8 @@ export default function Header() {
   const locale = useLocale();
   const pathname = usePathname();
 
-  const getLocalizedHref = (href: string) => {
-    return `/${locale}${href === "/" ? "" : href}`;
-  };
+  // Use next-intl's Link component which handles basePath automatically
+  // No need for manual href construction
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -56,7 +54,7 @@ export default function Header() {
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href={getLocalizedHref("/")} className="flex items-center space-x-3 group">
+          <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative h-12 w-12 group-hover:scale-105 transition-transform">
               <Image
                 src="/logo.png"
@@ -77,7 +75,7 @@ export default function Header() {
             {navLinks.map((link) => (
               <Link
                 key={link.href}
-                href={getLocalizedHref(link.href)}
+                href={link.href}
                 className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
                   link.highlight
                     ? "bg-gradient-to-r from-primary-600 to-primary-700 text-white hover:from-primary-700 hover:to-primary-800 shadow-lg hover:shadow-xl"
@@ -107,7 +105,7 @@ export default function Header() {
                   {orgChartLinks.map((link) => (
                     <Link
                       key={link.href}
-                      href={getLocalizedHref(link.href)}
+                      href={link.href}
                       onClick={() => setIsOrgChartOpen(false)}
                       className="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors"
                     >
@@ -141,7 +139,7 @@ export default function Header() {
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
-                  href={getLocalizedHref(link.href)}
+                  href={link.href}
                   onClick={() => setIsMenuOpen(false)}
                   className={`px-4 py-3 rounded-lg font-medium transition-all ${
                     link.highlight
@@ -172,7 +170,7 @@ export default function Header() {
                     {orgChartLinks.map((link) => (
                       <Link
                         key={link.href}
-                        href={getLocalizedHref(link.href)}
+                        href={link.href}
                         onClick={() => {
                           setIsMobileOrgChartOpen(false);
                           setIsMenuOpen(false);

@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { Heart, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Users, Linkedin, Github, Globe } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
+import { Link } from "@/routing";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -12,7 +12,7 @@ export default function Footer() {
   const tContact = useTranslations("contact");
   const locale = useLocale();
 
-  const getLocalizedHref = (href: string) => `/${locale}${href}`;
+  // Use next-intl's Link component which handles basePath automatically
 
   const footerLinks = {
     organization: [
@@ -75,7 +75,7 @@ export default function Footer() {
               {footerLinks.organization.map((link) => (
                 <li key={link.href}>
                   <Link
-                    href={getLocalizedHref(link.href)}
+                    href={link.href}
                     className="hover:text-primary-400 transition-colors text-sm"
                   >
                     {link.label}
@@ -92,7 +92,7 @@ export default function Footer() {
               {footerLinks.support.map((link) => (
                 <li key={link.href}>
                   <Link
-                    href={getLocalizedHref(link.href)}
+                    href={link.href}
                     className="hover:text-primary-400 transition-colors text-sm"
                   >
                     {link.label}
@@ -109,7 +109,7 @@ export default function Footer() {
               {footerLinks.legal.map((link) => (
                 <li key={link.href}>
                   <Link
-                    href={getLocalizedHref(link.href)}
+                    href={link.href}
                     className="hover:text-primary-400 transition-colors text-sm"
                   >
                     {link.label}

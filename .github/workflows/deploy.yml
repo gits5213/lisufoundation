@@ -46,6 +46,15 @@ jobs:
             echo "CNAME file not found in repository root. Please create it with your custom domain."
           fi
       
+      - name: Copy 404.html
+        run: |
+          if [ -f "public/404.html" ]; then
+            cp public/404.html out/404.html
+            echo "404.html copied to out directory"
+          else
+            echo "404.html not found in public directory"
+          fi
+      
       - name: Create index.html redirect
         run: |
           if [ "${{ vars.CUSTOM_DOMAIN }}" == "true" ]; then

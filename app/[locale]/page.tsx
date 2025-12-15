@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/routing";
 import { ArrowRight, Heart, Users, GraduationCap, Home as HomeIcon, Droplet, Stethoscope, HandHeart } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTranslations, useLocale } from "next-intl";
@@ -10,7 +10,7 @@ export default function Home() {
   const tCommon = useTranslations("common");
   const locale = useLocale();
 
-  const getLocalizedHref = (href: string) => `/${locale}${href}`;
+  // Use next-intl's Link component which handles basePath automatically
 
   const iconMap: Record<string, typeof GraduationCap> = {
     education: GraduationCap,
@@ -81,7 +81,7 @@ export default function Home() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
               <Link
-                href={getLocalizedHref("/about")}
+                href="/about"
                 className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-lg hover:bg-white/20 transition-all duration-200 border-2 border-white/30"
               >
                 {tCommon("learnMore")}
@@ -222,7 +222,7 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href={getLocalizedHref("/membership")}
+                href="/membership"
                 className="inline-flex items-center justify-center px-8 py-4 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-all duration-200 shadow-lg hover:shadow-xl"
               >
                 {t("becomeMember")}
