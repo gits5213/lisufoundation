@@ -715,9 +715,9 @@
     "description": "Description",
     "descriptionPlaceholder": "Describe the program or service needed...",
     "submitApplication": "Submit Application",
+    "submitting": "Submitting...",
     "successTitle": "Application Submitted Successfully!",
-    "successMessage": "Your application has been submitted and will be reviewed. It will appear in the gallery under the selected program category with 'Work in Progress' status.",
-    "viewGallery": "View Gallery",
+    "successMessage": "Your application has been submitted successfully and will be reviewed by our team.",
     "submitAnother": "Submit Another Application"
   },
   "executiveBoard": {

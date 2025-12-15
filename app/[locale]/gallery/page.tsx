@@ -11,7 +11,6 @@ export default function GalleryPage() {
   const locale = useLocale();
   const [selectedCategory, setSelectedCategory] = useState("education");
   const [selectedStatus, setSelectedStatus] = useState<"active" | "completed" | "upcoming">("active");
-  const [submittedApplications, setSubmittedApplications] = useState<any[]>([]);
 
   // Use next-intl's Link component which handles basePath automatically
 
@@ -19,55 +18,6 @@ export default function GalleryPage() {
     id: string;
     name: string;
   }>;
-
-  // Load submitted applications from localStorage
-  const loadApplications = () => {
-    if (typeof window !== 'undefined') {
-      const stored = localStorage.getItem("galleryApplications");
-      if (stored) {
-        try {
-          const applications = JSON.parse(stored);
-          setSubmittedApplications(applications);
-        } catch (e) {
-          console.error("Error parsing stored applications:", e);
-          setSubmittedApplications([]);
-        }
-      } else {
-        setSubmittedApplications([]);
-      }
-    }
-  };
-
-  useEffect(() => {
-    // Load applications on mount
-    loadApplications();
-
-    // Listen for custom event when application is submitted
-    const handleApplicationSubmitted = () => {
-      loadApplications();
-    };
-
-    window.addEventListener("applicationSubmitted", handleApplicationSubmitted);
-
-    // Also check localStorage when page becomes visible (user switches tabs back)
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        loadApplications();
-      }
-    };
-
-    document.addEventListener("visibilitychange", handleVisibilityChange);
-
-    return () => {
-      window.removeEventListener("applicationSubmitted", handleApplicationSubmitted);
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
-    };
-  }, []);
-
-  // Reload applications when category or status changes
-  useEffect(() => {
-    loadApplications();
-  }, [selectedCategory, selectedStatus]);
 
   const programs = t.raw("programs") as Record<string, {
     active: Array<{
@@ -96,20 +46,12 @@ export default function GalleryPage() {
     }>;
   }>;
 
-  // Merge submitted applications with existing programs
-  const getMergedPrograms = () => {
+  // Get programs for selected category and status
+  const getPrograms = () => {
     const basePrograms = programs[selectedCategory] || { active: [], completed: [], upcoming: [] };
     const baseList = basePrograms[selectedStatus] || [];
     
-    // Filter submitted applications for current category and status
-    const filteredApplications = submittedApplications.filter(
-      (app: any) => app.programCategory === selectedCategory && 
-               app.status === selectedStatus &&
-               app.workInProgress === true
-    );
-    
-    // Merge and return
-    return [...filteredApplications, ...baseList] as Array<{
+    return baseList as Array<{
       referenceName: string;
       fullName: string;
       village: string;
@@ -119,7 +61,7 @@ export default function GalleryPage() {
     }>;
   };
 
-  const currentList = getMergedPrograms();
+  const currentList = getPrograms();
 
   return (
     <div className="min-h-screen bg-white">

@@ -13,6 +13,8 @@ function ApplicationFormContent() {
   const locale = useLocale();
   const searchParams = useSearchParams();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     programCategory: "",
     referenceName: "",
@@ -67,49 +69,64 @@ function ApplicationFormContent() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError(null);
     
-    // Generate reference name if not provided
-    const referenceName = formData.referenceName || 
-      `${formData.programCategory.toUpperCase().substring(0, 3)}-${new Date().getFullYear()}-${String(Date.now()).slice(-3)}`;
-    
-    const application = {
-      ...formData,
-      referenceName,
-      status: "active",
-      workInProgress: true,
-      submittedAt: new Date().toISOString(),
-    };
+    try {
+      // Generate reference name if not provided
+      const referenceName = formData.referenceName || 
+        `${formData.programCategory.toUpperCase().substring(0, 3)}-${new Date().getFullYear()}-${String(Date.now()).slice(-3)}`;
+      
+      const application = {
+        ...formData,
+        referenceName,
+        submittedAt: new Date().toISOString(),
+      };
 
-    // Get existing applications from localStorage
-    const existingApplications = JSON.parse(localStorage.getItem("galleryApplications") || "[]");
-    
-    // Add new application
-    const updatedApplications = [...existingApplications, application];
-    
-    // Save to localStorage
-    localStorage.setItem("galleryApplications", JSON.stringify(updatedApplications));
-    
-    // Dispatch custom event to notify gallery page
-    if (typeof window !== 'undefined') {
-      window.dispatchEvent(new Event("applicationSubmitted"));
+      // Submit to Google Drive via Google Apps Script endpoint
+      const scriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL || '';
+      
+      if (!scriptUrl) {
+        throw new Error('Google Script URL is not configured. Please contact the administrator.');
+      }
+
+      // Submit to Google Apps Script
+      // Using no-cors mode for compatibility with static sites
+      // Google Apps Script Web Apps handle CORS automatically
+      await fetch(scriptUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(application),
+      });
+
+      // Note: With no-cors mode, we can't verify the response
+      // But the request will be sent successfully if no error is thrown
+      
+      // Mark as submitted
+      sessionStorage.setItem("applicationSubmitted", "true");
+      setIsSubmitted(true);
+      
+      // Reset form
+      setFormData({
+        programCategory: formData.programCategory, // Keep category if coming from program page
+        referenceName: "",
+        fullName: "",
+        phone: "",
+        village: "",
+        po: "",
+        description: "",
+      });
+    } catch (error) {
+      console.error('Error submitting application:', error);
+      setSubmitError(error instanceof Error ? error.message : 'Failed to submit application. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
-    
-    // Mark as submitted
-    sessionStorage.setItem("applicationSubmitted", "true");
-    setIsSubmitted(true);
-    
-    // Reset form
-    setFormData({
-      programCategory: formData.programCategory, // Keep category if coming from program page
-      referenceName: "",
-      fullName: "",
-      phone: "",
-      village: "",
-      po: "",
-      description: "",
-    });
   };
 
   return (
@@ -148,15 +165,12 @@ function ApplicationFormContent() {
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">{t("successTitle")}</h2>
                 <p className="text-gray-600 mb-6">{t("successMessage")}</p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link
-                    href="/gallery"
-                    className="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-all duration-200"
-                  >
-                    {t("viewGallery")}
-                  </Link>
                   <button
-                    onClick={() => setIsSubmitted(false)}
-                    className="inline-flex items-center justify-center px-6 py-3 bg-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-300 transition-all duration-200"
+                    onClick={() => {
+                      setIsSubmitted(false);
+                      setSubmitError(null);
+                    }}
+                    className="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-all duration-200"
                   >
                     {t("submitAnother")}
                   </button>
@@ -302,13 +316,30 @@ function ApplicationFormContent() {
                     />
                   </div>
 
+                  {submitError && (
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-start">
+                      <AlertCircle className="h-5 w-5 text-red-600 mr-2 flex-shrink-0 mt-0.5" />
+                      <p className="text-sm text-red-800">{submitError}</p>
+                    </div>
+                  )}
+
                   <div className="pt-4">
                     <button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold py-4 rounded-lg hover:from-primary-700 hover:to-primary-800 transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center"
+                      disabled={isSubmitting}
+                      className="w-full bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold py-4 rounded-lg hover:from-primary-700 hover:to-primary-800 transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      <Send className="h-5 w-5 mr-2" />
-                      {t("submitApplication")}
+                      {isSubmitting ? (
+                        <>
+                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                          {t("submitting") || "Submitting..."}
+                        </>
+                      ) : (
+                        <>
+                          <Send className="h-5 w-5 mr-2" />
+                          {t("submitApplication")}
+                        </>
+                      )}
                     </button>
                   </div>
                 </form>

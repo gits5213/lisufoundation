@@ -41,11 +41,22 @@ jobs:
             echo "ℹ️  Using GitHub Pages subdomain mode"
           fi
 
+      - name: Debug Google Script URL variable
+        run: |
+          if [ -n "${{ vars.NEXT_PUBLIC_GOOGLE_SCRIPT_URL }}" ]; then
+            echo "✅ NEXT_PUBLIC_GOOGLE_SCRIPT_URL is set"
+            echo "URL length: $(echo -n '${{ vars.NEXT_PUBLIC_GOOGLE_SCRIPT_URL }}' | wc -c) characters"
+          else
+            echo "⚠️  NEXT_PUBLIC_GOOGLE_SCRIPT_URL is not set"
+            echo "⚠️  Application form submissions will not work in production"
+          fi
+
       - name: Build with Next.js
         run: npm run build
         env:
           NODE_ENV: production
           CUSTOM_DOMAIN: ${{ vars.CUSTOM_DOMAIN }}
+          NEXT_PUBLIC_GOOGLE_SCRIPT_URL: ${{ vars.NEXT_PUBLIC_GOOGLE_SCRIPT_URL }}
 
       - name: Handle Custom Domain
         if: vars.CUSTOM_DOMAIN == 'true'
