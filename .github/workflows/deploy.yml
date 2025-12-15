@@ -42,8 +42,11 @@ jobs:
           if [ -f "CNAME" ]; then
             echo "Copying CNAME file to out directory"
             cp CNAME out/CNAME
+            echo "CNAME file copied: $(cat CNAME)"
           else
-            echo "CNAME file not found in repository root. Please create it with your custom domain."
+            echo "Creating CNAME file with default domain"
+            echo "lisufoundationbd.org" > out/CNAME
+            echo "Created CNAME file with domain: lisufoundationbd.org"
           fi
       
       - name: Copy 404.html
