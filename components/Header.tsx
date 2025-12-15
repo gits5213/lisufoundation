@@ -11,8 +11,8 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isOrgChartOpen, setIsOrgChartOpen] = useState(false);
   const [isMobileOrgChartOpen, setIsMobileOrgChartOpen] = useState(false);
-  // Initialize with default basePath for GitHub Pages (will be updated on client if different)
-  const [basePath, setBasePath] = useState('/lisufoundation');
+  // Initialize with empty basePath for development, will be updated on client
+  const [basePath, setBasePath] = useState('');
   const dropdownRef = useRef<HTMLDivElement>(null);
   const t = useTranslations("common");
   const locale = useLocale();
@@ -22,7 +22,9 @@ export default function Header() {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const path = window.location.pathname;
-      setBasePath(path.startsWith('/lisufoundation') ? '/lisufoundation' : '');
+      // In development, don't use basePath
+      const isDevelopment = process.env.NODE_ENV === 'development';
+      setBasePath(isDevelopment ? '' : (path.startsWith('/lisufoundation') ? '/lisufoundation' : ''));
     }
   }, []);
 

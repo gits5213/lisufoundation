@@ -8,8 +8,8 @@ import { useState, useEffect } from "react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  // Initialize with default basePath for GitHub Pages (will be updated on client if different)
-  const [basePath, setBasePath] = useState('/lisufoundation');
+  // Initialize with empty basePath for development, will be updated on client
+  const [basePath, setBasePath] = useState('');
   const t = useTranslations("footer");
   const tCommon = useTranslations("common");
   const tContact = useTranslations("contact");
@@ -19,7 +19,9 @@ export default function Footer() {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const path = window.location.pathname;
-      setBasePath(path.startsWith('/lisufoundation') ? '/lisufoundation' : '');
+      // In development, don't use basePath
+      const isDevelopment = process.env.NODE_ENV === 'development';
+      setBasePath(isDevelopment ? '' : (path.startsWith('/lisufoundation') ? '/lisufoundation' : ''));
     }
   }, []);
 

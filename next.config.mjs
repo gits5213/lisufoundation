@@ -23,6 +23,14 @@ const nextConfig = {
     maxInactiveAge: 25 * 1000,
     pagesBufferLength: 2,
   },
+  // Fix for fallback-build-manifest.json error
+  generateBuildId: async () => {
+    return 'build-' + Date.now();
+  },
+  // Disable fallback pages for static export compatibility
+  ...(process.env.NODE_ENV === 'production' && {
+    generateStaticParams: true,
+  }),
   // Ensure webpack handles modules correctly
   webpack: (config, { isServer, webpack }) => {
     // Fix for MODULE_NOT_FOUND errors - prevent webpack from trying to resolve server-only modules on client
