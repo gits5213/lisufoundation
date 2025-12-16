@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Heart, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Users, Linkedin, Github, Globe } from "lucide-react";
+import { Heart, Mail, Phone, MapPin, Facebook, Users, Linkedin, Github, Globe } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/routing";
 import { useState, useEffect } from "react";
@@ -79,14 +79,8 @@ export default function Footer() {
               {t("description")}
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-primary-400 transition-colors" aria-label="Facebook">
+              <a href="https://www.facebook.com/profile.php?id=100091330725436" target="_blank" rel="noopener noreferrer" className="hover:text-primary-400 transition-colors" aria-label="Facebook">
                 <Facebook className="h-5 w-5" />
-              </a>
-              <a href="#" className="hover:text-primary-400 transition-colors" aria-label="Twitter">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="hover:text-primary-400 transition-colors" aria-label="Instagram">
-                <Instagram className="h-5 w-5" />
               </a>
             </div>
           </div>
