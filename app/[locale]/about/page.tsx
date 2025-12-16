@@ -83,7 +83,7 @@ export default function AboutPage() {
               <p className="text-lg text-gray-700 leading-relaxed">
                 <strong>{t("headOffice")}</strong>
                 <br />
-                Village: {tContact("addressValue")}
+                {t("villageLabel")} {tContact("addressValue")}
                 <br />
                 <br />
                 {t("branches")}
