@@ -2,49 +2,37 @@
 
 import { motion } from "framer-motion";
 import { Heart, CreditCard, Banknote, Smartphone, ArrowRight, CheckCircle } from "lucide-react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/routing";
 
 export default function DonatePage() {
-  const donationMethods = [
+  const t = useTranslations("donate");
+  
+  const donationMethods = t.raw("methods") as Array<{
+    title: string;
+    description: string;
+  }>;
+
+  const donationMethodsWithIcons = [
     {
+      ...donationMethods[0],
       icon: CreditCard,
-      title: "Bank Transfer",
-      description: "Direct bank transfer to our organization account",
       color: "from-blue-500 to-blue-600",
     },
     {
+      ...donationMethods[1],
       icon: Smartphone,
-      title: "Mobile Banking",
-      description: "Donate via bKash, Nagad, or Rocket",
       color: "from-green-500 to-green-600",
     },
     {
+      ...donationMethods[2],
       icon: Banknote,
-      title: "Cash Donation",
-      description: "Visit our office or contact us for cash donations",
       color: "from-purple-500 to-purple-600",
     },
   ];
 
-  const donationAreas = [
-    "Education & Scholarships",
-    "Orphan & Children Support",
-    "Safe Water Projects",
-    "Housing & Shelter",
-    "Healthcare Services",
-    "Humanitarian Aid (Ramadan, Qurbani, Winter Clothing)",
-    "Disaster Relief",
-    "Funeral & Burial Support",
-    "General Fund",
-  ];
-
-  const financialPrinciples = [
-    "The organization is strictly non-profit; no member receives financial gain",
-    "Funds are collected through donations, zakat, sadaqah, charity, and support",
-    "All financial transactions are handled through the organization's bank account",
-    "Annual financial statements are audited for transparency",
-    "All funds are used exclusively for humanitarian and welfare activities",
-  ];
+  const donationAreas = t.raw("areas") as string[];
+  const financialPrinciples = t.raw("principles") as string[];
 
   return (
     <div className="min-h-screen bg-white">
@@ -67,10 +55,9 @@ export default function DonatePage() {
                 <Heart className="h-12 w-12 text-white" fill="currentColor" />
               </div>
             </motion.div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Support Our Cause</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">{t("title")}</h1>
             <p className="text-xl text-primary-100 leading-relaxed">
-              Your donation helps us continue our humanitarian work and reach more people in need.
-              Every contribution makes a difference.
+              {t("subtitle")}
             </p>
           </motion.div>
         </div>
@@ -86,15 +73,15 @@ export default function DonatePage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Ways to Donate
+              {t("methodsTitle")}
             </h2>
             <p className="text-lg text-gray-600">
-              Choose the donation method that&apos;s most convenient for you
+              {t("methodsSubtitle")}
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
-            {donationMethods.map((method, index) => (
+            {donationMethodsWithIcons.map((method, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -112,7 +99,7 @@ export default function DonatePage() {
                   href="/contact"
                   className="text-primary-600 font-semibold hover:text-primary-700 flex items-center"
                 >
-                  Get Details
+                  {t("getDetails")}
                   <ArrowRight className="h-4 w-4 ml-2" />
                 </Link>
               </motion.div>
@@ -131,11 +118,11 @@ export default function DonatePage() {
             className="max-w-3xl mx-auto"
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              Where Your Donation Goes
+              {t("areasTitle")}
             </h2>
             <div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-xl p-8 shadow-lg">
               <p className="text-lg text-gray-700 mb-6 text-center">
-                Your donations support various humanitarian programs and services:
+                {t("areasSubtitle")}
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {donationAreas.map((area, index) => (
@@ -160,11 +147,11 @@ export default function DonatePage() {
             className="max-w-3xl mx-auto"
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              Financial Transparency
+              {t("transparencyTitle")}
             </h2>
             <div className="bg-white rounded-xl p-8 shadow-lg">
               <p className="text-lg text-gray-700 mb-6 text-center">
-                We are committed to transparency and accountability in all financial matters:
+                {t("transparencySubtitle")}
               </p>
               <ul className="space-y-4">
                 {financialPrinciples.map((principle, index) => (
@@ -191,23 +178,23 @@ export default function DonatePage() {
             className="max-w-3xl mx-auto text-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Make a Difference?
+              {t("ctaTitle")}
             </h2>
             <p className="text-xl text-primary-100 mb-8">
-              Contact us today to learn more about donation options or visit our office
+              {t("ctaSubtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-700 font-semibold rounded-lg hover:bg-accent-50 transition-all duration-200 shadow-lg hover:shadow-xl"
               >
-                Contact Us
+                {t("contactUs")}
               </Link>
               <Link
                 href="/about"
                 className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-lg hover:bg-white/20 transition-all duration-200 border-2 border-white/30"
               >
-                Learn More About Us
+                {t("learnMore")}
               </Link>
             </div>
           </motion.div>

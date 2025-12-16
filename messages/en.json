@@ -359,12 +359,47 @@
     "subtitle": "Your donation helps us continue our humanitarian work and reach more people in need. Every contribution makes a difference.",
     "methodsTitle": "Ways to Donate",
     "methodsSubtitle": "Choose the donation method that's most convenient for you",
+    "methods": [
+      {
+        "title": "Bank Transfer",
+        "description": "Direct bank transfer to our organization account"
+      },
+      {
+        "title": "Mobile Banking",
+        "description": "Donate via bKash, Nagad, or Rocket"
+      },
+      {
+        "title": "Cash Donation",
+        "description": "Visit our office or contact us for cash donations"
+      }
+    ],
+    "getDetails": "Get Details",
     "areasTitle": "Where Your Donation Goes",
     "areasSubtitle": "Your donations support various humanitarian programs and services:",
+    "areas": [
+      "Education & Scholarships",
+      "Orphan & Children Support",
+      "Safe Water Projects",
+      "Housing & Shelter",
+      "Healthcare Services",
+      "Humanitarian Aid (Ramadan, Qurbani, Winter Clothing)",
+      "Disaster Relief",
+      "Funeral & Burial Support",
+      "General Fund"
+    ],
     "transparencyTitle": "Financial Transparency",
     "transparencySubtitle": "We are committed to transparency and accountability in all financial matters:",
+    "principles": [
+      "The organization is strictly non-profit; no member receives financial gain",
+      "Funds are collected through donations, zakat, sadaqah, charity, and support",
+      "All financial transactions are handled through the organization's bank account",
+      "Annual financial statements are audited for transparency",
+      "All funds are used exclusively for humanitarian and welfare activities"
+    ],
     "ctaTitle": "Ready to Make a Difference?",
-    "ctaSubtitle": "Contact us today to learn more about donation options or visit our office"
+    "ctaSubtitle": "Contact us today to learn more about donation options or visit our office",
+    "contactUs": "Contact Us",
+    "learnMore": "Learn More About Us"
   },
   "gallery": {
     "title": "Gallery",
