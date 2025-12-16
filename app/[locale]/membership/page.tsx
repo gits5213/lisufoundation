@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Users, CheckCircle, UserCheck, Award, FileText, Heart } from "lucide-react";
+import { Users, CheckCircle, UserCheck, Award, FileText, Heart, Send, AlertCircle } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 
 export default function MembershipPage() {
@@ -21,6 +21,10 @@ export default function MembershipPage() {
     reason: "",
   });
 
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
   const membershipTypes = t.raw("membershipTypes") as Array<{
     id: string;
     name: string;
@@ -29,9 +33,55 @@ export default function MembershipPage() {
 
   const qualifications = t.raw("qualifications") as string[];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert(t("thankYouMessage"));
+    setIsSubmitting(true);
+    setSubmitError(null);
+    
+    try {
+      const membershipData = {
+        ...formData,
+        submittedAt: new Date().toISOString(),
+        formType: 'membership', // Identify this as a membership form
+      };
+
+      // Submit to Google Drive via Google Apps Script endpoint
+      const scriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL || '';
+      
+      if (!scriptUrl) {
+        throw new Error('Google Script URL is not configured. Please contact the administrator.');
+      }
+
+      // Submit to Google Apps Script
+      await fetch(scriptUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(membershipData),
+      });
+
+      // Mark as submitted
+      setIsSubmitted(true);
+      
+      // Reset form
+      setFormData({
+        fullName: "",
+        age: "",
+        email: "",
+        phone: "",
+        address: "",
+        membershipType: "volunteer",
+        occupation: "",
+        reason: "",
+      });
+    } catch (error) {
+      console.error('Error submitting membership application:', error);
+      setSubmitError(error instanceof Error ? error.message : 'Failed to submit application. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -197,6 +247,25 @@ export default function MembershipPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               {t("formTitle")}
             </h2>
+            
+            {isSubmitted ? (
+              <div className="bg-white rounded-xl p-8 shadow-lg text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle className="h-8 w-8 text-green-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">{t("successTitle")}</h3>
+                <p className="text-gray-600 mb-6">{t("successMessage")}</p>
+                <button
+                  onClick={() => {
+                    setIsSubmitted(false);
+                    setSubmitError(null);
+                  }}
+                  className="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-all duration-200"
+                >
+                  {t("submitAnother")}
+                </button>
+              </div>
+            ) : (
             <form onSubmit={handleSubmit} className="bg-gray-50 rounded-xl p-8 shadow-lg space-y-6">
               <div>
                 <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
@@ -326,12 +395,30 @@ export default function MembershipPage() {
                 />
               </div>
 
+              {submitError && (
+                <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-start">
+                  <AlertCircle className="h-5 w-5 text-red-600 mr-2 flex-shrink-0 mt-0.5" />
+                  <p className="text-sm text-red-800">{submitError}</p>
+                </div>
+              )}
+
               <div className="pt-4">
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold py-4 rounded-lg hover:from-primary-700 hover:to-primary-800 transition-all duration-200 shadow-lg hover:shadow-xl"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold py-4 rounded-lg hover:from-primary-700 hover:to-primary-800 transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {t("submitApplication")}
+                  {isSubmitting ? (
+                    <>
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                      {t("submitting") || "Submitting..."}
+                    </>
+                  ) : (
+                    <>
+                      <Send className="h-5 w-5 mr-2" />
+                      {t("submitApplication")}
+                    </>
+                  )}
                 </button>
               </div>
 
@@ -339,6 +426,7 @@ export default function MembershipPage() {
                 * {t("requiredFields")}
               </p>
             </form>
+            )}
           </motion.div>
         </div>
       </section>

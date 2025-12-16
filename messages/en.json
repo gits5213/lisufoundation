@@ -284,6 +284,10 @@
     "reasonPlaceholder": "Please share your motivation for joining our organization...",
     "reviewNote": "Your application will be reviewed by the Executive Committee.",
     "submitApplication": "Submit Application",
+    "submitting": "Submitting...",
+    "successTitle": "Membership Application Submitted Successfully!",
+    "successMessage": "Your membership application has been submitted successfully and will be reviewed by the Executive Committee.",
+    "submitAnother": "Submit Another Application",
     "requiredFields": "Required fields. Your application will be reviewed by the Executive Committee.",
     "thankYouMessage": "Thank you for your interest! Your application will be reviewed by the Executive Committee.",
     "volunteer": {
