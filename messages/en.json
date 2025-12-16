@@ -85,6 +85,11 @@
         "key": "orphan",
         "title": "Orphan Support",
         "description": "Welfare, education, and moral development of orphans and children"
+      },
+      {
+        "key": "umrah-hajj",
+        "title": "Umrah & Hajj Assistance",
+        "description": "Financial assistance for underprivileged Muslims performing Umrah or Hajj"
       }
     ],
     "missionBadges": {
@@ -118,7 +123,8 @@
       "Build cooperation, compassion, and a humanitarian bridge between wealthy and underprivileged communities",
       "Carry out charity, Sadaqah, and welfare activities in accordance with Islamic values and principles",
       "Provide educational scholarships and financial assistance to poor and meritorious students",
-      "Assist in funeral arrangements, burial, and graveyard-related support for deceased underprivileged Muslims"
+      "Assist in funeral arrangements, burial, and graveyard-related support for deceased underprivileged Muslims",
+      "Provide financial assistance to underprivileged Muslims performing Umrah or Hajj to support their sacred journey"
     ],
     "additionalObjectivesList": [
       "Provide disaster relief during floods, storms, cyclones, or emergencies",
@@ -262,6 +268,20 @@
           "Graveyard support",
           "Financial assistance for funeral costs",
           "Community support during bereavement"
+        ]
+      },
+      {
+        "key": "umrah-hajj",
+        "title": "Umrah & Hajj Assistance Program",
+        "description": "LiSu Foundation offers a Umrah & Hajj Assistance Program to support underprivileged Muslims who are performing Umrah or Hajj and require financial assistance during their sacred journey. Each eligible Hajji / Umrah pilgrim will receive a one-time financial assistance of BDT 10,000. This support is intended to help cover essential expenses related to travel, accommodation, or basic necessities during Umrah or Hajj.",
+        "features": [
+          "One-time financial assistance of BDT 10,000 per eligible pilgrim",
+          "Support for essential expenses related to travel, accommodation, or basic necessities",
+          "Eligibility: Must be a practicing Muslim, genuinely in need, and officially approved to perform Umrah or Hajj",
+          "Required documents: Valid passport copy, Umrah or Hajj visa copy, airline ticket copy, and contact details of Umrah/Hajj agency",
+          "Strict verification process: Executive Committee verifies all documents and communicates directly with organizers",
+          "Prompt disbursement after approval following LiSu Foundation's financial guidelines",
+          "Commitment to transparency, fair distribution, and Islamic ethics"
         ]
       }
     ]
@@ -410,7 +430,8 @@
       { "id": "humanitarian", "name": "Humanitarian Aid" },
       { "id": "water", "name": "Water Projects" },
       { "id": "housing", "name": "Housing" },
-      { "id": "disaster", "name": "Disaster Relief" }
+      { "id": "disaster", "name": "Disaster Relief" },
+      { "id": "umrah-hajj", "name": "Umrah & Hajj Assistance" }
     ],
     "status": {
       "active": "Active",
@@ -725,6 +746,56 @@
             "description": "Upcoming emergency relief fund establishment. Will provide immediate financial assistance during natural disasters."
           }
         ]
+      },
+      "umrah-hajj": {
+        "active": [
+          {
+            "referenceName": "UH-2024-001",
+            "fullName": "Abdul Karim",
+            "village": "Kaya Kori",
+            "po": "Baligange Bazar",
+            "description": "Ongoing Umrah assistance. Provided one-time financial assistance of BDT 10,000 to support travel expenses for Umrah pilgrimage. All documents verified including passport, Umrah visa, and airline tickets."
+          },
+          {
+            "referenceName": "UH-2024-002",
+            "fullName": "Fatima Begum",
+            "village": "Kandapara",
+            "po": "Nakla",
+            "description": "Active Hajj assistance program. Financial support of BDT 10,000 provided to assist with essential expenses during the sacred Hajj journey. Verification completed with Hajj agency."
+          }
+        ],
+        "completed": [
+          {
+            "referenceName": "UH-2023-005",
+            "fullName": "Mohammad Ali",
+            "village": "Kaya Kori",
+            "po": "Baligange Bazar",
+            "description": "Successfully completed Umrah assistance. Provided BDT 10,000 financial assistance. All documents verified including passport copy, Umrah visa, and airline ticket. Direct communication established with Umrah organizer."
+          },
+          {
+            "referenceName": "UH-2023-006",
+            "fullName": "Rokeya Khatun",
+            "village": "Kandapara",
+            "po": "Nakla",
+            "description": "Completed Hajj assistance program. Financial assistance of BDT 10,000 disbursed after thorough verification of all required documents. Hajj agency confirmed authenticity of pilgrimage."
+          }
+        ],
+        "upcoming": [
+          {
+            "referenceName": "UH-2025-001",
+            "fullName": "Hasan Uddin",
+            "village": "Kaya Kori",
+            "po": "Baligange Bazar",
+            "description": "Planned Umrah assistance for upcoming pilgrimage season. Will provide BDT 10,000 financial assistance after verification of passport, Umrah visa, and airline ticket documents."
+          },
+          {
+            "referenceName": "UH-2025-002",
+            "fullName": "Ayesha Begum",
+            "village": "Kandapara",
+            "po": "Nakla",
+            "description": "Upcoming Hajj assistance program. Will support eligible pilgrim with BDT 10,000 financial assistance. Verification process will include document review and direct communication with Hajj organizer."
+          }
+        ]
       }
     },
     "noItems": "No programs found in this category",
@@ -883,7 +954,8 @@
         "To build cooperation, compassion, and a humanitarian bridge between wealthy and underprivileged communities",
         "To carry out charity, Sadaqah, and welfare activities in accordance with Islamic values and principles",
         "To provide educational scholarships and financial assistance to poor and meritorious students (schools, madrasas, and orphans)",
-        "To assist in funeral arrangements, burial, and graveyard-related support for deceased underprivileged Muslims"
+        "To assist in funeral arrangements, burial, and graveyard-related support for deceased underprivileged Muslims",
+        "To provide financial assistance to underprivileged Muslims performing Umrah or Hajj to support their sacred journey"
       ],
       "additionalTitle": "4.2 Additional Objectives",
       "additionalObjectives": [

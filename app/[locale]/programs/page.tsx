@@ -11,6 +11,7 @@ import {
   AlertTriangle,
   Briefcase,
   Heart,
+  Plane,
 } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/routing";
@@ -32,6 +33,7 @@ export default function ProgramsPage() {
     disaster: AlertTriangle,
     employment: Briefcase,
     funeral: Heart,
+    "umrah-hajj": Plane,
   };
 
   const colorMap: Record<string, string> = {
@@ -44,6 +46,7 @@ export default function ProgramsPage() {
     disaster: "from-yellow-500 to-yellow-600",
     employment: "from-indigo-500 to-indigo-600",
     funeral: "from-gray-600 to-gray-700",
+    "umrah-hajj": "from-teal-500 to-teal-600",
   };
 
   const programs = t.raw("programsList") as Array<{

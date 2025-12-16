@@ -1,7 +1,7 @@
 "use client";
 
 import { Link } from "@/routing";
-import { ArrowRight, Heart, Users, GraduationCap, Home as HomeIcon, Droplet, Stethoscope, HandHeart } from "lucide-react";
+import { ArrowRight, Heart, Users, GraduationCap, Home as HomeIcon, Droplet, Stethoscope, HandHeart, Plane } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTranslations, useLocale } from "next-intl";
 
@@ -19,6 +19,7 @@ export default function Home() {
     healthcare: Stethoscope,
     humanitarian: HandHeart,
     orphan: Users,
+    "umrah-hajj": Plane,
   };
 
   const colorMap: Record<string, string> = {
@@ -28,6 +29,7 @@ export default function Home() {
     healthcare: "from-red-500 to-red-600",
     humanitarian: "from-purple-500 to-purple-600",
     orphan: "from-orange-500 to-orange-600",
+    "umrah-hajj": "from-teal-500 to-teal-600",
   };
 
   const programs = t.raw("programsList") as Array<{

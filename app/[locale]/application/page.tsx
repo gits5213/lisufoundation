@@ -40,6 +40,7 @@ function ApplicationFormContent() {
         orphan: "education", // Orphan programs might map to education
         employment: "humanitarian", // Employment might map to humanitarian
         funeral: "humanitarian", // Funeral services might map to humanitarian
+        "umrah-hajj": "umrah-hajj", // Umrah & Hajj Assistance program
       };
       
       const mappedCategory = categoryMap[category] || category;
