@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Heart, CreditCard, Banknote, Smartphone, ArrowRight, CheckCircle } from "lucide-react";
+import { Heart, CreditCard, Banknote, Smartphone, ArrowRight, CheckCircle, Wallet } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/routing";
 
@@ -28,6 +28,11 @@ export default function DonatePage() {
       ...donationMethods[2],
       icon: Banknote,
       color: "from-purple-500 to-purple-600",
+    },
+    {
+      ...donationMethods[3],
+      icon: Wallet,
+      color: "from-orange-500 to-orange-600",
     },
   ];
 
@@ -80,7 +85,7 @@ export default function DonatePage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mb-16">
             {donationMethodsWithIcons.map((method, index) => (
               <motion.div
                 key={index}

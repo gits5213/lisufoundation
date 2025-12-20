@@ -387,11 +387,15 @@
       },
       {
         "title": "মোবাইল ব্যাংকিং",
-        "description": "bKash, Nagad, বা Rocket এর মাধ্যমে দান করুন"
+        "description": "bKash, Nagad, বা Rocket এর মাধ্যমে দান করুন\nbKash নম্বর: +880 17 2801 4014"
       },
       {
         "title": "নগদ অনুদান",
         "description": "নগদ অনুদানের জন্য আমাদের অফিসে যান বা আমাদের সাথে যোগাযোগ করুন"
+      },
+      {
+        "title": "Zelle Payment",
+        "description": "+1(917)561-6554"
       }
     ],
     "getDetails": "বিস্তারিত জানুন",

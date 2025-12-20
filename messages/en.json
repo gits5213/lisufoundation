@@ -387,11 +387,15 @@
       },
       {
         "title": "Mobile Banking",
-        "description": "Donate via bKash, Nagad, or Rocket"
+        "description": "Donate via bKash, Nagad, or Rocket\nbKash number: +880 17 2801 4014"
       },
       {
         "title": "Cash Donation",
         "description": "Visit our office or contact us for cash donations"
+      },
+      {
+        "title": "Zelle Payment",
+        "description": "+1(917)561-6554"
       }
     ],
     "getDetails": "Get Details",
