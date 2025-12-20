@@ -4,6 +4,7 @@ import { Link } from "@/routing";
 import { ArrowRight, Heart, Users, GraduationCap, Home as HomeIcon, Droplet, Stethoscope, HandHeart, Plane } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTranslations, useLocale } from "next-intl";
+import Image from "next/image";
 
 export default function Home() {
   const t = useTranslations("home");
@@ -51,45 +52,110 @@ export default function Home() {
       <section className="relative bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-20"></div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto text-center"
-          >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Left Side - Text Content */}
             <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-              className="inline-block mb-6"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-center lg:text-left"
             >
-              <div className="bg-white/20 backdrop-blur-sm p-4 rounded-2xl inline-block">
-                <Heart className="h-12 w-12 text-white" fill="currentColor" />
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                className="inline-block mb-6"
+              >
+                <div className="bg-white/20 backdrop-blur-sm p-4 rounded-2xl inline-block">
+                  <Heart className="h-12 w-12 text-white" fill="currentColor" />
+                </div>
+              </motion.div>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                {t("heroTitle")}
+                <span className="block text-accent-300 mt-2">{t("heroSubtitle")}</span>
+              </h1>
+              <p className="text-xl md:text-2xl mb-8 text-primary-100 leading-relaxed">
+                {t("heroDescription")}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Link
+                  href="/donate"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-700 font-semibold rounded-lg hover:bg-accent-50 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                >
+                  {tCommon("donateNow")}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+                <Link
+                  href="/about"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-lg hover:bg-white/20 transition-all duration-200 border-2 border-white/30"
+                >
+                  {tCommon("learnMore")}
+                </Link>
               </div>
             </motion.div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              {t("heroTitle")}
-              <span className="block text-accent-300 mt-2">{t("heroSubtitle")}</span>
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-primary-100 leading-relaxed">
-              {t("heroDescription")}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/donate"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-700 font-semibold rounded-lg hover:bg-accent-50 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              >
-                {tCommon("donateNow")}
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-              <Link
-                href="/about"
-                className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-lg hover:bg-white/20 transition-all duration-200 border-2 border-white/30"
-              >
-                {tCommon("learnMore")}
-              </Link>
-            </div>
-          </motion.div>
+
+            {/* Right Side - Combined Hero Images */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative w-full flex items-center justify-center lg:justify-end"
+            >
+              <div className="relative w-full max-w-2xl mx-auto lg:mx-0">
+                {/* Modern card design */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  className="relative bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100"
+                >
+                  {/* Header section */}
+                  <div className="bg-gradient-to-r from-primary-600 to-primary-700 px-6 py-4 border-b border-primary-500/20">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-white rounded-full shadow-sm"></div>
+                        <h3 className="text-white font-semibold text-base">Our Programs</h3>
+                      </div>
+                      <span className="text-white/90 text-xs font-medium bg-white/10 px-3 py-1 rounded-full">
+                        10 Active
+                      </span>
+                    </div>
+                  </div>
+                  
+                  {/* Image container */}
+                  <div className="p-8 bg-gradient-to-b from-gray-50 via-white to-gray-50">
+                    <div className="relative rounded-xl overflow-hidden bg-white shadow-sm">
+                      <Image
+                        src="/image/heroImage/heroImages_combined.png?v=3"
+                        alt="LiSu Foundation Programs - Education, Healthcare, Housing, Water, Humanitarian Aid, Disaster Relief, Employment, Funeral Support, and Umrah & Hajj Assistance"
+                        width={1308}
+                        height={699}
+                        className="w-full h-auto object-contain"
+                        priority
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* Footer section */}
+                  <div className="bg-gray-50 px-6 py-4 border-t border-gray-100">
+                    <div className="flex items-center justify-center gap-2">
+                      <div className="flex -space-x-2">
+                        {[1, 2, 3, 4].map((i) => (
+                          <div
+                            key={i}
+                            className="w-6 h-6 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 border-2 border-white shadow-sm"
+                          ></div>
+                        ))}
+                      </div>
+                      <span className="text-gray-600 text-xs font-medium ml-2">
+                        Supporting communities worldwide
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
       </section>
